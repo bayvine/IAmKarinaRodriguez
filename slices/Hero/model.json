@@ -20,9 +20,85 @@
             "select": "media",
             "allowText": true
           }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Perform without self-abandonment",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,strong,em",
+            "labels": []
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "Executive coaching for high-achieving leaders navigating pressure, visibility, and growth.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink",
+            "labels": []
+          }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Label",
+            "placeholder": "Free Discovery Call"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        },
+        "secondary_label": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Label",
+            "placeholder": "View Services"
+          }
+        },
+        "secondary_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        },
+        "proof_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Proof Text",
+            "placeholder": "Trusted by 100+ high-achieving professionals",
+            "allowTargetBlank": true,
+            "multi": "heading3,paragraph,strong,em",
+            "labels": []
+          }
         }
       },
-      "items": {}
+      "items": {
+        "avatar_image": {
+          "type": "Image",
+          "config": {
+            "label": "Avatar Image",
+            "constraint": {
+              "width": 160,
+              "height": 160
+            },
+            "thumbnails": []
+          }
+        }
+      }
     }
   ]
 }

@@ -7,9 +7,8 @@ export const repositoryName =
   process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || sm.repositoryName;
 
 const routes: prismic.ClientConfig["routes"] = [
-  // Update these route resolvers to match your custom types.
-  // { type: "homepage", path: "/" },
-  // { type: "page", path: "/:uid" },
+  // Add route resolvers here after your custom types are synced in Prismic.
+  // { type: "home", path: "/" },
 ];
 
 export function createClient(config: prismic.ClientConfig = {}) {

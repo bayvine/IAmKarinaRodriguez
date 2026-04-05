@@ -161,8 +161,86 @@ export interface HeroSliceDefaultPrimary {
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.default.primary.background_media
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
+  */
   background_media: prismic.LinkToMediaField<prismic.FieldState, never>;
+  /**
+   * Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Perform without self-abandonment
+   * - **API ID Path**: hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text-title
+   */
+  title: prismic.RichTextField;
+  /**
+   * Subtitle field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Executive coaching for high-achieving leaders navigating pressure, visibility, and growth.
+   * - **API ID Path**: hero.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+  /**
+   * CTA Label field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Free Discovery Call
+   * - **API ID Path**: hero.default.primary.cta_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta_label: prismic.KeyTextField;
+  /**
+   * CTA Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField;
+  /**
+   * Secondary Label field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View Services
+   * - **API ID Path**: hero.default.primary.secondary_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  secondary_label: prismic.KeyTextField;
+  /**
+   * Secondary Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.secondary_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  secondary_link: prismic.LinkField;
+  /**
+   * Proof Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Trusted by 100+ high-achieving professionals
+   * - **API ID Path**: hero.default.primary.proof_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text-title
+   */
+  proof_text: prismic.RichTextField;
+}
+
+/**
+ * Item content in *Hero → Default*
+ */
+export interface HeroSliceDefaultItem {
+  /**
+   * Avatar Image field in *Hero → Default*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.item.avatar_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  avatar_image: prismic.ImageField;
 }
 
 /**
@@ -175,7 +253,7 @@ export interface HeroSliceDefaultPrimary {
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<HeroSliceDefaultPrimary>,
-  never
+  Simplify<HeroSliceDefaultItem>
 >;
 
 /**
@@ -221,6 +299,7 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
       HeroSliceVariation,
       HeroSliceDefault,
     };

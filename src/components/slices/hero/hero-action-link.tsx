@@ -1,0 +1,132 @@
+"use client";
+
+import { useState } from "react";
+import * as prismic from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+type HeroActionLinkProps = {
+  field: prismic.LinkField;
+  label: prismic.KeyTextField;
+  className?: string;
+  variant?: "primary" | "secondary";
+};
+
+const textRailTransition = {
+  type: "spring",
+  stiffness: 520,
+  damping: 24,
+  mass: 0.6,
+} as const;
+
+const iconRailTransition = {
+  type: "spring",
+  stiffness: 580,
+  damping: 22,
+  mass: 0.55,
+} as const;
+
+function HeroActionCarousel({
+  active,
+  label,
+}: {
+  active: boolean;
+  label: string;
+}) {
+  const prefersReducedMotion = useReducedMotion();
+  const textShift = prefersReducedMotion ? 0 : active ? -20 : 0;
+  const iconShift = prefersReducedMotion ? 0 : active ? -16 : 0;
+
+  return (
+    <>
+      <span className="sr-only">{label}</span>
+      <span
+        aria-hidden="true"
+        className="flex items-center gap-2 overflow-hidden"
+      >
+        <span className="relative h-[20px] overflow-hidden">
+          <motion.span
+            animate={{ y: textShift }}
+            className="flex flex-col"
+            initial={false}
+            transition={textRailTransition}
+          >
+            <span
+              className="flex h-[20px] items-center"
+              style={{ lineHeight: 1 }}
+            >
+              {label}
+            </span>
+            <span
+              className="flex h-[20px] items-center"
+              style={{ lineHeight: 1 }}
+            >
+              {label}
+            </span>
+          </motion.span>
+        </span>
+        <span className="relative flex h-4 w-4 overflow-hidden">
+          <motion.span
+            animate={{ y: iconShift }}
+            className="flex flex-col"
+            initial={false}
+            transition={iconRailTransition}
+          >
+            <span className="flex h-4 w-4 items-center justify-center">
+              <ArrowUpRight className="h-4 w-4" />
+            </span>
+            <span className="flex h-4 w-4 items-center justify-center">
+              <ArrowUpRight className="h-4 w-4" />
+            </span>
+          </motion.span>
+        </span>
+      </span>
+    </>
+  );
+}
+
+function HeroActionLink({
+  field,
+  label,
+  className,
+  variant = "primary",
+}: HeroActionLinkProps) {
+  const [isActive, setIsActive] = useState(false);
+
+  if (!prismic.isFilled.link(field) || !prismic.isFilled.keyText(label)) {
+    return null;
+  }
+
+  return (
+    <PrismicNextLink
+      className={cn(
+        "inline-flex min-h-13 items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition duration-200",
+        variant === "primary" &&
+          "bg-rose-white text-night shadow-[0_28px_80px_-36px_rgba(0,0,0,0.85)] hover:bg-pure-white",
+        variant === "secondary" &&
+          "border border-rose-white bg-transparent text-rose-white hover:border-pure-white hover:text-pure-white",
+        className,
+      )}
+      field={field}
+      onBlur={() => setIsActive(false)}
+      onFocus={() => setIsActive(true)}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      <HeroActionCarousel active={isActive} label={label} />
+    </PrismicNextLink>
+  );
+}
+
+type HeroButtonProps = Omit<HeroActionLinkProps, "variant">;
+
+export function HeroCtaButton(props: HeroButtonProps) {
+  return <HeroActionLink variant="primary" {...props} />;
+}
+
+export function HeroSecondaryButton(props: HeroButtonProps) {
+  return <HeroActionLink variant="secondary" {...props} />;
+}

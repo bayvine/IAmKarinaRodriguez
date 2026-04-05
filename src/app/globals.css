@@ -1,32 +1,20 @@
+@config "../../tailwind.config.ts";
 @import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-inter), "Neue Haas Unica", "Helvetica Neue",
-    sans-serif;
-  --font-display: var(--font-gambarino), "Iowan Old Style", "Times New Roman",
-    serif;
-
-  --color-background: #f7f0e8;
-  --color-foreground: #1d140d;
-  --color-surface: #fcf7f1;
-  --color-panel: #ead9c6;
-  --color-accent: #b64a2a;
-  --color-accent-strong: #7e2e15;
-  --color-border: rgba(29, 20, 13, 0.12);
-}
 
 :root {
   color-scheme: light;
-}
-
-* {
-  border-color: var(--color-border);
 }
 
 body {
   text-rendering: optimizeLegibility;
 }
 
+@layer base {
+  * {
+    border-color: rgb(26 24 24 / 0.12);
+  }
+}
+
 ::selection {
-  background: rgba(182, 74, 42, 0.18);
+  background: rgb(154 190 255 / 0.4);
 }
