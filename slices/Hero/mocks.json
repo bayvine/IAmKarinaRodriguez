@@ -1,0 +1,22 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"background_media": {
+				"__TYPE__": "LinkContent",
+				"key": "bd25a9ce-8947-49ad-abc8-dfaf106eca11",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "race"
+				}
+			}
+		},
+		"items": []
+	}
+]
