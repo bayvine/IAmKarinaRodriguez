@@ -54,7 +54,7 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
             />
 
             {filledItems.length ? (
-              <div className="mt-10 flex flex-col gap-5 md:flex-row">
+              <div className="mt-10 xl:mt-20 flex flex-col gap-5 md:flex-row">
                 {filledItems.map((item, index) => (
                   <ChecklistItem
                     delay={0.28 + index * 0.12}
