@@ -16,17 +16,13 @@ type HeroActionLinkProps = {
 };
 
 const textRailTransition = {
-  type: "spring",
-  stiffness: 520,
-  damping: 24,
-  mass: 0.6,
+  duration: 0.72,
+  ease: [0.19, 1, 0.22, 1],
 } as const;
 
 const iconRailTransition = {
-  type: "spring",
-  stiffness: 580,
-  damping: 22,
-  mass: 0.55,
+  duration: 0.76,
+  ease: [0.19, 1, 0.22, 1],
 } as const;
 
 function HeroActionCarousel({
@@ -103,7 +99,7 @@ function HeroActionLink({
   return (
     <PrismicNextLink
       className={cn(
-        "inline-flex min-h-13 items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition duration-200",
+        "flex min-h-13 w-full items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition duration-200 sm:inline-flex sm:w-auto",
         variant === "primary" &&
           "bg-rose-white text-night shadow-[0_28px_80px_-36px_rgba(0,0,0,0.85)] hover:bg-pure-white",
         variant === "secondary" &&

@@ -1,5 +1,11 @@
+"use client";
+
 import * as prismic from "@prismicio/client";
 
+import {
+  HeroActionReveal,
+  HeroActionRevealItem,
+} from "@/components/slices/hero/hero-action-reveal";
 import {
   HeroCtaButton,
   HeroSecondaryButton,
@@ -29,9 +35,13 @@ export function HeroActions({
   }
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row">
-      <HeroCtaButton field={ctaLink} label={ctaLabel} />
-      <HeroSecondaryButton field={secondaryLink} label={secondaryLabel} />
-    </div>
+    <HeroActionReveal>
+      <HeroActionRevealItem>
+        <HeroCtaButton field={ctaLink} label={ctaLabel} />
+      </HeroActionRevealItem>
+      <HeroActionRevealItem>
+        <HeroSecondaryButton field={secondaryLink} label={secondaryLabel} />
+      </HeroActionRevealItem>
+    </HeroActionReveal>
   );
 }

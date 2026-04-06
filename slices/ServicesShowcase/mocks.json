@@ -1,0 +1,91 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "Services",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Explore our Programs",
+          "spans": []
+        }
+      ],
+      "subtext": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ]
+    },
+    "items": [
+      {
+        "service_title": "Executive Coaching",
+        "service_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ],
+        "service_media": {
+          "link_type": "Media",
+          "id": "Y-service-1",
+          "name": "executive-coaching.jpg",
+          "kind": "image",
+          "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/executive-coaching.jpg"
+        },
+        "button_label": "Inquire Service",
+        "button_link": {
+          "link_type": "Web",
+          "url": "/"
+        }
+      },
+      {
+        "service_title": "Workshops",
+        "service_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "spans": []
+          }
+        ],
+        "service_media": {
+          "link_type": "Media",
+          "id": "Y-service-2",
+          "name": "workshops.jpg",
+          "kind": "image",
+          "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/workshops.jpg"
+        },
+        "button_label": "View Program",
+        "button_link": {
+          "link_type": "Web",
+          "url": "/"
+        }
+      },
+      {
+        "service_title": "Company Programs",
+        "service_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "spans": []
+          }
+        ],
+        "service_media": {
+          "link_type": "Media",
+          "id": "Y-service-3",
+          "name": "company-programs.jpg",
+          "kind": "image",
+          "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/company-programs.jpg"
+        },
+        "button_label": "",
+        "button_link": {
+          "link_type": "Web",
+          "url": "/"
+        }
+      }
+    ]
+  }
+]

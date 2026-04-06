@@ -17,14 +17,14 @@ export function HeroProofStack({ avatars, text }: HeroProofStackProps) {
   }
 
   return (
-    <div className="w-full max-w-xs text-rose-white sm:max-w-sm lg:text-right">
+    <div className="flex w-full flex-col items-center text-rose-white text-center lg:ml-auto lg:max-w-[220px] lg:items-end lg:text-right">
       <StackedAvatarList
-        className="justify-start lg:justify-end"
+        className="w-fit self-center lg:self-end"
         images={avatars}
       />
 
       {hasText ? (
-        <div className="mt-4 space-y-1">
+        <div className="mt-4 flex w-full flex-col items-center gap-1 text-center lg:items-end lg:text-right">
           <PrismicRichText
             components={{
               heading3: ({ children }) => (
@@ -36,7 +36,7 @@ export function HeroProofStack({ avatars, text }: HeroProofStackProps) {
                 </h3>
               ),
               paragraph: ({ children }) => (
-                <p className="font-sans text-sm text-rose-white/80">
+                <p className="font-sans text-base text-rose-white">
                   {children}
                 </p>
               ),

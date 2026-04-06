@@ -13,6 +13,8 @@ const buttonVariants = cva(
       variant: {
         primary:
           "bg-accent-bordeaux text-rose-white shadow-[0_18px_50px_-24px_rgba(72,33,34,0.55)] hover:bg-night",
+        light:
+          "bg-rose-white text-night shadow-[0_20px_54px_-28px_rgba(250,235,230,0.48)] hover:bg-pure-white",
         outline:
           "border border-night/12 bg-pure-white/70 text-night hover:bg-rose-white",
         ghost: "text-night/70 hover:bg-night/5 hover:text-night",

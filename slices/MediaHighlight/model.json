@@ -1,0 +1,92 @@
+{
+  "id": "media_highlight",
+  "type": "SharedSlice",
+  "name": "MediaHighlight",
+  "description": "Media Highlight",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "About Us"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Guiding leaders, transforming teams.",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,strong,em",
+            "labels": []
+          }
+        },
+        "subtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtext",
+            "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "media_variant": {
+          "type": "Select",
+          "config": {
+            "label": "Media Variant",
+            "placeholder": "Choose a media variant",
+            "options": [
+              "image",
+              "video"
+            ]
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 2400,
+              "height": 1600
+            },
+            "thumbnails": []
+          }
+        },
+        "video_media": {
+          "type": "Link",
+          "config": {
+            "label": "Video Media",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        }
+      },
+      "items": {
+        "stat_value": {
+          "type": "Text",
+          "config": {
+            "label": "Stat Value",
+            "placeholder": "500+"
+          }
+        },
+        "stat_text": {
+          "type": "Text",
+          "config": {
+            "label": "Stat Text",
+            "placeholder": "Statistic Title"
+          }
+        }
+      }
+    }
+  ]
+}

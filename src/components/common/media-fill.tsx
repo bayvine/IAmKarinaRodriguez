@@ -1,38 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useEffect, useState } from "react";
 import * as prismic from "@prismicio/client";
 
 import { cn } from "@/lib/utils";
+import { getPrismicMediaKind } from "@/lib/prismic-media";
 
 type MediaFillProps = {
   media: prismic.LinkToMediaField;
   className?: string;
 };
 
-const VIDEO_EXTENSIONS = /\.(mp4|webm|ogg|mov|m4v)$/i;
-const IMAGE_EXTENSIONS = /\.(avif|gif|heic|jpeg|jpg|png|svg|webp)$/i;
-
-function getMediaKind(field: prismic.FilledLinkToMediaField) {
-  const value = `${field.kind} ${field.name} ${field.url}`.toLowerCase();
-
-  if (value.includes("video") || VIDEO_EXTENSIONS.test(value)) {
-    return "video";
-  }
-
-  if (value.includes("image") || IMAGE_EXTENSIONS.test(value)) {
-    return "image";
-  }
-
-  return "unknown";
-}
-
 export function MediaFill({ media, className }: MediaFillProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setIsMounted(true);
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   if (!prismic.isFilled.linkToMedia(media)) {
     return null;
   }
 
-  const mediaKind = getMediaKind(media);
+  const mediaKind = getPrismicMediaKind(media);
 
   if (mediaKind === "video") {
+    if (!isMounted) {
+      return <div aria-hidden="true" className={cn("h-full w-full", className)} />;
+    }
+
     return (
       <video
         autoPlay
@@ -41,6 +44,7 @@ export function MediaFill({ media, className }: MediaFillProps) {
         muted
         playsInline
         preload="metadata"
+        suppressHydrationWarning
       >
         <source src={media.url} />
       </video>

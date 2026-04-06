@@ -1,0 +1,54 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "About Us",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Guiding leaders, transforming teams.",
+          "spans": []
+        }
+      ],
+      "subtext": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ],
+      "media_variant": "image",
+      "image": {
+        "dimensions": {
+          "width": 2400,
+          "height": 1600
+        },
+        "alt": "Team image",
+        "copyright": null,
+        "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/team-photo.jpg?auto=format,compress"
+      },
+      "video_media": {
+        "link_type": "Media",
+        "id": "Z1234567890",
+        "name": "team-reel.mp4",
+        "kind": "document",
+        "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/team-reel.mp4"
+      }
+    },
+    "items": [
+      {
+        "stat_value": "500+",
+        "stat_text": "Statistic Title"
+      },
+      {
+        "stat_value": "500+",
+        "stat_text": "Statistic Title"
+      },
+      {
+        "stat_value": "500+",
+        "stat_text": "Statistic Title"
+      }
+    ]
+  }
+]

@@ -4,8 +4,14 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import { MediaFill } from "@/components/common/media-fill";
+import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { HeroActions } from "@/components/slices/hero/hero-actions";
 import { HeroProofStack } from "@/components/slices/hero/hero-proof-stack";
+import { getDisplayTextProps } from "@/lib/typography";
+import {
+  HeroFadeReveal,
+  HeroRaiseReveal,
+} from "@/components/slices/hero/hero-reveal";
 
 /**
  * Props for `Hero`.
@@ -17,6 +23,10 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero: FC<HeroProps> = ({ slice }) => {
   const avatars = slice.items.map((item) => item.avatar_image);
+  const heroHeading1 = getDisplayTextProps("hero", "heading1");
+  const heroHeading2 = getDisplayTextProps("hero", "heading2");
+  const heroHeading3 = getDisplayTextProps("hero", "heading3");
+  const heroHeading4 = getDisplayTextProps("hero", "heading4");
 
   return (
     <section
@@ -37,40 +47,48 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-8">
           <div className="max-w-3xl">
             {prismic.isFilled.richText(slice.primary.title) ? (
-              <div className="max-w-4xl">
+              <div className="max-w-full sm:max-w-4xl">
                 <PrismicRichText
                   components={{
                     heading1: ({ children }) => (
-                      <h1
-                        className="font-display text-[3.15rem] sm:text-[4.15rem] lg:text-[5.1rem]"
-                        style={{ lineHeight: 0.86 }}
+                      <StaggeredTextReveal
+                        as="h1"
+                        className={heroHeading1.className}
+                        delay={0.28}
+                        style={heroHeading1.style}
                       >
                         {children}
-                      </h1>
+                      </StaggeredTextReveal>
                     ),
                     heading2: ({ children }) => (
-                      <h2
-                        className="font-display text-[2.95rem] sm:text-[3.85rem] lg:text-[4.8rem]"
-                        style={{ lineHeight: 0.87 }}
+                      <StaggeredTextReveal
+                        as="h2"
+                        className={heroHeading2.className}
+                        delay={0.28}
+                        style={heroHeading2.style}
                       >
                         {children}
-                      </h2>
+                      </StaggeredTextReveal>
                     ),
                     heading3: ({ children }) => (
-                      <h3
-                        className="font-display text-[2.65rem] sm:text-[3.45rem] lg:text-[4.1rem]"
-                        style={{ lineHeight: 0.88 }}
+                      <StaggeredTextReveal
+                        as="h3"
+                        className={heroHeading3.className}
+                        delay={0.28}
+                        style={heroHeading3.style}
                       >
                         {children}
-                      </h3>
+                      </StaggeredTextReveal>
                     ),
                     heading4: ({ children }) => (
-                      <h4
-                        className="font-display text-[2.1rem] sm:text-[2.65rem] lg:text-[3.1rem]"
-                        style={{ lineHeight: 0.9 }}
+                      <StaggeredTextReveal
+                        as="h4"
+                        className={heroHeading4.className}
+                        delay={0.28}
+                        style={heroHeading4.style}
                       >
                         {children}
-                      </h4>
+                      </StaggeredTextReveal>
                     ),
                   }}
                   field={slice.primary.title}
@@ -79,14 +97,17 @@ const Hero: FC<HeroProps> = ({ slice }) => {
             ) : null}
 
             {prismic.isFilled.richText(slice.primary.subtitle) ? (
-              <div className="mt-5 max-w-2xl font-sans text-base text-rose-white/78 sm:mt-6 sm:text-lg">
+              <HeroRaiseReveal
+                className="mt-5 max-w-2xl border-t border-rose-white/14 pt-5 font-sans text-base text-rose-white/78 sm:mt-6 sm:pt-6 sm:text-lg lg:border-t-0 lg:pt-0"
+                delay={0.76}
+              >
                 <PrismicRichText
                   components={{
                     paragraph: ({ children }) => <p>{children}</p>,
                   }}
                   field={slice.primary.subtitle}
                 />
-              </div>
+              </HeroRaiseReveal>
             ) : null}
 
             <div className="mt-8 sm:mt-10">
@@ -100,7 +121,12 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           </div>
 
           <div className="flex justify-start lg:justify-end">
-            <HeroProofStack avatars={avatars} text={slice.primary.proof_text} />
+            <HeroFadeReveal delay={1.34}>
+              <HeroProofStack
+                avatars={avatars}
+                text={slice.primary.proof_text}
+              />
+            </HeroFadeReveal>
           </div>
         </div>
       </div>
