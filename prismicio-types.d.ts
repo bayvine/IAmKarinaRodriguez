@@ -61,7 +61,7 @@ interface GlobalNavDocumentData {}
  */
 export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<GlobalNavDocumentData>, "global_nav", Lang>;
 
-type HomeDocumentDataSlicesSlice = HeroSlice | MediaHighlightSlice | ServicesShowcaseSlice
+type HomeDocumentDataSlicesSlice = HeroSlice | ChecklistFeatureSlice | MediaHighlightSlice | ServicesShowcaseSlice
 
 /**
  * Content for Home documents
@@ -360,6 +360,79 @@ type MediaHighlightSliceVariation = MediaHighlightSliceDefault
 export type MediaHighlightSlice = prismic.SharedSlice<"media_highlight", MediaHighlightSliceVariation>;
 
 /**
+ * Primary content in *ChecklistFeature → Default → Primary*
+ */
+export interface ChecklistFeatureSliceDefaultPrimary {
+	/**
+	 * Label field in *ChecklistFeature → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Expertise
+	 * - **API ID Path**: checklist_feature.default.primary.label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Title field in *ChecklistFeature → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Expertise built on insight & experience
+	 * - **API ID Path**: checklist_feature.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Image field in *ChecklistFeature → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: checklist_feature.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ChecklistFeature → Items*
+ */
+export interface ChecklistFeatureSliceDefaultItem {
+	/**
+	 * Item Text field in *ChecklistFeature → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+	 * - **API ID Path**: checklist_feature.items[].item_text
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	item_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ChecklistFeature Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ChecklistFeatureSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ChecklistFeatureSliceDefaultPrimary>, Simplify<ChecklistFeatureSliceDefaultItem>>;
+
+/**
+ * Slice variation for *ChecklistFeature*
+ */
+type ChecklistFeatureSliceVariation = ChecklistFeatureSliceDefault
+
+/**
+ * ChecklistFeature Shared Slice
+ *
+ * - **API ID**: `checklist_feature`
+ * - **Description**: Checklist Feature
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ChecklistFeatureSlice = prismic.SharedSlice<"checklist_feature", ChecklistFeatureSliceVariation>;
+
+/**
  * Primary content in *ServicesShowcase → Default → Primary*
  */
 export interface ServicesShowcaseSliceDefaultPrimary {
@@ -498,6 +571,11 @@ declare module "@prismicio/client" {
 			HeroSliceDefaultItem,
 			HeroSliceVariation,
 			HeroSliceDefault,
+			ChecklistFeatureSlice,
+			ChecklistFeatureSliceDefaultPrimary,
+			ChecklistFeatureSliceDefaultItem,
+			ChecklistFeatureSliceVariation,
+			ChecklistFeatureSliceDefault,
 			MediaHighlightSlice,
 			MediaHighlightSliceDefaultPrimary,
 			MediaHighlightSliceDefaultItem,

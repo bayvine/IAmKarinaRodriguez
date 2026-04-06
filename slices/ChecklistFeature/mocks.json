@@ -1,0 +1,54 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "Expertise",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Expertise built on insight & experience",
+          "spans": []
+        }
+      ],
+      "image": {
+        "dimensions": {
+          "width": 1800,
+          "height": 2200
+        },
+        "alt": "Professional portrait",
+        "copyright": null,
+        "url": "https://images.prismic.io/iamkarinarodriguez/Z1234567890/expertise-portrait.jpg?auto=format,compress"
+      }
+    },
+    "items": [
+      {
+        "item_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "item_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "item_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
+]

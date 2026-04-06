@@ -25,6 +25,25 @@ body {
     display: none;
   }
 
+  @media (min-width: 1280px) {
+    .bleed-right-desktop {
+      margin-right: calc(-1 * max(0px, 50vw - 37.5rem));
+     
+    }
+
+
+    .bleed-right-fixed {
+      margin-right: calc(-1 * max(0px, 50vw - 40rem));
+    }
+  }
+
+  @media (min-width: 1980px) { 
+    .bleed-right-desktop { 
+      margin-right: 0;
+      width: 300px;
+    }
+  }
+
   @media (max-width: 767px) {
     .mobile-video-clean::-webkit-media-controls-start-playback-button {
       display: none !important;

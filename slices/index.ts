@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  checklist_feature: dynamic(() => import("./ChecklistFeature")),
   hero: dynamic(() => import("./Hero")),
   media_highlight: dynamic(() => import("./MediaHighlight")),
   services_showcase: dynamic(() => import("./ServicesShowcase")),
