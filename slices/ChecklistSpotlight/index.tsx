@@ -63,7 +63,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <Section>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-start lg:gap-10">
+        <div className={cn("grid gap-10  lg:items-start lg:gap-15", imagePosition === 'right' ? "xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]" : "xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]")}>
           <div
             className={cn(
               "min-w-0",
@@ -101,7 +101,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
               <Reveal
                 className={cn(
                   "mt-4 max-w-xl",
-                  theme === "dark" ? "text-rose-white/78" : "text-night/72",
+                  theme === "dark" ? "text-rose-white" : "text-night",
                 )}
                 transition={{
                   duration: 0.72,
@@ -147,7 +147,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
             >
-              <div className="relative aspect-[16/12] overflow-hidden sm:aspect-[4/3] lg:aspect-[1.05/1] h-full">
+              <div className="relative aspect-[16/12] overflow-hidden sm:aspect-1">
                 <PrismicNextImage
                   field={slice.primary.image}
                   fill

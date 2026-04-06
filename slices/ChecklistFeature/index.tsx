@@ -25,8 +25,8 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <Section>
-        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between xl:gap-[50px]">
-          <div className="min-w-0 flex-1">
+        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between">
+          <div className="min-w-0">
             <SectionIntro
               accent="accent-bordeaux"
               className="max-w-none"
@@ -69,7 +69,7 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
 
           {prismic.isFilled.image(slice.primary.image) ? (
             <Reveal
-              className="overflow-hidden bg-night xl:h-[540px] xl:w-[500px] xl:shrink-0"
+              className="overflow-hidden bg-night xl:h-[540px] xl:w-[500px] xl:shrink-0 "
               delay={0.28}
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
