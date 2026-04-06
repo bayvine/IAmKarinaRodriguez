@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
+import { Section } from "@/components/layout/section";
 import { ServicesBrowser } from "@/components/slices/services-showcase/services-browser";
 
 export type ServicesShowcaseProps =
@@ -14,14 +15,14 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+      <Section>
         <ServicesBrowser
           label={slice.primary.label}
           services={slice.items}
           subtext={slice.primary.subtext}
           title={slice.primary.title}
         />
-      </div>
+      </Section>
     </section>
   );
 };

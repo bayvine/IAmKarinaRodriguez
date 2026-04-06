@@ -1,0 +1,128 @@
+{
+  "id": "checklist_spotlight",
+  "type": "SharedSlice",
+  "name": "ChecklistSpotlight",
+  "description": "Checklist Spotlight",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "Choose a theme",
+            "options": [
+              "dark",
+              "light"
+            ]
+          }
+        },
+        "image_position": {
+          "type": "Select",
+          "config": {
+            "label": "Image Position",
+            "placeholder": "Choose image position",
+            "options": [
+              "right",
+              "left"
+            ]
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "Corporate Programs"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "For organizations and teams building stronger leaders",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,strong,em",
+            "labels": []
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "Proven coaching and workshops for executives, managers, and teams who want sustainable performance.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 2000,
+              "height": 1600
+            },
+            "thumbnails": []
+          }
+        },
+        "primary_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Button Label",
+            "placeholder": "Inquire About Programs"
+          }
+        },
+        "primary_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        },
+        "secondary_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Button Label",
+            "placeholder": "Secondary Button"
+          }
+        },
+        "secondary_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        }
+      },
+      "items": {
+        "item_title": {
+          "type": "Text",
+          "config": {
+            "label": "Item Title",
+            "placeholder": "Executive Coaching"
+          }
+        },
+        "item_text": {
+          "type": "Text",
+          "config": {
+            "label": "Item Text",
+            "placeholder": "Private support for senior leaders navigating growth, complexity, and decision fatigue."
+          }
+        }
+      }
+    }
+  ]
+}

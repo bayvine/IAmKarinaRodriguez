@@ -4,6 +4,7 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
 import { SectionIntro } from "@/components/common/section-intro";
+import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
 import {
   renderSectionSubtext,
@@ -24,7 +25,7 @@ const MediaHighlight: FC<MediaHighlightProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+      <Section>
         <SectionIntro
           accent="accent-bordeaux"
           body={
@@ -78,7 +79,7 @@ const MediaHighlight: FC<MediaHighlightProps> = ({ slice }) => {
             />
           )}
         </Reveal>
-      </div>
+      </Section>
     </section>
   );
 };

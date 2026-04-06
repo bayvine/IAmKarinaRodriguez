@@ -1,0 +1,49 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "theme": "dark",
+      "image_position": "left",
+      "label": "Corporate Programs",
+      "title": [
+        {
+          "type": "heading1",
+          "text": "For organizations and teams building stronger leaders",
+          "spans": []
+        }
+      ],
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Proven coaching and workshops for executives, managers, and teams who want sustainable performance.",
+          "spans": []
+        }
+      ],
+      "primary_button_label": "Inquire About Programs",
+      "primary_button_link": {
+        "link_type": "Web",
+        "url": "https://example.com"
+      },
+      "secondary_button_label": "",
+      "secondary_button_link": {
+        "link_type": "Web",
+        "url": "https://example.com"
+      }
+    },
+    "items": [
+      {
+        "item_title": "Executive Coaching",
+        "item_text": "Private support for senior leaders navigating growth, complexity, and decision fatigue."
+      },
+      {
+        "item_title": "Leadership Workshops",
+        "item_text": "Facilitate sessions for organizations that want stronger communication, resilience, and leadership presence."
+      },
+      {
+        "item_title": "Custom Engagements",
+        "item_text": "Tailored coaching and development support for companies investing in people, culture, and performance."
+      }
+    ]
+  }
+]

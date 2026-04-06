@@ -4,6 +4,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import { MediaFill } from "@/components/common/media-fill";
+import { Section } from "@/components/layout/section";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { HeroActions } from "@/components/slices/hero/hero-actions";
 import { HeroProofStack } from "@/components/slices/hero/hero-proof-stack";
@@ -43,7 +44,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-rose-white/8 via-night/12 to-night/78" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] bg-gradient-to-t from-night via-night/44 to-transparent" />
 
-      <div className="mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-end px-6 pb-10 pt-28 sm:px-8 sm:pb-12 lg:px-10 lg:pb-14 lg:pt-16">
+      <Section className="flex min-h-[100svh] flex-col justify-end pb-10 pt-28 sm:pb-12 lg:pb-14 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-8">
           <div className="max-w-3xl">
             {prismic.isFilled.richText(slice.primary.title) ? (
@@ -129,7 +130,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
             </HeroFadeReveal>
           </div>
         </div>
-      </div>
+      </Section>
     </section>
   );
 };

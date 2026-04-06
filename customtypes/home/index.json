@@ -17,6 +17,9 @@
             "checklist_feature": {
               "type": "SharedSlice"
             },
+            "checklist_spotlight": {
+              "type": "SharedSlice"
+            },
             "media_highlight": {
               "type": "SharedSlice"
             },

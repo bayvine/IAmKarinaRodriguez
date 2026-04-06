@@ -12,7 +12,7 @@ type HeroActionLinkProps = {
   field: prismic.LinkField;
   label: prismic.KeyTextField;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "dark" | "outline-dark";
 };
 
 const textRailTransition = {
@@ -104,6 +104,10 @@ function HeroActionLink({
           "bg-rose-white text-night shadow-[0_28px_80px_-36px_rgba(0,0,0,0.85)] hover:bg-pure-white",
         variant === "secondary" &&
           "border border-rose-white bg-transparent text-rose-white hover:border-pure-white hover:text-pure-white",
+        variant === "dark" &&
+          "bg-night text-rose-white shadow-[0_28px_80px_-36px_rgba(26,24,24,0.48)] hover:bg-accent-bordeaux",
+        variant === "outline-dark" &&
+          "border border-night/18 bg-transparent text-night hover:bg-night/4 hover:border-night/30",
         className,
       )}
       field={field}
@@ -125,4 +129,12 @@ export function HeroCtaButton(props: HeroButtonProps) {
 
 export function HeroSecondaryButton(props: HeroButtonProps) {
   return <HeroActionLink variant="secondary" {...props} />;
+}
+
+export function HeroDarkButton(props: HeroButtonProps) {
+  return <HeroActionLink variant="dark" {...props} />;
+}
+
+export function HeroOutlineDarkButton(props: HeroButtonProps) {
+  return <HeroActionLink variant="outline-dark" {...props} />;
 }

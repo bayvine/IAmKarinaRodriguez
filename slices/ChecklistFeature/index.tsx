@@ -5,6 +5,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 import { SectionIntro } from "@/components/common/section-intro";
+import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
 import { ChecklistItem } from "@/components/slices/checklist-feature/checklist-item";
 import { renderSectionTitle } from "@/lib/prismic-rich-text";
@@ -23,9 +24,9 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="section-left-shell mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="flex flex-col xl:flex-row justify-between gap-5">
-          <div className="">
+      <Section>
+        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between xl:gap-[50px]">
+          <div className="min-w-0 flex-1">
             <SectionIntro
               accent="accent-bordeaux"
               className="max-w-none"
@@ -54,7 +55,7 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
             />
 
             {filledItems.length ? (
-              <div className="mt-10 xl:mt-20 flex flex-col gap-5 md:flex-row">
+              <div className="mt-10 flex flex-col gap-5 md:flex-row md:flex-wrap xl:mt-16 xl:gap-[50px]">
                 {filledItems.map((item, index) => (
                   <ChecklistItem
                     delay={0.28 + index * 0.12}
@@ -68,23 +69,23 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
 
           {prismic.isFilled.image(slice.primary.image) ? (
             <Reveal
-              className=" bg-night xl:aspect-none bleed-right-desktop"
+              className="overflow-hidden bg-night xl:h-[540px] xl:w-[500px] xl:shrink-0"
               delay={0.28}
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
             >
-              <div className="relative w-full h-100 xl:w-175 xl:h-[500] overflow-hidden">
+              <div className="relative aspect-[500/495] w-full overflow-hidden bg-night xl:h-full xl:aspect-auto">
                 <PrismicNextImage
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}
-                  className="object-cover w-full "
+                  className="object-cover"
                 />
               </div>
             </Reveal>
           ) : null}
         </div>
-      </div>
+      </Section>
     </section>
   );
 };
