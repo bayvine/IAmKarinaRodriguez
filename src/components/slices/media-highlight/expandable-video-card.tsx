@@ -58,7 +58,7 @@ export function ExpandableVideoCard({
     >
       <video
         ref={videoRef}
-        className="h-full w-full object-cover"
+        className="mobile-video-clean h-full w-full object-cover"
         controls={isExpanded}
         playsInline
         preload="metadata"

@@ -32,7 +32,7 @@ export function ServiceDetailMedia({ media }: ServiceDetailMediaProps) {
     return (
       <div className="relative aspect-[16/11.5] overflow-hidden bg-night sm:aspect-[16/9.5] lg:aspect-[16/7.6]">
         <video
-          className="h-full w-full object-cover"
+          className="mobile-video-clean h-full w-full object-cover"
           controls
           playsInline
           preload="metadata"
