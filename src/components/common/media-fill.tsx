@@ -39,7 +39,7 @@ export function MediaFill({ media, className }: MediaFillProps) {
     return (
       <video
         autoPlay
-        className={cn("h-full w-full object-cover", className)}
+        className={cn("mobile-video-clean h-full w-full object-cover", className)}
         loop
         muted
         playsInline

@@ -30,6 +30,16 @@ body {
       display: none !important;
       -webkit-appearance: none;
     }
+
+    .mobile-video-clean::-webkit-media-controls-play-button {
+      display: none !important;
+      -webkit-appearance: none;
+    }
+
+    .mobile-video-clean::-webkit-media-controls-overlay-play-button {
+      display: none !important;
+      -webkit-appearance: none;
+    }
   }
 }
 
