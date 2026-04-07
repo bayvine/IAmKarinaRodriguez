@@ -2,7 +2,42 @@
   "format": "custom",
   "id": "global_nav",
   "json": {
-    "Main": {}
+    "Main": {
+      "social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Links",
+          "repeat": true,
+          "fields": {
+            "platform": {
+              "type": "Select",
+              "config": {
+                "label": "Platform",
+                "placeholder": "Choose a platform",
+                "options": [
+                  "instagram",
+                  "linkedin",
+                  "tiktok",
+                  "youtube",
+                  "facebook",
+                  "x"
+                ]
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowText": true,
+                "allowTargetBlank": true
+              }
+            }
+          }
+        }
+      }
+    }
   },
   "label": "Global Nav",
   "repeatable": false,

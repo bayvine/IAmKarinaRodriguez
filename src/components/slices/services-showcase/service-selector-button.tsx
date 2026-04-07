@@ -36,7 +36,7 @@ export function ServiceSelectorButton({
           "block font-sans text-base transition duration-300 sm:text-lg lg:font-display lg:text-2xl xl:text-3xl",
           active
             ? "text-rose-white"
-            : "text-disabled-rose-white hover:text-rose-white/72",
+            : "text-disabled-rose-white hover:text-rose-white",
         )}
       >
         {label}

@@ -59,7 +59,7 @@ export function ChecklistSpotlightCard({
             <p
               className={cn(
                 "mt-1.5 max-w-[30rem] font-sans text-xs sm:text-sm",
-                darkTheme ? "text-night/72" : "text-rose-white/72",
+                darkTheme ? "text-night" : "text-rose-white",
               )}
             >
               {text}

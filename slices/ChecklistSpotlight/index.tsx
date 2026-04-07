@@ -66,7 +66,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
         <div className={cn("grid gap-10  lg:items-start lg:gap-15", imagePosition === 'right' ? "xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]" : "xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]")}>
           <div
             className={cn(
-              "min-w-0",
+              "order-1 min-w-0",
               imagePosition === "left" ? "lg:order-2" : "lg:order-1",
             )}
           >
@@ -140,7 +140,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
           {prismic.isFilled.image(slice.primary.image) ? (
             <Reveal
               className={cn(
-                "overflow-hidden",
+                "order-2 overflow-hidden",
                 imagePosition === "left" ? "lg:order-1" : "lg:order-2",
               )}
               delay={0.26}

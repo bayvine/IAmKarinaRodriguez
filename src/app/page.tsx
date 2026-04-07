@@ -14,7 +14,7 @@ function MissingHomeDocument() {
         <h1 className="mt-4 font-display text-5xl">
           Create your Home document to render slices.
         </h1>
-        <p className="mt-4 font-sans text-base text-night/68">
+        <p className="mt-4 font-sans text-base text-night">
           The Hero slice is ready. Once the singleton named{" "}
           <span className="font-medium text-night">Home</span> has content
           in Prismic, this page will render your slice zone automatically.

@@ -1,0 +1,86 @@
+{
+  "id": "profile_feature",
+  "type": "SharedSlice",
+  "name": "ProfileFeature",
+  "description": "Profile Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "About Me"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Hi, I'm Karina Rodriguez",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,strong,em",
+            "labels": []
+          }
+        },
+        "subtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtext",
+            "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 2200,
+              "height": 1400
+            },
+            "thumbnails": []
+          }
+        },
+        "left_overlay_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Left Overlay Text",
+            "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "right_overlay_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Right Overlay Text",
+            "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "show_social_links": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Social Links",
+            "default_value": true,
+            "false_label": "Hide",
+            "true_label": "Show"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -55,7 +55,7 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
             />
 
             {filledItems.length ? (
-              <div className="mt-10 flex flex-col gap-5 md:flex-row md:flex-wrap xl:mt-16 xl:gap-[50px]">
+              <div className="mt-10 flex flex-col gap-6 md:flex-row md:flex-wrap md:gap-8 lg:mt-12 lg:gap-10 xl:mt-16 xl:gap-12">
                 {filledItems.map((item, index) => (
                   <ChecklistItem
                     delay={0.28 + index * 0.12}
@@ -69,19 +69,19 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
 
           {prismic.isFilled.image(slice.primary.image) ? (
             <Reveal
-              className="overflow-hidden bg-night xl:h-[540px] xl:w-[500px] xl:shrink-0 "
+              className="overflow-hidden bg-night relative aspect-[16/14] overflow-hidden bg-night sm:aspect-square lg:w-[500px] lg:h-[540px] lg:aspect-auto  xl:h-[540px] xl:w-[500px]"
               delay={0.28}
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
             >
-              <div className="relative aspect-[500/495] w-full overflow-hidden bg-night xl:h-full xl:aspect-auto">
+          
                 <PrismicNextImage
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
-              </div>
+   
             </Reveal>
           ) : null}
         </div>

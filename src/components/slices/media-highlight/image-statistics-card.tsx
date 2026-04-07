@@ -36,7 +36,7 @@ export function ImageStatisticsCard({
         className="object-cover object-top"
       />
 
-      <div className="absolute inset-0 bg-linear-to-b from-night/6 via-night/14 to-night/26" />
+      <div className="absolute inset-0 bg-linear-to-b from-night/100 via-night/14 to-night/26" />
       <div
         className={
           filledStatistics.length > 0

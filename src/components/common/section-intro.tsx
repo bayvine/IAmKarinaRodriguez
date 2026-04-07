@@ -30,14 +30,14 @@ const toneStyles: Record<
 > = {
   light: {
     title: "text-night",
-    label: "text-night/72",
-    body: "text-night/72",
+    label: "text-night",
+    body: "text-night",
     divider: "border-night/10",
   },
   dark: {
     title: "text-rose-white",
-    label: "text-rose-white/74",
-    body: "text-rose-white/78",
+    label: "text-rose-white",
+    body: "text-rose-white",
     divider: "border-rose-white/14",
   },
 };

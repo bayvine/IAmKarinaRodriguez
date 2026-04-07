@@ -1,0 +1,39 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "About Me",
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Hi, I'm Karina Rodriguez",
+          "spans": []
+        }
+      ],
+      "subtext": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ],
+      "left_overlay_text": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ],
+      "right_overlay_text": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ],
+      "show_social_links": true
+    },
+    "items": []
+  }
+]

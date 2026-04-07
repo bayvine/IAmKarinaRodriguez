@@ -1,0 +1,1 @@
+Don't add opacity / transparency to text-colors.

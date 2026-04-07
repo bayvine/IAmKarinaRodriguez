@@ -44,11 +44,11 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-rose-white/8 via-night/12 to-night/78" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] bg-gradient-to-t from-night via-night/44 to-transparent" />
 
-      <Section className="flex min-h-[100svh] flex-col justify-end pb-10 pt-28 sm:pb-12 lg:pb-14 lg:pt-16">
+      <Section className="flex min-h-[100svh] flex-col justify-end pb-10 pt-36 sm:pb-12 sm:pt-40 lg:pb-14 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-8">
-          <div className="max-w-3xl">
+          <div className="mx-auto max-w-3xl lg:mx-0">
             {prismic.isFilled.richText(slice.primary.title) ? (
-              <div className="max-w-full sm:max-w-4xl">
+              <div className="max-w-full text-center sm:max-w-4xl lg:text-left">
                 <PrismicRichText
                   components={{
                     heading1: ({ children }) => (
@@ -99,7 +99,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
             {prismic.isFilled.richText(slice.primary.subtitle) ? (
               <HeroRaiseReveal
-                className="mt-5 max-w-2xl border-t border-rose-white/14 pt-5 font-sans text-base text-rose-white/78 sm:mt-6 sm:pt-6 sm:text-lg lg:border-t-0 lg:pt-0"
+                className="mx-auto mt-5 max-w-2xl border-t border-rose-white/14 pt-5 text-center font-sans text-base text-rose-white/78 sm:mt-6 sm:pt-6 sm:text-lg lg:mx-0 lg:border-t-0 lg:pt-0 lg:text-left"
                 delay={0.76}
               >
                 <PrismicRichText
@@ -111,7 +111,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               </HeroRaiseReveal>
             ) : null}
 
-            <div className="mt-8 sm:mt-10">
+            <div className="mt-8 flex justify-center sm:mt-10 lg:block">
               <HeroActions
                 ctaLabel={slice.primary.cta_label}
                 ctaLink={slice.primary.cta_link}
@@ -121,7 +121,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
             </div>
           </div>
 
-          <div className="flex justify-start lg:justify-end">
+          <div className="flex justify-center lg:justify-end">
             <HeroFadeReveal delay={1.34}>
               <HeroProofStack
                 avatars={avatars}

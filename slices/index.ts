@@ -7,5 +7,6 @@ export const components = {
   checklist_spotlight: dynamic(() => import("./ChecklistSpotlight")),
   hero: dynamic(() => import("./Hero")),
   media_highlight: dynamic(() => import("./MediaHighlight")),
+  profile_feature: dynamic(() => import("./ProfileFeature")),
   services_showcase: dynamic(() => import("./ServicesShowcase")),
 };
