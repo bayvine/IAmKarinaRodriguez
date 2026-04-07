@@ -1,0 +1,161 @@
+{
+  "format": "page",
+  "id": "contact_page",
+  "label": "Contact Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Page Settings": {
+      "page_title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Contact Karina Rodriguez"
+        }
+      }
+    },
+    "Main": {
+      "label": {
+        "type": "Text",
+        "config": {
+          "label": "Label",
+          "placeholder": "Contact"
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "Let’s partner up",
+          "allowTargetBlank": true,
+          "multi": "heading1,heading2,heading3,heading4,strong,em",
+          "labels": []
+        }
+      },
+      "intro": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Intro",
+          "placeholder": "Let’s start the conversation.",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink",
+          "labels": []
+        }
+      },
+      "submit_button_label": {
+        "type": "Text",
+        "config": {
+          "label": "Submit Button Label",
+          "placeholder": "Send Inquiry"
+        }
+      },
+      "success_message": {
+        "type": "Text",
+        "config": {
+          "label": "Success Message",
+          "placeholder": "Thanks. Your message was sent successfully."
+        }
+      },
+      "book_call_label": {
+        "type": "Text",
+        "config": {
+          "label": "Book Call Label",
+          "placeholder": "Book Discovery Call"
+        }
+      },
+      "book_call_link": {
+        "type": "Link",
+        "config": {
+          "label": "Book Call Link",
+          "placeholder": "",
+          "select": null,
+          "allowText": true,
+          "allowTargetBlank": true
+        }
+      },
+      "email_address": {
+        "type": "Text",
+        "config": {
+          "label": "Email Address",
+          "placeholder": "hello@example.com"
+        }
+      },
+      "phone_number": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": "(123) 456-7890"
+        }
+      },
+      "testimonials": {
+        "type": "Group",
+        "config": {
+          "label": "Testimonials",
+          "repeat": true,
+          "fields": {
+            "media": {
+              "type": "Link",
+              "config": {
+                "label": "Media",
+                "placeholder": "",
+                "select": "media",
+                "allowText": true
+              }
+            },
+            "quote": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Quote",
+                "placeholder": "Optional quote",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em",
+                "labels": []
+              }
+            },
+            "person_name": {
+              "type": "Text",
+              "config": {
+                "label": "Person Name",
+                "placeholder": "Jane Doe"
+              }
+            },
+            "person_role": {
+              "type": "Text",
+              "config": {
+                "label": "Person Role",
+                "placeholder": "CEO, Denver"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "Contact Karina Rodriguez"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Reach out to Karina Rodriguez to book a discovery call or send a message."
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

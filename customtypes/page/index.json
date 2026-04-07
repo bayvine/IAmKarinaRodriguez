@@ -32,6 +32,9 @@
             "centered_statement": {
               "type": "SharedSlice"
             },
+            "editorial_body": {
+              "type": "SharedSlice"
+            },
             "event_highlight": {
               "type": "SharedSlice"
             },
@@ -45,6 +48,9 @@
               "type": "SharedSlice"
             },
             "media_highlight": {
+              "type": "SharedSlice"
+            },
+            "media_gallery": {
               "type": "SharedSlice"
             },
             "process_steps": {

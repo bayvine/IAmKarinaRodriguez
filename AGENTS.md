@@ -58,6 +58,12 @@ Use `npx next build --webpack` for reliable production validation in this repo. 
 - Footer singleton: `customtypes/global_footer/index.json`
 - Home singleton: `customtypes/home/index.json`
 - Repeatable landing pages: `customtypes/page/index.json`
+- Contact page singleton: `customtypes/contact_page/index.json`
+
+Important:
+- global email and phone live in `global_nav`
+- reuse those values throughout the site as the default contact source
+- page-specific contact fields should only override them when intentionally needed
 
 ### Shared rendering helpers
 
@@ -67,6 +73,7 @@ Use `npx next build --webpack` for reliable production validation in this repo. 
 - Shared global nav fetch: `src/lib/global-nav.ts`
 - Shared global footer fetch: `src/lib/global-footer.ts`
 - Shared media kind helper: `src/lib/prismic-media.ts`
+- Netlify contact form definition: `public/netlify-contact-form.html`
 
 ## Existing Slice System
 
@@ -79,8 +86,10 @@ Current slices:
 - `ProfileFeature`
 - `TestimonialsShowcase`
 - `CenteredStatement`
+- `EditorialBody`
 - `EventHighlight`
 - `Faq`
+- `MediaGallery`
 - `ProcessSteps`
 - `RichTextContent`
 

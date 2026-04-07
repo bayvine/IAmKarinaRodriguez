@@ -173,6 +173,17 @@ export function buildOrganizationJsonLd() {
   };
 }
 
+export function buildContactPageJsonLd() {
+  const siteUrl = getSiteUrl();
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    url: `${siteUrl}/contact`,
+    name: "Contact Karina Rodriguez",
+  };
+}
+
 type SliceWithItems = {
   slice_type?: string;
   items?: Array<Record<string, unknown>>;

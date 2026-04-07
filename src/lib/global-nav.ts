@@ -28,6 +28,8 @@ type GlobalNavDocumentLike = {
     navigation_links?: GlobalNavLinkGroupItem[];
     primary_cta_label?: prismic.KeyTextField;
     primary_cta_link?: prismic.LinkField;
+    contact_email?: prismic.KeyTextField;
+    contact_phone?: prismic.KeyTextField;
     social_links?: GlobalNavSocialLinkItem[];
     instagram_link?: prismic.LinkField;
     linkedin_link?: prismic.LinkField;
@@ -37,6 +39,30 @@ type GlobalNavDocumentLike = {
     x_link?: prismic.LinkField;
   };
 };
+
+function getTrimmedKeyText(value: prismic.KeyTextField | undefined) {
+  if (!prismic.isFilled.keyText(value)) {
+    return null;
+  }
+
+  const trimmedValue = value.trim();
+
+  return trimmedValue ? trimmedValue : null;
+}
+
+export function buildEmailLink(email: string): prismic.LinkField {
+  return {
+    link_type: "Web",
+    url: `mailto:${email}`,
+  } as prismic.LinkField;
+}
+
+export function buildPhoneLink(phone: string): prismic.LinkField {
+  return {
+    link_type: "Web",
+    url: `tel:${phone.replace(/[^\d+]/g, "")}`,
+  } as prismic.LinkField;
+}
 
 export function normalizePrismicLink(
   link: prismic.LinkField | undefined,
@@ -175,5 +201,18 @@ export async function getGlobalNavHeaderData() {
         link_type: "Web",
         url: siteConfig.primaryCta.href,
       } as prismic.LinkField),
+  };
+}
+
+export async function getGlobalNavContactDetails() {
+  const document = await getGlobalNavDocument();
+  const email = getTrimmedKeyText(document?.data?.contact_email);
+  const phone = getTrimmedKeyText(document?.data?.contact_phone);
+
+  return {
+    email,
+    phone,
+    emailLink: email ? buildEmailLink(email) : null,
+    phoneLink: phone ? buildPhoneLink(phone) : null,
   };
 }

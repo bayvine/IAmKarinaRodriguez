@@ -4,15 +4,27 @@ import { useState } from "react";
 import * as prismic from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, LoaderCircle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+
+type HeroActionVariant = "primary" | "secondary" | "dark" | "outline-dark";
 
 type HeroActionLinkProps = {
   field: prismic.LinkField;
   label: prismic.KeyTextField;
   className?: string;
-  variant?: "primary" | "secondary" | "dark" | "outline-dark";
+  variant?: HeroActionVariant;
+};
+
+type HeroActionButtonProps = {
+  label: string;
+  className?: string;
+  variant?: HeroActionVariant;
+  disabled?: boolean;
+  isLoading?: boolean;
+  loadingLabel?: string;
+  type?: "button" | "submit";
 };
 
 const textRailTransition = {
@@ -24,6 +36,21 @@ const iconRailTransition = {
   duration: 0.76,
   ease: [0.19, 1, 0.22, 1],
 } as const;
+
+function getHeroActionClasses(variant: HeroActionVariant, className?: string) {
+  return cn(
+    "flex min-h-13 w-full items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition duration-200 sm:inline-flex sm:w-auto",
+    variant === "primary" &&
+      "bg-rose-white text-night shadow-[0_28px_80px_-36px_rgba(0,0,0,0.85)] hover:bg-pure-white",
+    variant === "secondary" &&
+      "border border-rose-white bg-transparent text-rose-white hover:border-pure-white hover:text-pure-white",
+    variant === "dark" &&
+      "bg-night text-rose-white shadow-[0_28px_80px_-36px_rgba(26,24,24,0.48)] hover:bg-accent-bordeaux",
+    variant === "outline-dark" &&
+      "border border-night/18 bg-transparent text-night hover:bg-night/4 hover:border-night/30",
+    className,
+  );
+}
 
 function HeroActionCarousel({
   active,
@@ -98,18 +125,7 @@ function HeroActionLink({
 
   return (
     <PrismicNextLink
-      className={cn(
-        "flex min-h-13 w-full items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition duration-200 sm:inline-flex sm:w-auto",
-        variant === "primary" &&
-          "bg-rose-white text-night shadow-[0_28px_80px_-36px_rgba(0,0,0,0.85)] hover:bg-pure-white",
-        variant === "secondary" &&
-          "border border-rose-white bg-transparent text-rose-white hover:border-pure-white hover:text-pure-white",
-        variant === "dark" &&
-          "bg-night text-rose-white shadow-[0_28px_80px_-36px_rgba(26,24,24,0.48)] hover:bg-accent-bordeaux",
-        variant === "outline-dark" &&
-          "border border-night/18 bg-transparent text-night hover:bg-night/4 hover:border-night/30",
-        className,
-      )}
+      className={getHeroActionClasses(variant, className)}
       field={field}
       onBlur={() => setIsActive(false)}
       onFocus={() => setIsActive(true)}
@@ -121,7 +137,44 @@ function HeroActionLink({
   );
 }
 
+function HeroActionButton({
+  label,
+  className,
+  variant = "primary",
+  disabled = false,
+  isLoading = false,
+  loadingLabel = "Loading...",
+  type = "button",
+}: HeroActionButtonProps) {
+  const [isActive, setIsActive] = useState(false);
+
+  return (
+    <button
+      className={cn(
+        getHeroActionClasses(variant, className),
+        "cursor-pointer disabled:cursor-not-allowed disabled:opacity-70",
+      )}
+      disabled={disabled}
+      onBlur={() => setIsActive(false)}
+      onFocus={() => setIsActive(true)}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+      type={type}
+    >
+      {isLoading ? (
+        <span className="flex items-center gap-2">
+          <LoaderCircle className="h-4 w-4 animate-spin" />
+          <span>{loadingLabel}</span>
+        </span>
+      ) : (
+        <HeroActionCarousel active={isActive} label={label} />
+      )}
+    </button>
+  );
+}
+
 type HeroButtonProps = Omit<HeroActionLinkProps, "variant">;
+type HeroSubmitButtonProps = Omit<HeroActionButtonProps, "variant" | "type">;
 
 export function HeroCtaButton(props: HeroButtonProps) {
   return <HeroActionLink variant="primary" {...props} />;
@@ -137,4 +190,8 @@ export function HeroDarkButton(props: HeroButtonProps) {
 
 export function HeroOutlineDarkButton(props: HeroButtonProps) {
   return <HeroActionLink variant="outline-dark" {...props} />;
+}
+
+export function HeroDarkSubmitButton(props: HeroSubmitButtonProps) {
+  return <HeroActionButton type="submit" variant="dark" {...props} />;
 }

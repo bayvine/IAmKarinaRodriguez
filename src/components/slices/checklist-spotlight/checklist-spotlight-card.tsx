@@ -30,7 +30,7 @@ export function ChecklistSpotlightCard({
     >
       <div
         className={cn(
-          "flex items-start gap-4 px-5 py-4 max-w-fit",
+          "flex items-start gap-4 px-5 py-4 max-w-full lg:max-w-full lg:min-w-full",
           darkTheme ? "bg-pure-white text-night" : "bg-night text-rose-white",
         )}
       >

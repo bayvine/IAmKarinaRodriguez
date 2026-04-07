@@ -1,8 +1,8 @@
 {
-  "id": "process_steps",
+  "id": "editorial_body",
   "type": "SharedSlice",
-  "name": "ProcessSteps",
-  "description": "Process Steps",
+  "name": "EditorialBody",
+  "description": "Editorial Body",
   "variations": [
     {
       "id": "default",
@@ -16,7 +16,7 @@
           "type": "Text",
           "config": {
             "label": "Section ID",
-            "placeholder": "process"
+            "placeholder": "editorial-body"
           }
         },
         "theme": {
@@ -34,43 +34,57 @@
           "type": "Text",
           "config": {
             "label": "Label",
-            "placeholder": "How It Works"
+            "placeholder": "Eyebrow Here"
           }
         },
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
-            "placeholder": "A simple, supportive process",
+            "placeholder": "A Section Title Right Here.",
             "allowTargetBlank": true,
             "multi": "heading1,heading2,heading3,heading4,strong,em",
             "labels": []
           }
         },
-        "body": {
+        "intro_body": {
           "type": "StructuredText",
           "config": {
-            "label": "Body",
-            "placeholder": "Use this section to explain how the work unfolds.",
+            "label": "Intro Body",
+            "placeholder": "Use this for the text above the media.",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "multi": "heading2,heading3,heading4,paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "bottom_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bottom Body",
+            "placeholder": "Use this for the text below the media.",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4,paragraph,strong,em,hyperlink,list-item,o-list-item",
             "labels": []
           }
         }
       },
       "items": {
-        "step_title": {
-          "type": "Text",
+        "media_image": {
+          "type": "Image",
           "config": {
-            "label": "Step Title",
-            "placeholder": "Discovery"
+            "label": "Media Image",
+            "constraint": {
+              "width": 1800,
+              "height": 1350
+            },
+            "thumbnails": []
           }
         },
-        "step_text": {
+        "media_caption": {
           "type": "StructuredText",
           "config": {
-            "label": "Step Text",
-            "placeholder": "A short explanation of what happens in this step.",
+            "label": "Media Caption",
+            "placeholder": "Optional caption or supporting text.",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
             "labels": []

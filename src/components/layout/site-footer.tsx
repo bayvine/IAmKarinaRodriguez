@@ -10,7 +10,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { HeroCtaButton } from "@/components/slices/hero/hero-action-link";
 import { getGlobalFooterData } from "@/lib/global-footer";
-import { getGlobalNavSocialLinks } from "@/lib/global-nav";
+import { getGlobalNavContactDetails, getGlobalNavSocialLinks } from "@/lib/global-nav";
 import { siteConfig } from "@/lib/site-config";
 
 function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
@@ -39,34 +39,65 @@ function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
 }
 
 export async function SiteFooter() {
-  const [footer, socialLinks] = await Promise.all([
+  const [footer, socialLinks, globalContact] = await Promise.all([
     getGlobalFooterData(),
     getGlobalNavSocialLinks(),
+    getGlobalNavContactDetails(),
   ]);
   const currentYear = new Date().getFullYear();
-  const hasContactItems = footer.contactItems.length > 0;
+  const contactItems = [...footer.contactItems];
+  const emailUrl =
+    globalContact.emailLink && "url" in globalContact.emailLink
+      ? globalContact.emailLink.url
+      : null;
+  const phoneUrl =
+    globalContact.phoneLink && "url" in globalContact.phoneLink
+      ? globalContact.phoneLink.url
+      : null;
+
+  if (
+    globalContact.email &&
+    emailUrl &&
+    !contactItems.some(
+      (item) =>
+        prismic.isFilled.link(item.link) &&
+        item.link.link_type === "Web" &&
+        "url" in item.link &&
+        item.link.url === emailUrl,
+    )
+  ) {
+    contactItems.push({
+      label: globalContact.email,
+      link: globalContact.emailLink as prismic.LinkField,
+    });
+  }
+
+  if (
+    globalContact.phone &&
+    phoneUrl &&
+    !contactItems.some(
+      (item) =>
+        prismic.isFilled.link(item.link) &&
+        item.link.link_type === "Web" &&
+        "url" in item.link &&
+        item.link.url === phoneUrl,
+    )
+  ) {
+    contactItems.push({
+      label: globalContact.phone,
+      link: globalContact.phoneLink as prismic.LinkField,
+    });
+  }
+
+  const hasContactItems = contactItems.length > 0;
   const hasQuickLinks = footer.quickLinks.length > 0;
-  const fallbackCtaButtonLabel = "Book Discovery Call";
-  const fallbackCtaButtonLink = {
-    link_type: "Web",
-    url: "/",
-  } as prismic.LinkField;
-  const fallbackCtaTitle = [
-    {
-      type: "heading1",
-      text: "Ready to elevate your career?",
-      spans: [],
-    },
-  ] as prismic.RichTextField;
-  const ctaTitle = prismic.isFilled.richText(footer.ctaTitle)
-    ? footer.ctaTitle
-    : fallbackCtaTitle;
-  const ctaButtonLabel = prismic.isFilled.keyText(footer.ctaButtonLabel)
-    ? footer.ctaButtonLabel
-    : fallbackCtaButtonLabel;
-  const ctaButtonLink = prismic.isFilled.link(footer.ctaButtonLink)
-    ? footer.ctaButtonLink
-    : fallbackCtaButtonLink;
+  const hasCtaTitle = prismic.isFilled.richText(footer.ctaTitle);
+  const hasCtaButton =
+    prismic.isFilled.keyText(footer.ctaButtonLabel) &&
+    prismic.isFilled.link(footer.ctaButtonLink);
+  const hasCtaSection = hasCtaTitle || hasCtaButton;
+  const ctaButtonLabel = hasCtaButton ? footer.ctaButtonLabel : null;
+  const ctaButtonLink = hasCtaButton ? footer.ctaButtonLink : null;
 
   const copyrightText = prismic.isFilled.keyText(footer.copyrightText)
     ? footer.copyrightText
@@ -74,69 +105,75 @@ export async function SiteFooter() {
 
   return (
     <footer className="overflow-hidden bg-night text-rose-white">
-      <div className="relative isolate overflow-hidden bg-night">
-        {prismic.isFilled.linkToMedia(footer.ctaMedia) ? (
-          <MediaFill className="absolute inset-0" media={footer.ctaMedia} />
-        ) : prismic.isFilled.image(footer.ctaImage) ? (
-          <PrismicNextImage
-            field={footer.ctaImage}
-            fill
-            className="object-cover"
-            imgixParams={{ fit: "crop" }}
-          />
-        ) : null}
-
-        <div className="absolute inset-0 bg-night/38" />
-        <div className="absolute inset-0 bg-gradient-to-r from-night/52 via-night/18 to-night/44" />
-        <div className="absolute inset-0 bg-gradient-to-b from-night/12 via-night/24 to-night/78" />
-        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-night via-night/96 via-night/76 to-transparent" />
-
-        <Section className="relative z-10 flex min-h-[18rem] items-center justify-center py-16 text-center sm:min-h-[21rem] lg:min-h-[40rem]">
-          <div className="max-w-10xl lg:-mt-20">
-            <PrismicRichText
-              components={{
-                heading1: ({ children }) => (
-                  <StaggeredTextReveal
-                    amount={0.45}
-                    as="h2"
-                    className="mx-auto max-w-[25ch] text-5xl font-display text-rose-white  "
-                    delay={0.16}
-                    revealMode="inView"
-                    style={{ lineHeight: 0.94 }}
-                  >
-                    {children}
-                  </StaggeredTextReveal>
-                ),
-                heading2: ({ children }) => (
-                  <StaggeredTextReveal
-                    amount={0.45}
-                    as="h2"
-                    className="mx-auto max-w-[16ch] font-display text-5xl text-rose-white sm:text-6xl lg:text-7xl"
-                    delay={0.16}
-                    revealMode="inView"
-                    style={{ lineHeight: 0.94 }}
-                  >
-                    {children}
-                  </StaggeredTextReveal>
-                ),
-              }}
-              field={ctaTitle}
+      {hasCtaSection ? (
+        <div className="relative isolate overflow-hidden bg-night">
+          {prismic.isFilled.linkToMedia(footer.ctaMedia) ? (
+            <MediaFill className="absolute inset-0" media={footer.ctaMedia} />
+          ) : prismic.isFilled.image(footer.ctaImage) ? (
+            <PrismicNextImage
+              field={footer.ctaImage}
+              fill
+              className="object-cover"
+              imgixParams={{ fit: "crop" }}
             />
+          ) : null}
 
-            <Reveal
-              className="mt-6 flex justify-center sm:mt-7"
-              delay={0.28}
-              transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-              y={18}
-            >
-              <HeroCtaButton
-                field={ctaButtonLink}
-                label={ctaButtonLabel}
-              />
-            </Reveal>
-          </div>
-        </Section>
-      </div>
+          <div className="absolute inset-0 bg-night/38" />
+          <div className="absolute inset-0 bg-gradient-to-r from-night/52 via-night/18 to-night/44" />
+          <div className="absolute inset-0 bg-gradient-to-b from-night/12 via-night/24 to-night/78" />
+          <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-night via-night/96 via-night/76 to-transparent" />
+
+          <Section className="relative z-10 flex min-h-[18rem] items-center justify-center py-16 text-center sm:min-h-[21rem] lg:min-h-[40rem]">
+            <div className="max-w-10xl lg:-mt-20">
+              {hasCtaTitle ? (
+                <PrismicRichText
+                  components={{
+                    heading1: ({ children }) => (
+                      <StaggeredTextReveal
+                        amount={0.45}
+                        as="h2"
+                        className="mx-auto max-w-[25ch] text-5xl font-display text-rose-white"
+                        delay={0.16}
+                        revealMode="inView"
+                        style={{ lineHeight: 0.94 }}
+                      >
+                        {children}
+                      </StaggeredTextReveal>
+                    ),
+                    heading2: ({ children }) => (
+                      <StaggeredTextReveal
+                        amount={0.45}
+                        as="h2"
+                        className="mx-auto max-w-[16ch] font-display text-5xl text-rose-white sm:text-6xl lg:text-7xl"
+                        delay={0.16}
+                        revealMode="inView"
+                        style={{ lineHeight: 0.94 }}
+                      >
+                        {children}
+                      </StaggeredTextReveal>
+                    ),
+                  }}
+                  field={footer.ctaTitle}
+                />
+              ) : null}
+
+              {ctaButtonLink && ctaButtonLabel ? (
+                <Reveal
+                  className="mt-6 flex justify-center sm:mt-7"
+                  delay={0.28}
+                  transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                  y={18}
+                >
+                  <HeroCtaButton
+                    field={ctaButtonLink}
+                    label={ctaButtonLabel}
+                  />
+                </Reveal>
+              ) : null}
+            </div>
+          </Section>
+        </div>
+      ) : null}
 
       <Section className="pb-8 pt-10 sm:pb-10  lg:pb-12">
         {hasContactItems || hasQuickLinks ? (
@@ -148,7 +185,7 @@ export async function SiteFooter() {
                 y={20}
               >
                 <FooterLinkColumn
-                  items={footer.contactItems}
+                  items={contactItems}
                   title={footer.contactHeading || "Contact"}
                 />
               </Reveal>

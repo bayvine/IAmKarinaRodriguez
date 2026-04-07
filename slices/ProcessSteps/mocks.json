@@ -1,104 +1,74 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "section_id": {
-        "__TYPE__": "FieldContent",
-        "value": "process",
-        "type": "Text"
-      },
-      "theme": {
-        "__TYPE__": "FieldContent",
-        "value": "light",
-        "type": "Select"
-      },
-      "label": {
-        "__TYPE__": "FieldContent",
-        "value": "How It Works",
-        "type": "Text"
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "A clear, supportive process"
-            }
-          }
-        ]
-      },
-      "body": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Use this section to show what a client can expect from working with you."
-            }
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "step_title": {
-          "__TYPE__": "FieldContent",
-          "value": "Discover",
-          "type": "Text"
-        },
-        "step_text": {
-          "__TYPE__": "StructuredTextContent",
-          "value": [
-            {
-              "type": "paragraph",
-              "content": {
-                "text": "Start with a conversation about what you are navigating, what you want, and what support would help most."
-              }
-            }
-          ]
-        }
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "step_title": {
-          "__TYPE__": "FieldContent",
-          "value": "Align",
-          "type": "Text"
-        },
-        "step_text": {
-          "__TYPE__": "StructuredTextContent",
-          "value": [
-            {
-              "type": "paragraph",
-              "content": {
-                "text": "Clarify priorities, patterns, and the practical shifts that will support more grounded leadership."
-              }
-            }
-          ]
-        }
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "step_title": {
-          "__TYPE__": "FieldContent",
-          "value": "Lead",
-          "type": "Text"
-        },
-        "step_text": {
-          "__TYPE__": "StructuredTextContent",
-          "value": [
-            {
-              "type": "paragraph",
-              "content": {
-                "text": "Apply the work in real time with steadier communication, clearer decisions, and more sustainable performance."
-              }
-            }
-          ]
-        }
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_id": {
+				"__TYPE__": "FieldContent",
+				"value": "thin",
+				"type": "Text"
+			},
+			"theme": {
+				"__TYPE__": "FieldContent",
+				"value": "dark",
+				"type": "Select"
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "broke",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Would"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do enim fugiat Lorem irure elit enim culpa consequat deserunt eu. Do in proident exercitation esse ad ex non nisi enim sit ut do elit."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"step_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "introduced",
+							"type": "Text"
+						}
+					],
+					[
+						"step_text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Eiusmod quis ex ex aute sunt id do sit aliqua proident id."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
 ]

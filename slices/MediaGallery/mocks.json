@@ -1,0 +1,71 @@
+{
+  "mock": {
+    "id": "media_gallery$default",
+    "slice_type": "media_gallery",
+    "slice_label": null,
+    "variation": "default",
+    "version": "initial",
+    "primary": {
+      "section_id": "media-gallery",
+      "theme": "light",
+      "layout": "two-up",
+      "label": "Eyebrow Here",
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Optional section title",
+          "spans": []
+        }
+      ],
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Optional intro text above the gallery.",
+          "spans": []
+        }
+      ]
+    },
+    "items": [
+      {
+        "media": null,
+        "image": {
+          "dimensions": {
+            "width": 1800,
+            "height": 1350
+          },
+          "alt": "Gallery image one",
+          "copyright": null,
+          "url": "https://images.prismic.io/iamkarinarodriguez/Zx-gallery-one.jpg?auto=format,compress",
+          "id": "gallery-media-1",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "caption": []
+      },
+      {
+        "media": null,
+        "image": {
+          "dimensions": {
+            "width": 1800,
+            "height": 1350
+          },
+          "alt": "Gallery image two",
+          "copyright": null,
+          "url": "https://images.prismic.io/iamkarinarodriguez/Zx-gallery-two.jpg?auto=format,compress",
+          "id": "gallery-media-2",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "caption": []
+      }
+    ]
+  }
+}

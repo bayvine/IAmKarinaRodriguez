@@ -64,6 +64,20 @@
           "allowTargetBlank": true
         }
       },
+      "contact_email": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Email",
+          "placeholder": "hello@karinarodriguez.com"
+        }
+      },
+      "contact_phone": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Phone",
+          "placeholder": "(303) 555-1234"
+        }
+      },
       "social_links": {
         "type": "Group",
         "config": {
