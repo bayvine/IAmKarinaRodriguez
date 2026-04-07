@@ -196,17 +196,17 @@ export function renderLongFormRichText(
           </a>
         ),
         list: ({ children }) => (
-          <ul className={`space-y-3 pl-5 font-sans text-base ${bodyClassName} sm:text-lg`}>
+          <ul className={`list-disc space-y-3 pl-5 font-sans text-base ${bodyClassName} sm:text-lg`}>
             {children}
           </ul>
         ),
         oList: ({ children }) => (
-          <ol className={`space-y-3 pl-5 font-sans text-base ${bodyClassName} sm:text-lg`}>
+          <ol className={`list-decimal space-y-3 pl-5 font-sans text-base ${bodyClassName} sm:text-lg`}>
             {children}
           </ol>
         ),
-        listItem: ({ children }) => <li>{children}</li>,
-        oListItem: ({ children }) => <li>{children}</li>,
+        listItem: ({ children }) => <li className="pl-1">{children}</li>,
+        oListItem: ({ children }) => <li className="pl-1">{children}</li>,
       }}
       field={field}
     />

@@ -111,26 +111,31 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
                 }}
                 y={18}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <span
-                    className={cn(
-                      "font-sans text-xs uppercase",
-                      theme === "dark" ? "text-rose-white" : "text-night",
-                    )}
-                  >
-                    Step {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span
+                <div className="inline-flex items-center gap-1.5">
+                  {/* <span
                     aria-hidden="true"
                     className={cn(
-                      "h-2 w-12",
+                      "h-2 w-2 rounded-full",
                       theme === "dark" ? "bg-accent-blue-linen" : "bg-accent-bordeaux",
                     )}
-                  />
+                  /> */}
+                  <span
+                    className={cn(
+                      "font-sans text-sm font-semibold",
+                      theme === "dark" ? "text-rose-white/82" : "text-night/70",
+                    )}
+                  >
+                   (  {index + 1} )
+                  </span>
                 </div>
 
                 {prismic.isFilled.keyText(step.step_title) ? (
-                  <h3 className="mt-8 font-display text-4xl sm:text-5xl">
+                  <h3
+                    className={cn(
+                      "mt-5 font-sans text-2xl font-semibold sm:text-3xl",
+                      theme === "dark" ? "text-rose-white" : "text-night",
+                    )}
+                  >
                     {step.step_title}
                   </h3>
                 ) : null}

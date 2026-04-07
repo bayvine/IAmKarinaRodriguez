@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as prismic from "@prismicio/client";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 
@@ -15,9 +15,20 @@ export function TestimonialCardMedia({
   media,
 }: TestimonialCardMediaProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setIsMounted(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   if (!prismic.isFilled.linkToMedia(media)) {
     return <div className="absolute inset-0 bg-night/80" />;
@@ -80,6 +91,10 @@ export function TestimonialCardMedia({
 
       element.muted = nextMuted;
       setIsMuted(nextMuted);
+    }
+
+    if (!isMounted) {
+      return <div className="absolute inset-0 bg-night/80" />;
     }
 
     return (
