@@ -57,6 +57,7 @@ Use `npx next build --webpack` for reliable production validation in this repo. 
 - Header/global nav singleton: `customtypes/global_nav/index.json`
 - Footer singleton: `customtypes/global_footer/index.json`
 - Home singleton: `customtypes/home/index.json`
+- Repeatable landing pages: `customtypes/page/index.json`
 
 ### Shared rendering helpers
 
@@ -221,6 +222,20 @@ Implementation:
 - slices also include `scroll-mt-*` so fixed-header jumps land correctly
 
 Use this instead of hardcoding nav-to-slice mappings in code.
+
+### Repeatable page slugs
+
+Repeatable `page` documents use Prismic's built-in `uid` field as the public URL slug.
+
+In the content model, that field should be labeled:
+
+- `URL Slug`
+
+The app resolves repeatable pages at:
+
+- `/${uid}`
+
+Do not derive page slugs from titles in code.
 
 Example:
 - set slice `section_id` to `services`

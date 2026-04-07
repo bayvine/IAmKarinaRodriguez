@@ -71,6 +71,14 @@ export function StaggeredTextReveal({
 
   useEffect(() => {
     if (prefersReducedMotion || !text || !scope.current) {
+      if (prefersReducedMotion && scope.current) {
+        void animateRef.current(
+          scope.current,
+          { opacity: 1 },
+          { duration: 0.001 },
+        );
+      }
+
       return;
     }
 
@@ -191,10 +199,6 @@ export function StaggeredTextReveal({
 
   if (!text) {
     return null;
-  }
-
-  if (prefersReducedMotion) {
-    return createElement(as, { className, style }, text);
   }
 
   return createElement(

@@ -12,6 +12,12 @@
           "label": "Page Title",
           "placeholder": "Executive Coaching in Denver"
         }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "URL Slug"
+        }
       }
     },
     "Main": {

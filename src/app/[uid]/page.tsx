@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { createClient } from "@/prismicio";
 import { buildFaqJsonLdFromSlices, buildPageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 import { components } from "@/slices";
 
 type PageRouteProps = {
@@ -12,6 +13,8 @@ type PageRouteProps = {
     uid: string;
   }>;
 };
+
+export const dynamicParams = true;
 
 type GenericPageDocument = prismic.PrismicDocument<
   {
@@ -23,14 +26,6 @@ type GenericPageDocument = prismic.PrismicDocument<
   },
   "page"
 >;
-
-function titleFromUid(uid: string) {
-  return uid
-    .split("-")
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-}
 
 async function getPage(uid: string) {
   const client = await createClient();
@@ -68,7 +63,7 @@ export async function generateMetadata({
 
   if (!page) {
     return buildPageMetadata({
-      title: titleFromUid(uid),
+      title: siteConfig.name,
       path: `/${uid}`,
       noIndex: true,
     });
@@ -78,7 +73,7 @@ export async function generateMetadata({
     title:
       page.data.meta_title ||
       page.data.page_title ||
-      titleFromUid(uid),
+      siteConfig.name,
     description: page.data.meta_description,
     image: page.data.meta_image,
     path: `/${uid}`,
