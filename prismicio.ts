@@ -11,8 +11,18 @@ const routes: prismic.ClientConfig["routes"] = [
   { type: "home", path: "/" },
 ];
 
+async function getDraftModeEnabled() {
+  try {
+    const { isEnabled } = await draftMode();
+
+    return isEnabled;
+  } catch {
+    return false;
+  }
+}
+
 export async function createClient(config: prismic.ClientConfig = {}) {
-  const { isEnabled } = await draftMode();
+  const isEnabled = await getDraftModeEnabled();
 
   const client = prismic.createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,

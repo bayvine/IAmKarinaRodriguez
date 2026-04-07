@@ -1,0 +1,90 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "content",
+        "type": "Text"
+      },
+      "theme": {
+        "__TYPE__": "FieldContent",
+        "value": "light",
+        "type": "Select"
+      },
+      "image_position": {
+        "__TYPE__": "FieldContent",
+        "value": "right",
+        "type": "Select"
+      },
+      "label": {
+        "__TYPE__": "FieldContent",
+        "value": "About the Work",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "A rich text section for deeper page content"
+            }
+          }
+        ]
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Use this slice when a page needs more room to explain a service, method, or body of work."
+            }
+          },
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Why this exists"
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Your current slice library is strong visually, but SEO and service pages sometimes need longer-form content. This slice fills that gap."
+            }
+          }
+        ]
+      },
+      "image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+          "width": 5184,
+          "height": 3456
+        },
+        "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?rect=0%2C0%2C2826%2C3456&w=1800&h=2200",
+        "width": 1800,
+        "height": 2200,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "alt": "people in conversation",
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

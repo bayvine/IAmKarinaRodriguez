@@ -479,10 +479,72 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+/**
+ * Page document data from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ */
+export interface PageDocumentData {
+  /**
+   * Page Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **API ID Path**: page.page_title
+   */
+  page_title: prismic.KeyTextField;
+
+  /**
+   * Slices field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **API ID Path**: page.slices[]
+   */
+  slices: prismic.SliceZone;
+
+  /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **API ID Path**: page.meta_title
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **API ID Path**: page.meta_description
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **API ID Path**: page.meta_image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
 export type AllDocumentTypes =
   | GlobalFooterDocument
   | GlobalNavDocument
-  | HomeDocument;
+  | HomeDocument
+  | PageDocument;
 
 /**
  * Primary content in *CenteredStatement → Default → Primary*
@@ -1670,6 +1732,8 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
       AllDocumentTypes,
       CenteredStatementSlice,
       CenteredStatementSliceDefaultPrimary,

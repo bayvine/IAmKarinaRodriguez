@@ -7,9 +7,12 @@ export const components = {
   checklist_feature: dynamic(() => import("./ChecklistFeature")),
   checklist_spotlight: dynamic(() => import("./ChecklistSpotlight")),
   event_highlight: dynamic(() => import("./EventHighlight")),
+  faq: dynamic(() => import("./Faq")),
   hero: dynamic(() => import("./Hero")),
   media_highlight: dynamic(() => import("./MediaHighlight")),
+  process_steps: dynamic(() => import("./ProcessSteps")),
   profile_feature: dynamic(() => import("./ProfileFeature")),
+  rich_text_content: dynamic(() => import("./RichTextContent")),
   services_showcase: dynamic(() => import("./ServicesShowcase")),
   testimonials_showcase: dynamic(() => import("./TestimonialsShowcase")),
 };

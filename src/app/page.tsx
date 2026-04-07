@@ -3,7 +3,7 @@ import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildFaqJsonLdFromSlices, buildPageMetadata } from "@/lib/seo";
 import { components } from "@/slices";
 
 function MissingHomeDocument() {
@@ -60,5 +60,19 @@ export default async function HomePage() {
     return <MissingHomeDocument />;
   }
 
-  return <SliceZone components={components} slices={page.data.slices} />;
+  const faqJsonLd = buildFaqJsonLdFromSlices(page.data.slices);
+
+  return (
+    <>
+      {faqJsonLd ? (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
+          }}
+          type="application/ld+json"
+        />
+      ) : null}
+      <SliceZone components={components} slices={page.data.slices} />
+    </>
+  );
 }

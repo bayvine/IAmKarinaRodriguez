@@ -79,6 +79,9 @@ Current slices:
 - `TestimonialsShowcase`
 - `CenteredStatement`
 - `EventHighlight`
+- `Faq`
+- `ProcessSteps`
+- `RichTextContent`
 
 All of them are registered in `slices/index.ts` and available in `customtypes/home/index.json`.
 
@@ -87,7 +90,9 @@ All of them are registered in `slices/index.ts` and available in `customtypes/ho
 ### Typography
 
 - Gambarino is for headings and display text only.
+- Reserve Gambarino for true display/title moments, not functional UI elements.
 - Inter is for body, subtitle, labels, tabs, annotations, and utility copy.
+- FAQ questions should use Inter, not Gambarino.
 - Avoid random one-off type sizes. Use the shared typography system when possible.
 - Prefer Tailwind utility sizes over arbitrary `text-[...]` sizes unless there is a very strong reason.
 - Avoid `tracking-*` and `leading-*` Tailwind classes for the main visual typography. This project has repeatedly moved away from them.

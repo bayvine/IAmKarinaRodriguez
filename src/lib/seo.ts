@@ -172,3 +172,47 @@ export function buildOrganizationJsonLd() {
     ],
   };
 }
+
+type SliceWithItems = {
+  slice_type?: string;
+  items?: Array<Record<string, unknown>>;
+};
+
+export function buildFaqJsonLdFromSlices(slices: SliceWithItems[]) {
+  const entries = slices
+    .filter((slice) => slice.slice_type === "faq")
+    .flatMap((slice) => slice.items ?? [])
+    .map((item) => {
+      const question =
+        typeof item.question === "string" ? item.question.trim() : "";
+      const answer = Array.isArray(item.answer)
+        ? prismic.asText(item.answer as prismic.RichTextField).trim()
+        : typeof item.answer === "string"
+          ? item.answer.trim()
+          : "";
+
+      if (!question || !answer) {
+        return null;
+      }
+
+      return {
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      };
+    })
+    .filter(Boolean);
+
+  if (!entries.length) {
+    return undefined;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: entries,
+  };
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "faq",
+        "type": "Text"
+      },
+      "theme": {
+        "__TYPE__": "FieldContent",
+        "value": "light",
+        "type": "Select"
+      },
+      "label": {
+        "__TYPE__": "FieldContent",
+        "value": "FAQ",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Questions people often ask"
+            }
+          }
+        ]
+      },
+      "intro": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Use this section to answer common questions and support SEO at the same time."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "question": {
+          "__TYPE__": "FieldContent",
+          "value": "Do you offer executive coaching in Denver or virtually?",
+          "type": "Text"
+        },
+        "answer": {
+          "__TYPE__": "StructuredTextContent",
+          "value": [
+            {
+              "type": "paragraph",
+              "content": {
+                "text": "Yes. Coaching can be offered in Denver and virtually, depending on the client's needs and location."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "question": {
+          "__TYPE__": "FieldContent",
+          "value": "Can coaching help with burnout and stress?",
+          "type": "Text"
+        },
+        "answer": {
+          "__TYPE__": "StructuredTextContent",
+          "value": [
+            {
+              "type": "paragraph",
+              "content": {
+                "text": "Yes. This work is especially relevant for leaders navigating stress, burnout, and chronic pressure."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

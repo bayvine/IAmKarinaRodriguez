@@ -1,10 +1,19 @@
 {
   "format": "page",
-  "id": "home",
-  "label": "Home",
-  "repeatable": false,
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
   "status": true,
   "json": {
+    "Page Settings": {
+      "page_title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Executive Coaching in Denver"
+        }
+      }
+    },
     "Main": {
       "slices": {
         "type": "Slices",
@@ -55,7 +64,7 @@
       "meta_title": {
         "config": {
           "label": "Meta Title",
-          "placeholder": "A title of the page used for social media and search engines"
+          "placeholder": "Executive Coaching in Denver | Karina Rodriguez"
         },
         "type": "Text"
       },
