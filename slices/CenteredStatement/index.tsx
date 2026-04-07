@@ -5,6 +5,12 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
+import {
+  HeroCtaButton,
+  HeroDarkButton,
+  HeroOutlineDarkButton,
+  HeroSecondaryButton,
+} from "@/components/slices/hero/hero-action-link";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { cn, getSectionAnchorId } from "@/lib/utils";
 
@@ -17,6 +23,10 @@ type CenteredStatementSlice = {
     title: prismic.RichTextField;
     body: prismic.RichTextField;
     background_image: prismic.ImageField;
+    primary_button_label: prismic.KeyTextField;
+    primary_button_link: prismic.LinkField;
+    secondary_button_label: prismic.KeyTextField;
+    secondary_button_link: prismic.LinkField;
   };
   items: [];
   slice_label: string | null;
@@ -138,6 +148,19 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
   const hasBackgroundImage = prismic.isFilled.image(slice.primary.background_image);
   const tone = hasBackgroundImage ? "dark" : theme;
   const sectionId = getSectionAnchorId(slice.primary.section_id);
+  const hasLabel = prismic.isFilled.keyText(slice.primary.label);
+  const hasTitle = prismic.isFilled.richText(slice.primary.title);
+  const hasBody = prismic.isFilled.richText(slice.primary.body);
+  const hasPrimaryAction =
+    prismic.isFilled.keyText(slice.primary.primary_button_label) &&
+    prismic.isFilled.link(slice.primary.primary_button_link);
+  const hasSecondaryAction =
+    prismic.isFilled.keyText(slice.primary.secondary_button_label) &&
+    prismic.isFilled.link(slice.primary.secondary_button_link);
+  const hasActions = hasPrimaryAction || hasSecondaryAction;
+  const PrimaryButton = tone === "dark" ? HeroCtaButton : HeroDarkButton;
+  const SecondaryButton =
+    tone === "dark" ? HeroSecondaryButton : HeroOutlineDarkButton;
 
   return (
     <section
@@ -169,7 +192,7 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
 
       <Section className="relative z-10">
         <div className="mx-auto max-w-4xl text-center">
-          {prismic.isFilled.keyText(slice.primary.label) ? (
+          {hasLabel ? (
             <Reveal
               className={cn(
                 "inline-flex items-center gap-1.5 font-sans text-xs uppercase",
@@ -190,15 +213,18 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
             </Reveal>
           ) : null}
 
-          <div className="mt-3 sm:mt-4">
-            {prismic.isFilled.richText(slice.primary.title)
-              ? renderCenteredTitle(slice.primary.title, tone)
-              : null}
-          </div>
+          {hasTitle ? (
+            <div className={cn(hasLabel ? "mt-3 sm:mt-4" : undefined)}>
+              {renderCenteredTitle(slice.primary.title, tone)}
+            </div>
+          ) : null}
 
-          {prismic.isFilled.richText(slice.primary.body) ? (
+          {hasBody ? (
             <Reveal
-              className="mx-auto mt-6 max-w-2xl space-y-6 sm:mt-7"
+              className={cn(
+                "mx-auto max-w-2xl space-y-6",
+                hasTitle || hasLabel ? "mt-6 sm:mt-7" : undefined,
+              )}
               delay={0.28}
               transition={{
                 duration: 0.76,
@@ -207,6 +233,34 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
               y={18}
             >
               {renderCenteredBody(slice.primary.body, tone)}
+            </Reveal>
+          ) : null}
+
+          {hasActions ? (
+            <Reveal
+              className={cn(
+                "flex flex-wrap justify-center gap-3",
+                hasBody || hasTitle || hasLabel ? "mt-8 sm:mt-10" : undefined,
+              )}
+              delay={0.36}
+              transition={{
+                duration: 0.72,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              y={16}
+            >
+              {hasPrimaryAction ? (
+                <PrimaryButton
+                  field={slice.primary.primary_button_link}
+                  label={slice.primary.primary_button_label}
+                />
+              ) : null}
+              {hasSecondaryAction ? (
+                <SecondaryButton
+                  field={slice.primary.secondary_button_link}
+                  label={slice.primary.secondary_button_label}
+                />
+              ) : null}
             </Reveal>
           ) : null}
         </div>

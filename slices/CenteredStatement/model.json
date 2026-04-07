@@ -57,6 +57,40 @@
             "labels": []
           }
         },
+        "primary_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Button Label",
+            "placeholder": "Book Discovery Call"
+          }
+        },
+        "primary_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        },
+        "secondary_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Button Label",
+            "placeholder": "Learn More"
+          }
+        },
+        "secondary_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        },
         "background_image": {
           "type": "Image",
           "config": {

@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
+import { buildPageMetadata } from "@/lib/seo";
 import { components } from "@/slices";
 
 function MissingHomeDocument() {
@@ -22,6 +24,25 @@ function MissingHomeDocument() {
       </div>
     </main>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = await createClient();
+
+  const page = await client.getSingle("home").catch((error: unknown) => {
+    if (error instanceof prismic.NotFoundError) {
+      return null;
+    }
+
+    throw error;
+  });
+
+  return buildPageMetadata({
+    title: page?.data.meta_title,
+    description: page?.data.meta_description,
+    image: page?.data.meta_image,
+    path: "/",
+  });
 }
 
 export default async function HomePage() {

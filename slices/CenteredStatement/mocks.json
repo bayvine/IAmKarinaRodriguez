@@ -40,6 +40,30 @@
 					}
 				]
 			},
+			"primary_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "Book Discovery Call",
+				"type": "Text"
+			},
+			"primary_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"link_type": "Web",
+					"url": "https://example.com"
+				}
+			},
+			"secondary_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "Learn More",
+				"type": "Text"
+			},
+			"secondary_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"link_type": "Web",
+					"url": "https://example.com"
+				}
+			},
 			"background_image": {
 				"__TYPE__": "ImageContent",
 				"origin": {

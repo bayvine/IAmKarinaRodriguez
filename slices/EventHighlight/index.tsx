@@ -67,7 +67,7 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
           <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-night/76 to-transparent" />
 
           <div className="relative z-10 flex min-h-[31rem] items-end px-6 py-8 sm:min-h-[34rem] sm:px-8 sm:py-10 lg:min-h-[36rem] lg:px-10 lg:py-12 xl:min-h-[38rem] xl:px-12">
-            <div className="max-w-4xl">
+            <div className="pt-20 lg:pt-5 w-full">
               {prismic.isFilled.keyText(slice.primary.label) ? (
                 <Reveal
                   className="inline-flex items-center gap-1.5 font-sans text-xs uppercase text-rose-white/76"
@@ -86,7 +86,7 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
                 </Reveal>
               ) : null}
 
-              <div className="mt-3 max-w-[11ch] text-rose-white sm:mt-4">
+              <div className="mt-3 text-rose-white sm:mt-4 max-w-fit">
                 {prismic.isFilled.richText(slice.primary.title)
                   ? renderSectionTitle(slice.primary.title)
                   : null}
@@ -94,7 +94,7 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
 
               {prismic.isFilled.richText(slice.primary.body) ? (
                 <Reveal
-                  className="mt-5 max-w-xl text-rose-white sm:mt-6"
+                  className="mt-5 max-w-2xl text-rose-white sm:mt-6"
                   delay={0.3}
                   transition={{
                     duration: 0.72,
@@ -107,27 +107,9 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
               ) : null}
 
               <div className="mt-8 flex flex-col gap-6 sm:mt-10 lg:flex-row lg:items-end lg:gap-12">
-                {prismic.isFilled.keyText(slice.primary.button_label) &&
-                prismic.isFilled.link(slice.primary.button_link) ? (
-                  <Reveal
-                    delay={0.38}
-                    transition={{
-                      duration: 0.72,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    y={14}
-                  >
-                    <HeroCtaButton
-                      className="w-full sm:w-auto"
-                      field={slice.primary.button_link}
-                      label={slice.primary.button_label}
-                    />
-                  </Reveal>
-                ) : null}
-
                 {details.length ? (
                   <Reveal
-                    className="grid gap-4 text-rose-white sm:grid-cols-2 lg:grid-cols-none lg:grid-flow-col lg:gap-8 xl:gap-12"
+                    className="order-1 grid gap-4 text-rose-white sm:grid-cols-2 lg:order-2 lg:grid-cols-none lg:grid-flow-col lg:gap-8 xl:gap-12"
                     delay={0.44}
                     transition={{
                       duration: 0.74,
@@ -153,6 +135,25 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
                         ) : null}
                       </div>
                     ))}
+                  </Reveal>
+                ) : null}
+
+                {prismic.isFilled.keyText(slice.primary.button_label) &&
+                prismic.isFilled.link(slice.primary.button_link) ? (
+                  <Reveal
+                    className="order-2 lg:order-1"
+                    delay={0.38}
+                    transition={{
+                      duration: 0.72,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    y={14}
+                  >
+                    <HeroCtaButton
+                      className="w-full sm:w-auto"
+                      field={slice.primary.button_link}
+                      label={slice.primary.button_label}
+                    />
                   </Reveal>
                 ) : null}
               </div>
