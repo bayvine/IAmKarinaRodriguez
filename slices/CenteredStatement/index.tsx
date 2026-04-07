@@ -50,8 +50,8 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
         heading1: ({ children }) => (
           <StaggeredTextReveal
             amount={0.45}
-            as="h2"
-            className={cn("mx-auto max-w-[11ch] text-center", textClassName)}
+            as="h1"
+            className={cn("mx-auto w-fit text-center", textClassName)}
             delay={0.16}
             revealMode="inView"
             style={{ lineHeight: 0.94 }}
@@ -63,7 +63,7 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h2"
-            className={cn("mx-auto max-w-[11ch] text-center", textClassName)}
+            className={cn("mx-auto w-fit text-center", textClassName)}
             delay={0.16}
             revealMode="inView"
             style={{ lineHeight: 0.94 }}
@@ -75,7 +75,7 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h3"
-            className={cn("mx-auto max-w-[11ch] text-center", textClassName)}
+            className={cn("mx-auto w-fit text-center", textClassName)}
             delay={0.16}
             revealMode="inView"
             style={{ lineHeight: 0.94 }}
@@ -87,7 +87,7 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h4"
-            className={cn("mx-auto max-w-[11ch] text-center", textClassName)}
+            className={cn("mx-auto w-fit text-center", textClassName)}
             delay={0.16}
             revealMode="inView"
             style={{ lineHeight: 0.94 }}

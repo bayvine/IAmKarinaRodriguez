@@ -197,10 +197,6 @@ export function StaggeredTextReveal({
     );
   }, [delay, isInView, prefersReducedMotion, revealMode, scope]);
 
-  if (!text) {
-    return null;
-  }
-
   return createElement(
     as,
     {
@@ -208,6 +204,6 @@ export function StaggeredTextReveal({
       className: cn("opacity-0", className),
       style,
     },
-    text,
+    children,
   );
 }
