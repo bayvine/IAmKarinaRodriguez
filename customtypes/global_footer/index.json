@@ -1,0 +1,131 @@
+{
+  "format": "custom",
+  "id": "global_footer",
+  "json": {
+    "Main": {
+      "footer_cta_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer CTA Title",
+          "placeholder": "Ready to elevate your career?",
+          "allowTargetBlank": true,
+          "multi": "heading1,heading2,heading3,heading4,strong,em",
+          "labels": []
+        }
+      },
+      "footer_cta_button_label": {
+        "type": "Text",
+        "config": {
+          "label": "Footer CTA Button Label",
+          "placeholder": "Book Discovery Call"
+        }
+      },
+      "footer_cta_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "Footer CTA Button Link",
+          "placeholder": "",
+          "select": null,
+          "allowText": true,
+          "allowTargetBlank": true
+        }
+      },
+      "footer_cta_media": {
+        "type": "Link",
+        "config": {
+          "label": "Footer CTA Media",
+          "placeholder": "",
+          "select": "media",
+          "allowText": true
+        }
+      },
+      "footer_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Footer Logo",
+          "constraint": {
+            "width": 800,
+            "height": 300
+          },
+          "thumbnails": []
+        }
+      },
+      "footer_contact_heading": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Contact Heading",
+          "placeholder": "Contact me"
+        }
+      },
+      "footer_contact_items": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Contact Items",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "Email@email.com"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowText": true,
+                "allowTargetBlank": true
+              }
+            }
+          }
+        }
+      },
+      "footer_quick_links_heading": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Quick Links Heading",
+          "placeholder": "Quick Links"
+        }
+      },
+      "footer_quick_links": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Quick Links",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "About"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowText": true,
+                "allowTargetBlank": true
+              }
+            }
+          }
+        }
+      },
+      "footer_copyright_text": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Copyright Text",
+          "placeholder": "© 2026 KARINA RODRIGUEZ | All rights reserved."
+        }
+      }
+    }
+  },
+  "label": "Global Footer",
+  "repeatable": false,
+  "status": true
+}

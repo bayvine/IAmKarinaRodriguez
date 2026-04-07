@@ -3,6 +3,67 @@
   "id": "global_nav",
   "json": {
     "Main": {
+      "header_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Header Logo",
+          "constraint": {
+            "width": 800,
+            "height": 300
+          },
+          "thumbnails": []
+        }
+      },
+      "header_brand_name": {
+        "type": "Text",
+        "config": {
+          "label": "Header Brand Name",
+          "placeholder": "Karina Rodriguez"
+        }
+      },
+      "navigation_links": {
+        "type": "Group",
+        "config": {
+          "label": "Navigation Links",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "About"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowText": true,
+                "allowTargetBlank": true
+              }
+            }
+          }
+        }
+      },
+      "primary_cta_label": {
+        "type": "Text",
+        "config": {
+          "label": "Primary CTA Label",
+          "placeholder": "Free Discovery Call"
+        }
+      },
+      "primary_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Primary CTA Link",
+          "placeholder": "",
+          "select": null,
+          "allowText": true,
+          "allowTargetBlank": true
+        }
+      },
       "social_links": {
         "type": "Group",
         "config": {

@@ -1,0 +1,89 @@
+{
+  "id": "event_highlight",
+  "type": "SharedSlice",
+  "name": "EventHighlight",
+  "description": "Event Highlight",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "In Person & Virtual"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Become a Great Leader",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,strong,em",
+            "labels": []
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "Learn the tools, strategies and secrets that Karina uses to create immediate impact and inspire positive, lasting change in others.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "labels": []
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {
+              "width": 2400,
+              "height": 1600
+            },
+            "thumbnails": []
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "RSVP Now"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowText": true,
+            "allowTargetBlank": true
+          }
+        }
+      },
+      "items": {
+        "detail_label": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Label",
+            "placeholder": "Date"
+          }
+        },
+        "detail_value": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Value",
+            "placeholder": "April 8, 2026"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -48,7 +48,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-8">
           <div className="mx-auto max-w-3xl lg:mx-0">
             {prismic.isFilled.richText(slice.primary.title) ? (
-              <div className="max-w-full text-center sm:max-w-4xl lg:text-left">
+              <div className="max-w-full sm:max-w-4xl lg:text-left">
                 <PrismicRichText
                   components={{
                     heading1: ({ children }) => (

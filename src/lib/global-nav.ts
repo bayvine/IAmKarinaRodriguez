@@ -1,5 +1,6 @@
 import * as prismic from "@prismicio/client";
 
+import { siteConfig } from "@/lib/site-config";
 import { createClient } from "@/prismicio";
 
 export type SocialPlatform =
@@ -15,8 +16,18 @@ type GlobalNavSocialLinkItem = {
   link?: prismic.LinkField;
 };
 
+type GlobalNavLinkGroupItem = {
+  label?: prismic.KeyTextField;
+  link?: prismic.LinkField;
+};
+
 type GlobalNavDocumentLike = {
   data?: {
+    header_logo?: prismic.ImageField;
+    header_brand_name?: prismic.KeyTextField;
+    navigation_links?: GlobalNavLinkGroupItem[];
+    primary_cta_label?: prismic.KeyTextField;
+    primary_cta_link?: prismic.LinkField;
     social_links?: GlobalNavSocialLinkItem[];
     instagram_link?: prismic.LinkField;
     linkedin_link?: prismic.LinkField;
@@ -27,7 +38,7 @@ type GlobalNavDocumentLike = {
   };
 };
 
-function normalizeSocialLink(
+export function normalizePrismicLink(
   link: prismic.LinkField | undefined,
 ): prismic.LinkField | null {
   if (!link) {
@@ -48,23 +59,47 @@ function normalizeSocialLink(
   return null;
 }
 
-export async function getGlobalNavSocialLinks() {
+export function normalizeLinkGroupItems(items: GlobalNavLinkGroupItem[] | undefined) {
+  return (items ?? []).flatMap((item) => {
+    if (!prismic.isFilled.keyText(item.label)) {
+      return [];
+    }
+
+    const normalizedLink = normalizePrismicLink(item.link);
+
+    if (!normalizedLink) {
+      return [];
+    }
+
+    return [
+      {
+        label: item.label,
+        link: normalizedLink,
+      },
+    ];
+  });
+}
+
+async function getGlobalNavDocument() {
   const client = createClient({
     fetchOptions: {
       cache: "no-store",
     },
   });
-  const document = (await client
+
+  return (await client
     .getSingle("global_nav")
     .catch(() => null)) as GlobalNavDocumentLike | null;
+}
 
+function getSocialLinksFromDocument(document: GlobalNavDocumentLike | null) {
   const socialLinks = document?.data?.social_links ?? [];
   const groupedLinks = socialLinks.flatMap((item) => {
     if (!item.platform) {
       return [];
     }
 
-    const normalizedLink = normalizeSocialLink(item.link);
+    const normalizedLink = normalizePrismicLink(item.link);
 
     if (!normalizedLink) {
       return [];
@@ -97,7 +132,7 @@ export async function getGlobalNavSocialLinks() {
   }> = [];
 
   for (const [platform, link] of directFieldMap) {
-    const normalizedLink = normalizeSocialLink(link);
+    const normalizedLink = normalizePrismicLink(link);
 
     if (normalizedLink) {
       fallbackLinks.push({ platform, link: normalizedLink });
@@ -105,4 +140,40 @@ export async function getGlobalNavSocialLinks() {
   }
 
   return fallbackLinks;
+}
+
+export async function getGlobalNavSocialLinks() {
+  const document = await getGlobalNavDocument();
+
+  return getSocialLinksFromDocument(document);
+}
+
+export async function getGlobalNavHeaderData() {
+  const document = await getGlobalNavDocument();
+  const navigationLinks = normalizeLinkGroupItems(document?.data?.navigation_links);
+
+  return {
+    logo: document?.data?.header_logo,
+    brandName: prismic.isFilled.keyText(document?.data?.header_brand_name)
+      ? document.data.header_brand_name
+      : "Karina Rodriguez",
+    navigationLinks: navigationLinks.length
+      ? navigationLinks
+      : siteConfig.nav.map((item) => ({
+          label: item.label,
+          link: {
+            link_type: "Web",
+            url: item.href,
+          } as prismic.LinkField,
+        })),
+    ctaLabel: prismic.isFilled.keyText(document?.data?.primary_cta_label)
+      ? document.data.primary_cta_label
+      : siteConfig.primaryCta.label,
+    ctaLink:
+      normalizePrismicLink(document?.data?.primary_cta_link) ??
+      ({
+        link_type: "Web",
+        url: siteConfig.primaryCta.href,
+      } as prismic.LinkField),
+  };
 }

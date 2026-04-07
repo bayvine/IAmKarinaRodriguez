@@ -63,11 +63,11 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <Section>
-        <div className={cn("grid gap-10  lg:items-start lg:gap-15", imagePosition === 'right' ? "xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]" : "xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]")}>
+        <div className={cn("grid gap-10  lg:items-start lg:gap-15", imagePosition === 'right' ? "xl:grid-cols-[minmax(0,1.01fr)_minmax(0,0.99fr)]" : "xl:grid-cols-[minmax(0,0.99fr)_minmax(0,1.01fr)]")}>
           <div
             className={cn(
               "order-1 min-w-0",
-              imagePosition === "left" ? "lg:order-2" : "lg:order-1",
+              imagePosition === "left" ? "xl:order-2" : "xl:order-1",
             )}
           >
             <SectionIntro
@@ -140,21 +140,21 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
           {prismic.isFilled.image(slice.primary.image) ? (
             <Reveal
               className={cn(
-                "order-2 overflow-hidden",
-                imagePosition === "left" ? "lg:order-1" : "lg:order-2",
+                "order-2 overflow-hidden relative  h-[500px] xl:h-auto sm:aspect-square",
+                imagePosition === "left" ? "xl:order-1" : "xl:order-2",
               )}
               delay={0.26}
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
             >
-              <div className="relative aspect-[16/12] overflow-hidden sm:aspect-square">
+            
                 <PrismicNextImage
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}
                   className="object-cover"
                 />
-              </div>
+            
             </Reveal>
           ) : null}
         </div>

@@ -25,7 +25,7 @@ export function ChecklistItem({ text, delay = 0 }: ChecklistItemProps) {
           <Check className="h-5 w-5" strokeWidth={1.8} />
         </span>
 
-        <div className="lg:max-w-65 xl:max-w-55 text-night">
+        <div className="md:max-w-65 xl:max-w-55 text-night">
           <PrismicRichText
             components={{
               paragraph: ({ children }) => (

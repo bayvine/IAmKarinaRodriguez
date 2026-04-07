@@ -3,10 +3,15 @@ export const siteConfig = {
   description:
     "Editorial Next.js foundation with Tailwind, Prismic, Radix primitives, and motion-ready UI.",
   nav: [
-    { label: "Work", href: "#" },
-    { label: "Story", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Workshops", href: "#workshops" },
+    { label: "Testimonials", href: "#testimonials" },
   ],
+  primaryCta: {
+    label: "Free Discovery Call",
+    href: "#contact",
+  },
   stack: [
     "Next.js 16 App Router",
     "Tailwind CSS v4",

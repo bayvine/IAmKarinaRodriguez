@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PrismicPreview } from "@prismicio/next";
 
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { repositoryName } from "@/prismicio";
 import { siteConfig } from "@/lib/site-config";
 
@@ -22,8 +24,12 @@ export default function RootLayout({
       className={`${inter.variable} ${gambarino.variable} scroll-smooth`}
       lang="en"
     >
-      <body className="min-h-screen bg-rose-white font-sans text-night antialiased">
-        {children}
+      <body className="flex min-h-screen flex-col bg-rose-white font-sans text-night antialiased">
+        <SiteHeader />
+        <div className="flex-1">
+          {children}
+        </div>
+        <SiteFooter />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>

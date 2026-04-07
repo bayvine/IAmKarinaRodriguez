@@ -1,0 +1,42 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "In Person & Virtual",
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Become a Great Leader",
+          "spans": []
+        }
+      ],
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Learn the tools, strategies and secrets that Karina uses to create immediate impact and inspire positive, lasting change in others.",
+          "spans": []
+        }
+      ],
+      "button_label": "RSVP Now",
+      "button_link": {
+        "link_type": "Web",
+        "url": "https://example.com"
+      }
+    },
+    "items": [
+      {
+        "detail_label": "Date",
+        "detail_value": "April 8, 2026"
+      },
+      {
+        "detail_label": "Location",
+        "detail_value": "Denver Museum of Art"
+      },
+      {
+        "detail_label": "Cost",
+        "detail_value": "Free"
+      }
+    ]
+  }
+]

@@ -19,7 +19,7 @@ export function Section<T extends ElementType = "div">({
   return (
     <Comp
       className={cn(
-        "mx-auto w-full max-w-7xl xl:max-w-full 2xl:max-w-382.5 px-5 min-[1980px]:max-w-[110rem] ",
+        "mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10 min-[1980px]:max-w-[110rem] min-[1980px]:px-12",
         className,
       )}
       {...props}

@@ -14,6 +14,12 @@
             "hero": {
               "type": "SharedSlice"
             },
+            "centered_statement": {
+              "type": "SharedSlice"
+            },
+            "event_highlight": {
+              "type": "SharedSlice"
+            },
             "checklist_feature": {
               "type": "SharedSlice"
             },

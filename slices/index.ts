@@ -3,8 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  centered_statement: dynamic(() => import("./CenteredStatement")),
   checklist_feature: dynamic(() => import("./ChecklistFeature")),
   checklist_spotlight: dynamic(() => import("./ChecklistSpotlight")),
+  event_highlight: dynamic(() => import("./EventHighlight")),
   hero: dynamic(() => import("./Hero")),
   media_highlight: dynamic(() => import("./MediaHighlight")),
   profile_feature: dynamic(() => import("./ProfileFeature")),
