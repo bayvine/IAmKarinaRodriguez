@@ -142,6 +142,8 @@ export function SiteHeaderShell({
               hasScrolled
                 ? " bg-night/70 -mt-4 px-6 py-3 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.65)] backdrop-blur-xl sm:px-5"
                 : "px-0 py-1",
+              hasScrolled &&
+                "mx-[-1.5rem] rounded-none sm:mx-[-2rem] lg:mx-0 lg:rounded-full lg:px-5",
             )}
           >
             <Link

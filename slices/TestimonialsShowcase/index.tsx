@@ -114,7 +114,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
               </Reveal>
             ) : null}
 
-            <div className="relative">
+            <div className="relative overflow-hidden">
               {testimonials.length > 1 ? (
                 <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l from-rose-white/50 via-rose-white/20 to-transparent lg:hidden" />
               ) : null}
@@ -123,7 +123,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
                 className={cn(
                   "grid gap-4 pb-1 lg:auto-cols-auto lg:grid-flow-row lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0 lg:pr-0 lg:snap-none xl:gap-7",
                   testimonials.length > 1
-                    ? "auto-cols-[84vw] grid-flow-col overflow-x-auto no-scrollbar pr-10 snap-x snap-mandatory sm:auto-cols-[22rem] sm:gap-5"
+                    ? "auto-cols-[84vw] grid-flow-col overflow-x-auto overflow-y-hidden no-scrollbar overscroll-x-contain overscroll-y-none pr-10 snap-x snap-mandatory touch-pan-x sm:auto-cols-[22rem] sm:gap-5"
                     : "grid-cols-1",
                 )}
               >
@@ -135,7 +135,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
                   return (
                     <Reveal
-                      className="w-full snap-start"
+                      className="w-full snap-start overflow-hidden"
                       delay={0.18 + index * 0.08}
                       key={`${key}-${index}`}
                       transition={{
