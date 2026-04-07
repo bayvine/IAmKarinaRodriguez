@@ -1,0 +1,58 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label": "Testimonials",
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Changing lives, day by day.",
+          "spans": []
+        }
+      ],
+      "subtext": [
+        {
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "spans": []
+        }
+      ]
+    },
+    "items": [
+      {
+        "person_name": "Name",
+        "person_title": "Title",
+        "testimonial_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "person_name": "Name",
+        "person_title": "Title",
+        "testimonial_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "person_name": "Name",
+        "person_title": "Title",
+        "testimonial_text": [
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
+]

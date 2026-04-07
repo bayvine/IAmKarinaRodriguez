@@ -110,10 +110,11 @@ export function ServicesBrowser({
 
         <div
           aria-label="Services"
-          className="-mx-6 mt-6 overflow-x-auto no-scrollbar px-6 pb-1 sm:-mx-8 sm:mt-8 sm:px-8 sm:pb-3 lg:mx-0 lg:mt-16 lg:overflow-visible lg:px-0 lg:pb-0"
+          className="mt-6 sm:mt-8 lg:mt-16"
           role="tablist"
         >
-          <div className="flex min-w-max gap-4 lg:min-w-0 lg:flex-col lg:gap-0">
+          <div className="overflow-x-auto no-scrollbar pb-1 sm:pb-3 lg:overflow-visible lg:pb-0">
+            <div className="flex min-w-max gap-4 pr-4 lg:min-w-0 lg:flex-col lg:gap-0 lg:pr-0">
             {filledServices.map((service, index) => {
               const id = getServiceId(service.service_title ?? "service", index);
 
@@ -128,6 +129,7 @@ export function ServicesBrowser({
                 />
               );
             })}
+            </div>
           </div>
         </div>
       </div>

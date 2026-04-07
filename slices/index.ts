@@ -9,4 +9,5 @@ export const components = {
   media_highlight: dynamic(() => import("./MediaHighlight")),
   profile_feature: dynamic(() => import("./ProfileFeature")),
   services_showcase: dynamic(() => import("./ServicesShowcase")),
+  testimonials_showcase: dynamic(() => import("./TestimonialsShowcase")),
 };

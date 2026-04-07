@@ -5,6 +5,11 @@
   color-scheme: light;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   text-rendering: optimizeLegibility;
 }

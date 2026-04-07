@@ -26,6 +26,9 @@
             "profile_feature": {
               "type": "SharedSlice"
             },
+            "testimonials_showcase": {
+              "type": "SharedSlice"
+            },
             "services_showcase": {
               "type": "SharedSlice"
             }

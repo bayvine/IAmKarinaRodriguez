@@ -147,7 +147,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
               transition={{ duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
               y={0}
             >
-              <div className="relative aspect-[16/12] overflow-hidden sm:aspect-1">
+              <div className="relative aspect-[16/12] overflow-hidden sm:aspect-square">
                 <PrismicNextImage
                   field={slice.primary.image}
                   fill
