@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { redirectToPreviewURL } from "@prismicio/next";
 
-import { createClient } from "@/prismicio";
+import { createClient, linkResolver } from "@/prismicio";
 
 export async function GET(request: NextRequest) {
   const client = await createClient();
@@ -10,5 +10,6 @@ export async function GET(request: NextRequest) {
     client,
     request,
     defaultURL: "/",
+    linkResolver,
   });
 }

@@ -11,6 +11,18 @@ const routes: prismic.ClientConfig["routes"] = [
   { type: "home", path: "/" },
 ];
 
+export const linkResolver: prismic.LinkResolverFunction = (doc) => {
+  if (doc.type === "home") {
+    return "/";
+  }
+
+  if (doc.type === "page" && doc.uid) {
+    return `/${doc.uid}`;
+  }
+
+  return "/";
+};
+
 async function getDraftModeEnabled() {
   try {
     const { isEnabled } = await draftMode();
