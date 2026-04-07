@@ -12,11 +12,12 @@ import {
   renderSectionSubtext,
   renderSectionTitle,
 } from "@/lib/prismic-rich-text";
-import { cn } from "@/lib/utils";
+import { cn, getSectionAnchorId } from "@/lib/utils";
 
 type ChecklistSpotlightSlice = {
   id: string;
   primary: {
+    section_id: prismic.KeyTextField;
     theme?: prismic.SelectField<"dark" | "light">;
     image_position?: prismic.SelectField<"right" | "left">;
     label: prismic.KeyTextField;
@@ -46,6 +47,7 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
   const imagePosition = slice.primary.image_position === "left" ? "left" : "right";
   const tone = theme === "dark" ? "dark" : "light";
   const accent = theme === "dark" ? "accent-blue-linen" : "accent-bordeaux";
+  const sectionId = getSectionAnchorId(slice.primary.section_id);
 
   const filledItems = slice.items.filter(
     (item) =>
@@ -56,11 +58,12 @@ const ChecklistSpotlight: FC<ChecklistSpotlightProps> = ({ slice }) => {
   return (
     <section
       className={cn(
-        "py-16 sm:py-20 lg:py-24",
+        "py-16 scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24",
         theme === "dark" ? "bg-night text-rose-white" : "bg-rose-white text-night",
       )}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <div className={cn("grid gap-10  lg:items-start lg:gap-15", imagePosition === 'right' ? "xl:grid-cols-[minmax(0,1.01fr)_minmax(0,0.99fr)]" : "xl:grid-cols-[minmax(0,0.99fr)_minmax(0,1.01fr)]")}>

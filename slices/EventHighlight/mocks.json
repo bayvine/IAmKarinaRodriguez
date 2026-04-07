@@ -1,42 +1,99 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "label": "In Person & Virtual",
-      "title": [
-        {
-          "type": "heading1",
-          "text": "Become a Great Leader",
-          "spans": []
-        }
-      ],
-      "body": [
-        {
-          "type": "paragraph",
-          "text": "Learn the tools, strategies and secrets that Karina uses to create immediate impact and inspire positive, lasting change in others.",
-          "spans": []
-        }
-      ],
-      "button_label": "RSVP Now",
-      "button_link": {
-        "link_type": "Web",
-        "url": "https://example.com"
-      }
-    },
-    "items": [
-      {
-        "detail_label": "Date",
-        "detail_value": "April 8, 2026"
-      },
-      {
-        "detail_label": "Location",
-        "detail_value": "Denver Museum of Art"
-      },
-      {
-        "detail_label": "Cost",
-        "detail_value": "Free"
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_id": {
+				"__TYPE__": "FieldContent",
+				"value": "through",
+				"type": "Text"
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "chest",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Stared"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim Lorem dolor laboris eiusmod consequat nostrud ipsum."
+						}
+					}
+				]
+			},
+			"background_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+					"width": 4172,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C609%2C4172%2C2781&w=2400&h=1600",
+				"width": 2400,
+				"height": 1600,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 609
+					},
+					"background": "transparent"
+				},
+				"alt": "cowboy",
+				"thumbnails": {}
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "drove",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "a1ce604b-a258-4bbc-a810-8868e956c706",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "palace"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"detail_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "earth",
+							"type": "Text"
+						}
+					],
+					[
+						"detail_value",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "tall",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
 ]

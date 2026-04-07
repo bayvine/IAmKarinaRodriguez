@@ -12,18 +12,23 @@ import {
 } from "@/lib/prismic-rich-text";
 import { ExpandableVideoCard } from "@/components/slices/media-highlight/expandable-video-card";
 import { ImageStatisticsCard } from "@/components/slices/media-highlight/image-statistics-card";
+import { getSectionAnchorId } from "@/lib/utils";
 
 export type MediaHighlightProps =
   SliceComponentProps<Content.MediaHighlightSlice>;
 
 const MediaHighlight: FC<MediaHighlightProps> = ({ slice }) => {
   const variant = slice.primary.media_variant || "image";
+  const sectionId = getSectionAnchorId(
+    (slice.primary as { section_id?: prismic.KeyTextField }).section_id,
+  );
 
   return (
     <section
-      className="bg-rose-white py-16 text-night"
+      className="bg-rose-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 lg:scroll-mt-32"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <SectionIntro

@@ -9,6 +9,7 @@ import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { HeroActions } from "@/components/slices/hero/hero-actions";
 import { HeroProofStack } from "@/components/slices/hero/hero-proof-stack";
 import { getDisplayTextProps } from "@/lib/typography";
+import { getSectionAnchorId } from "@/lib/utils";
 import {
   HeroFadeReveal,
   HeroRaiseReveal,
@@ -24,6 +25,9 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero: FC<HeroProps> = ({ slice }) => {
   const avatars = slice.items.map((item) => item.avatar_image);
+  const sectionId = getSectionAnchorId(
+    (slice.primary as { section_id?: prismic.KeyTextField }).section_id,
+  );
   const heroHeading1 = getDisplayTextProps("hero", "heading1");
   const heroHeading2 = getDisplayTextProps("hero", "heading2");
   const heroHeading3 = getDisplayTextProps("hero", "heading3");
@@ -31,9 +35,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
   return (
     <section
-      className="relative isolate min-h-[100svh] overflow-hidden bg-night text-rose-white"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-night text-rose-white scroll-mt-24 sm:scroll-mt-28 lg:scroll-mt-32"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <div className="absolute inset-0 -z-30 bg-night" />
 

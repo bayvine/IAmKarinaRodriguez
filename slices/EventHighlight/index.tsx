@@ -10,10 +10,12 @@ import {
   renderSectionSubtext,
   renderSectionTitle,
 } from "@/lib/prismic-rich-text";
+import { getSectionAnchorId } from "@/lib/utils";
 
 type EventHighlightSlice = {
   id: string;
   primary: {
+    section_id: prismic.KeyTextField;
     label: prismic.KeyTextField;
     title: prismic.RichTextField;
     body: prismic.RichTextField;
@@ -34,6 +36,7 @@ type EventHighlightSlice = {
 export type EventHighlightProps = SliceComponentProps<EventHighlightSlice>;
 
 const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
+  const sectionId = getSectionAnchorId(slice.primary.section_id);
   const details = slice.items.filter(
     (item) =>
       prismic.isFilled.keyText(item.detail_label) ||
@@ -42,9 +45,10 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
 
   return (
     <section
-      className="bg-pure-white py-16 text-night sm:py-20 lg:py-24"
+      className="bg-pure-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <div className="relative isolate overflow-hidden bg-night">

@@ -12,10 +12,12 @@ import {
   renderSectionSubtext,
   renderSectionTitle,
 } from "@/lib/prismic-rich-text";
+import { getSectionAnchorId } from "@/lib/utils";
 
 type ProfileFeatureSlice = {
   id: string;
   primary: {
+    section_id: prismic.KeyTextField;
     label: prismic.KeyTextField;
     title: prismic.RichTextField;
     subtext: prismic.RichTextField;
@@ -38,12 +40,14 @@ const ProfileFeature: FC<ProfileFeatureProps> = async ({ slice }) => {
   const socialLinks = showSocialLinks
     ? await getGlobalNavSocialLinks()
     : [];
+  const sectionId = getSectionAnchorId(slice.primary.section_id);
 
   return (
     <section
-      className="bg-rose-white py-16 text-night sm:py-20 lg:py-24"
+      className="bg-rose-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <SectionIntro

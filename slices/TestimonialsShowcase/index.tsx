@@ -11,11 +11,12 @@ import {
   renderSectionSubtext,
   renderSectionTitle,
 } from "@/lib/prismic-rich-text";
-import { cn } from "@/lib/utils";
+import { cn, getSectionAnchorId } from "@/lib/utils";
 
 type TestimonialsShowcaseSlice = {
   id: string;
   primary: {
+    section_id: prismic.KeyTextField;
     label: prismic.KeyTextField;
     title: prismic.RichTextField;
     subtext: prismic.RichTextField;
@@ -36,6 +37,7 @@ export type TestimonialsShowcaseProps =
   SliceComponentProps<TestimonialsShowcaseSlice>;
 
 const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
+  const sectionId = getSectionAnchorId(slice.primary.section_id);
   const testimonials = slice.items.filter(
     (item) =>
       prismic.isFilled.linkToMedia(item.media) ||
@@ -46,9 +48,10 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
   return (
     <section
-      className="bg-rose-white py-16 text-night sm:py-20 lg:py-24"
+      className="bg-rose-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <SectionIntro

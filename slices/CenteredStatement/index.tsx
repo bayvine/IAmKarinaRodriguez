@@ -6,11 +6,12 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
-import { cn } from "@/lib/utils";
+import { cn, getSectionAnchorId } from "@/lib/utils";
 
 type CenteredStatementSlice = {
   id: string;
   primary: {
+    section_id: prismic.KeyTextField;
     theme?: prismic.SelectField<"dark" | "light">;
     label: prismic.KeyTextField;
     title: prismic.RichTextField;
@@ -136,11 +137,12 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
   const theme = slice.primary.theme === "light" ? "light" : "dark";
   const hasBackgroundImage = prismic.isFilled.image(slice.primary.background_image);
   const tone = hasBackgroundImage ? "dark" : theme;
+  const sectionId = getSectionAnchorId(slice.primary.section_id);
 
   return (
     <section
       className={cn(
-        "relative isolate overflow-hidden py-20 sm:py-24 lg:py-32",
+        "relative isolate overflow-hidden py-20 scroll-mt-24 sm:scroll-mt-28 sm:py-24 lg:scroll-mt-32 lg:py-32",
         hasBackgroundImage
           ? "bg-night"
           : theme === "light"
@@ -149,6 +151,7 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
       )}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       {hasBackgroundImage ? (
         <>

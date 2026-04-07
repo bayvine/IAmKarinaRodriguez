@@ -9,6 +9,7 @@ import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
 import { ChecklistItem } from "@/components/slices/checklist-feature/checklist-item";
 import { renderSectionTitle } from "@/lib/prismic-rich-text";
+import { getSectionAnchorId } from "@/lib/utils";
 
 export type ChecklistFeatureProps =
   SliceComponentProps<Content.ChecklistFeatureSlice>;
@@ -17,12 +18,16 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
   const filledItems = slice.items.filter((item) =>
     prismic.isFilled.richText(item.item_text),
   );
+  const sectionId = getSectionAnchorId(
+    (slice.primary as { section_id?: prismic.KeyTextField }).section_id,
+  );
 
   return (
     <section
-      className="bg-rose-white py-16 text-night sm:py-24 lg:py-28"
+      className="bg-rose-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 lg:scroll-mt-32 sm:py-24 lg:py-28"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={sectionId}
     >
       <Section>
         <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between">
