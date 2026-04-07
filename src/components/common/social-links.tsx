@@ -61,7 +61,7 @@ export function SocialLinks({
             <PrismicNextLink
               aria-label={item.platform}
               className={cn(
-                "flex h-9 w-9 items-center justify-center rounded-full transition duration-200",
+                "flex h-12 w-12 items-center justify-center rounded-full transition duration-200",
                 tone === "dark"
                   ? "bg-pure-white hover:bg-rose-white"
                   : "bg-night hover:bg-accent-bordeaux",
@@ -74,7 +74,7 @@ export function SocialLinks({
                     tone === "dark" ? iconColorMap[item.platform] : "text-rose-white",
                   )}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-6 w-6" />
                 </span>
               </PrismicNextLink>
             </li>
