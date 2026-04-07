@@ -73,18 +73,22 @@
           "allowTargetBlank": true
         }
       },
-      "email_address": {
-        "type": "Text",
+      "show_email": {
+        "type": "Boolean",
         "config": {
-          "label": "Email Address",
-          "placeholder": "hello@example.com"
+          "label": "Show Email",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
         }
       },
-      "phone_number": {
-        "type": "Text",
+      "show_phone": {
+        "type": "Boolean",
         "config": {
-          "label": "Phone Number",
-          "placeholder": "(123) 456-7890"
+          "label": "Show Phone",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
         }
       },
       "testimonials": {

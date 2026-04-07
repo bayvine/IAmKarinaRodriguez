@@ -63,7 +63,11 @@ Use `npx next build --webpack` for reliable production validation in this repo. 
 Important:
 - global email and phone live in `global_nav`
 - reuse those values throughout the site as the default contact source
-- page-specific contact fields should only override them when intentionally needed
+- do not duplicate email/phone text fields in page models when a page only needs visibility control
+- pages such as `contact_page` should use booleans like `show_email` / `show_phone` instead
+- footer contact links should also come from `global_nav`
+- `global_footer` should use visibility booleans like `footer_show_contact_page`, `footer_show_discovery_call`, `footer_show_email`, and `footer_show_phone`
+- if footer needs more contact entries beyond those shared items, use `footer_contact_extra_links`
 
 ### Shared rendering helpers
 

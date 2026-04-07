@@ -16,8 +16,12 @@ type GlobalFooterFieldsLike = {
   footer_cta_image?: prismic.ImageField;
   footer_logo?: prismic.ImageField;
   footer_contact_heading?: prismic.KeyTextField;
+  footer_show_discovery_call?: boolean;
+  footer_show_contact_page?: boolean;
+  footer_show_email?: boolean;
+  footer_show_phone?: boolean;
+  footer_contact_extra_links?: GlobalFooterLinkGroupItem[];
   footer_quick_links_heading?: prismic.KeyTextField;
-  footer_contact_items?: GlobalFooterLinkGroupItem[];
   footer_quick_links?: GlobalFooterLinkGroupItem[];
   footer_copyright_text?: prismic.KeyTextField;
 };
@@ -75,12 +79,28 @@ export async function getGlobalFooterData() {
     logo: footerData?.footer_logo ?? legacyData?.footer_logo,
     contactHeading:
       footerData?.footer_contact_heading ?? legacyData?.footer_contact_heading ?? null,
+    showDiscoveryCall:
+      footerData?.footer_show_discovery_call ??
+      legacyData?.footer_show_discovery_call ??
+      true,
+    showContactPage:
+      footerData?.footer_show_contact_page ??
+      legacyData?.footer_show_contact_page ??
+      true,
+    showEmail:
+      footerData?.footer_show_email ??
+      legacyData?.footer_show_email ??
+      true,
+    showPhone:
+      footerData?.footer_show_phone ??
+      legacyData?.footer_show_phone ??
+      true,
     quickLinksHeading:
       footerData?.footer_quick_links_heading ??
       legacyData?.footer_quick_links_heading ??
       null,
-    contactItems: normalizeLinkGroupItems(
-      footerData?.footer_contact_items ?? legacyData?.footer_contact_items,
+    contactExtraLinks: normalizeLinkGroupItems(
+      footerData?.footer_contact_extra_links ?? legacyData?.footer_contact_extra_links,
     ),
     quickLinks: normalizeLinkGroupItems(
       footerData?.footer_quick_links ?? legacyData?.footer_quick_links,

@@ -57,17 +57,53 @@
           "placeholder": "Contact me"
         }
       },
-      "footer_contact_items": {
+      "footer_show_discovery_call": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Discovery Call",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
+        }
+      },
+      "footer_show_contact_page": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Contact Page Link",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
+        }
+      },
+      "footer_show_email": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Email",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
+        }
+      },
+      "footer_show_phone": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Phone",
+          "default_value": true,
+          "false_label": "Hide",
+          "true_label": "Show"
+        }
+      },
+      "footer_contact_extra_links": {
         "type": "Group",
         "config": {
-          "label": "Footer Contact Items",
+          "label": "Footer Contact Extra Links",
           "repeat": true,
           "fields": {
             "label": {
               "type": "Text",
               "config": {
                 "label": "Label",
-                "placeholder": "Email@email.com"
+                "placeholder": "Directions"
               }
             },
             "link": {

@@ -28,8 +28,8 @@ type ContactPageDocument = {
     success_message?: prismic.KeyTextField;
     book_call_label?: prismic.KeyTextField;
     book_call_link?: prismic.LinkField;
-    email_address?: prismic.KeyTextField;
-    phone_number?: prismic.KeyTextField;
+    show_email?: boolean;
+    show_phone?: boolean;
     meta_title?: prismic.KeyTextField;
     meta_description?: prismic.KeyTextField;
     meta_image?: prismic.ImageField;
@@ -89,12 +89,8 @@ export default async function ContactPage() {
   const hasTitle = prismic.isFilled.richText(page.data.title);
   const hasIntro = prismic.isFilled.richText(page.data.intro);
   const titleText = hasTitle ? prismic.asText(page.data.title ?? []).trim() : "";
-  const emailAddress = prismic.isFilled.keyText(page.data.email_address)
-    ? page.data.email_address.trim()
-    : globalContact.email;
-  const phoneNumber = prismic.isFilled.keyText(page.data.phone_number)
-    ? page.data.phone_number.trim()
-    : globalContact.phone;
+  const emailAddress = page.data.show_email !== false ? globalContact.email : null;
+  const phoneNumber = page.data.show_phone !== false ? globalContact.phone : null;
   const emailLink: prismic.LinkField | null =
     emailAddress === globalContact.email && globalContact.emailLink
       ? globalContact.emailLink

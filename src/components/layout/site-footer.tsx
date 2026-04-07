@@ -10,7 +10,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import { HeroCtaButton } from "@/components/slices/hero/hero-action-link";
 import { getGlobalFooterData } from "@/lib/global-footer";
-import { getGlobalNavContactDetails, getGlobalNavSocialLinks } from "@/lib/global-nav";
+import {
+  getGlobalNavContactDetails,
+  getGlobalNavHeaderData,
+  getGlobalNavSocialLinks,
+} from "@/lib/global-nav";
 import { siteConfig } from "@/lib/site-config";
 
 function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
@@ -39,54 +43,62 @@ function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
 }
 
 export async function SiteFooter() {
-  const [footer, socialLinks, globalContact] = await Promise.all([
+  const [footer, socialLinks, globalContact, headerData] = await Promise.all([
     getGlobalFooterData(),
     getGlobalNavSocialLinks(),
     getGlobalNavContactDetails(),
+    getGlobalNavHeaderData(),
   ]);
   const currentYear = new Date().getFullYear();
-  const contactItems = [...footer.contactItems];
-  const emailUrl =
-    globalContact.emailLink && "url" in globalContact.emailLink
-      ? globalContact.emailLink.url
-      : null;
-  const phoneUrl =
-    globalContact.phoneLink && "url" in globalContact.phoneLink
-      ? globalContact.phoneLink.url
-      : null;
+  const contactItems: Array<{ label: string; link: prismic.LinkField }> = [];
 
-  if (
-    globalContact.email &&
-    emailUrl &&
-    !contactItems.some(
-      (item) =>
-        prismic.isFilled.link(item.link) &&
-        item.link.link_type === "Web" &&
-        "url" in item.link &&
-        item.link.url === emailUrl,
-    )
-  ) {
+  if (footer.showContactPage) {
     contactItems.push({
-      label: globalContact.email,
-      link: globalContact.emailLink as prismic.LinkField,
+      label: "Contact Page",
+      link: {
+        link_type: "Web",
+        url: "/contact",
+      } as prismic.LinkField,
     });
   }
 
   if (
+    footer.showDiscoveryCall &&
+    prismic.isFilled.keyText(headerData.ctaLabel) &&
+    prismic.isFilled.link(headerData.ctaLink)
+  ) {
+    contactItems.push({
+      label: headerData.ctaLabel,
+      link: headerData.ctaLink,
+    });
+  }
+
+  if (
+    footer.showEmail &&
+    globalContact.email &&
+    globalContact.emailLink &&
+    prismic.isFilled.link(globalContact.emailLink)
+  ) {
+    contactItems.push({
+      label: globalContact.email,
+      link: globalContact.emailLink,
+    });
+  }
+
+  if (
+    footer.showPhone &&
     globalContact.phone &&
-    phoneUrl &&
-    !contactItems.some(
-      (item) =>
-        prismic.isFilled.link(item.link) &&
-        item.link.link_type === "Web" &&
-        "url" in item.link &&
-        item.link.url === phoneUrl,
-    )
+    globalContact.phoneLink &&
+    prismic.isFilled.link(globalContact.phoneLink)
   ) {
     contactItems.push({
       label: globalContact.phone,
-      link: globalContact.phoneLink as prismic.LinkField,
+      link: globalContact.phoneLink,
     });
+  }
+
+  for (const item of footer.contactExtraLinks) {
+    contactItems.push(item);
   }
 
   const hasContactItems = contactItems.length > 0;
