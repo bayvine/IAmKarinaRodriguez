@@ -43,6 +43,9 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
     tone === "dark"
       ? "font-display text-5xl text-rose-white sm:text-6xl lg:text-7xl"
       : "font-display text-5xl text-night sm:text-6xl lg:text-7xl";
+  const headingClassName = "mx-auto max-w-[30ch] text-center";
+  const compactHeadingClassName = "mx-auto max-w-[16ch] text-center";
+  const headingStyle = { lineHeight: 0.94, textWrap: "balance" as const };
 
   return (
     <PrismicRichText
@@ -51,10 +54,10 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h1"
-            className={cn("mx-auto w-fit text-center", textClassName)}
+            className={cn(headingClassName, textClassName)}
             delay={0.16}
             revealMode="inView"
-            style={{ lineHeight: 0.94 }}
+            style={headingStyle}
           >
             {children}
           </StaggeredTextReveal>
@@ -63,10 +66,10 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h2"
-            className={cn("mx-auto w-fit text-center", textClassName)}
+            className={cn(headingClassName, textClassName)}
             delay={0.16}
             revealMode="inView"
-            style={{ lineHeight: 0.94 }}
+            style={headingStyle}
           >
             {children}
           </StaggeredTextReveal>
@@ -75,10 +78,10 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h3"
-            className={cn("mx-auto w-fit text-center", textClassName)}
+            className={cn(compactHeadingClassName, textClassName)}
             delay={0.16}
             revealMode="inView"
-            style={{ lineHeight: 0.94 }}
+            style={headingStyle}
           >
             {children}
           </StaggeredTextReveal>
@@ -87,10 +90,10 @@ function renderCenteredTitle(field: prismic.RichTextField, tone: "light" | "dark
           <StaggeredTextReveal
             amount={0.45}
             as="h4"
-            className={cn("mx-auto w-fit text-center", textClassName)}
+            className={cn(compactHeadingClassName, textClassName)}
             delay={0.16}
             revealMode="inView"
-            style={{ lineHeight: 0.94 }}
+            style={headingStyle}
           >
             {children}
           </StaggeredTextReveal>

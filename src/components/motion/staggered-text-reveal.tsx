@@ -64,6 +64,10 @@ export function StaggeredTextReveal({
   const readyRef = useRef(false);
   const animatedRef = useRef(false);
   const text = flattenText(children).trim();
+  const mergedStyle: CSSProperties = {
+    textWrap: "balance",
+    ...style,
+  };
 
   useEffect(() => {
     animateRef.current = animate;
@@ -202,7 +206,7 @@ export function StaggeredTextReveal({
     {
       ref: scope,
       className: cn("opacity-0", className),
-      style,
+      style: mergedStyle,
     },
     children,
   );
