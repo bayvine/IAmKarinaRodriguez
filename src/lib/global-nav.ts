@@ -81,7 +81,7 @@ export function normalizeLinkGroupItems(items: GlobalNavLinkGroupItem[] | undefi
 }
 
 async function getGlobalNavDocument() {
-  const client = createClient({
+  const client = await createClient({
     fetchOptions: {
       cache: "no-store",
     },

@@ -27,7 +27,7 @@ type GlobalFooterDocumentLike = {
 };
 
 async function getGlobalFooterDocument() {
-  const client = createClient({
+  const client = await createClient({
     fetchOptions: {
       cache: "no-store",
     },
@@ -42,7 +42,7 @@ async function getGlobalFooterDocument() {
 }
 
 async function getLegacyGlobalNavDocument() {
-  const client = createClient({
+  const client = await createClient({
     fetchOptions: {
       cache: "no-store",
     },

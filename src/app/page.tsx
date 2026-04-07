@@ -25,7 +25,7 @@ function MissingHomeDocument() {
 }
 
 export default async function HomePage() {
-  const client = createClient();
+  const client = await createClient();
 
   const page = await client.getSingle("home").catch((error: unknown) => {
     if (error instanceof prismic.NotFoundError) {
