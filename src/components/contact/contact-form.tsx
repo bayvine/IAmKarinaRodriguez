@@ -12,6 +12,8 @@ type ContactFormProps = {
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
+const NETLIFY_FORM_ACTION = "/__forms.html";
+
 const initialValues = {
   name: "",
   email: "",
@@ -56,7 +58,7 @@ export function ContactForm({
       const form = event.currentTarget;
       const formData = new FormData(form);
 
-      const response = await fetch("/", {
+      const response = await fetch(NETLIFY_FORM_ACTION, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -88,7 +90,7 @@ export function ContactForm({
   return (
     <div className="mt-8 sm:mt-10">
       <form
-        action="/contact"
+        action={NETLIFY_FORM_ACTION}
         className="space-y-5"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
