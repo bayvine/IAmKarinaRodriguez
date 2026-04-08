@@ -32,7 +32,7 @@ export default async function RootLayout({
 
   return (
     <html
-      className={`${inter.variable} ${gambarino.variable} scroll-smooth`}
+      className={`${inter.variable} ${gambarino.variable}`}
       lang="en"
     >
       <body className="flex min-h-screen flex-col bg-rose-white font-sans text-night antialiased">
