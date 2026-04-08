@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 import { HeroDarkSubmitButton } from "@/components/slices/hero/hero-action-link";
@@ -19,10 +19,6 @@ const initialValues = {
   message: "",
 };
 
-function encode(values: Record<string, string>) {
-  return new URLSearchParams(values).toString();
-}
-
 export function ContactForm({
   submitLabel,
   successMessage,
@@ -30,6 +26,25 @@ export function ContactForm({
   const [values, setValues] = useState(initialValues);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const statusRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (status !== "success" && status !== "error") {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      statusRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+      statusRef.current?.focus();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, [status]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,16 +53,17 @@ export function ContactForm({
     setErrorMessage(null);
 
     try {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
       const response = await fetch("/", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: encode({
-          "form-name": "contact",
-          "bot-field": "",
-          ...values,
-        }),
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [key, String(value)]),
+        ).toString(),
       });
 
       if (!response.ok) {
@@ -72,9 +88,11 @@ export function ContactForm({
   return (
     <div className="mt-8 sm:mt-10">
       <form
+        action="/contact"
         className="space-y-5"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        method="POST"
         name="contact"
         onSubmit={handleSubmit}
       >
@@ -160,16 +178,27 @@ export function ContactForm({
         </div>
       </form>
 
-      <div aria-live="polite" className="mt-4">
+      <div
+        aria-live="polite"
+        className="mt-4"
+        ref={statusRef}
+        tabIndex={-1}
+      >
         {status === "success" ? (
-          <div className="flex items-start gap-3 rounded-lg border border-night/10 bg-night/3 px-4 py-3 text-night">
+          <div
+            className="flex items-start gap-3 rounded-lg border border-night/10 bg-night/3 px-4 py-3 text-night"
+            role="status"
+          >
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent-bordeaux" />
             <p className="font-sans text-sm">{resolvedSuccessMessage}</p>
           </div>
         ) : null}
 
         {status === "error" ? (
-          <div className="flex items-start gap-3 rounded-2xl border border-accent-bordeaux/24 bg-accent-bordeaux/6 px-4 py-3 text-night">
+          <div
+            className="flex items-start gap-3 rounded-2xl border border-accent-bordeaux/24 bg-accent-bordeaux/6 px-4 py-3 text-night"
+            role="alert"
+          >
             <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent-bordeaux" />
             <p className="font-sans text-sm">{errorMessage}</p>
           </div>
