@@ -7,7 +7,7 @@ import * as prismic from "@prismicio/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import { getPrismicMediaKind } from "@/lib/prismic-media";
+import { getPrismicMediaAlt, getPrismicMediaKind } from "@/lib/prismic-media";
 import { cn } from "@/lib/utils";
 
 type ContactShowcaseItem = {
@@ -52,7 +52,7 @@ function ContactShowcaseMedia({
   if (mediaKind === "image") {
     return (
       <img
-        alt={media.text || ""}
+        alt={getPrismicMediaAlt(media)}
         className="absolute inset-0 h-full w-full object-cover"
         height={media.height ? Number(media.height) : undefined}
         src={media.url}

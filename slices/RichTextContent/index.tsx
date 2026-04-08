@@ -124,6 +124,7 @@ const RichTextContent: FC<RichTextContentProps> = ({ slice }) => {
             >
               <div className="relative min-h-[22rem] sm:min-h-[26rem] xl:min-h-[34rem]">
                 <PrismicNextImage
+                  fallbackAlt=""
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}

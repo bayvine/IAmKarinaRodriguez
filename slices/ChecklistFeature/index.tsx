@@ -81,6 +81,7 @@ const ChecklistFeature: FC<ChecklistFeatureProps> = ({ slice }) => {
             >
           
                 <PrismicNextImage
+                  fallbackAlt=""
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}

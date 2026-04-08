@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as prismic from "@prismicio/client";
 
-import { getPrismicMediaKind } from "@/lib/prismic-media";
+import { getPrismicMediaAlt, getPrismicMediaKind } from "@/lib/prismic-media";
 
 type ServiceDetailMediaProps = {
   media: prismic.LinkToMediaField;
@@ -40,7 +40,7 @@ export function ServiceDetailMedia({ media }: ServiceDetailMediaProps) {
     return (
       <div className="relative aspect-[16/11.5] overflow-hidden bg-night sm:aspect-[16/9.5] lg:aspect-[16/7.6]">
         <img
-          alt={media.text || ""}
+          alt={getPrismicMediaAlt(media)}
           className="h-full w-full object-cover"
           height={media.height ? Number(media.height) : undefined}
           src={media.url}
@@ -81,7 +81,7 @@ export function ServiceDetailMedia({ media }: ServiceDetailMediaProps) {
 
         {isMobile && !hasStarted ? (
           <button
-            aria-label={media.text || "Play video"}
+            aria-label={getPrismicMediaAlt(media, "Play video")}
             className="absolute inset-0 z-10 cursor-pointer"
             onClick={handleStart}
             type="button"

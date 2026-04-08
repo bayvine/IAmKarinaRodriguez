@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 import * as prismic from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 
-import { getPrismicMediaKind } from "@/lib/prismic-media";
+import {
+  getPrismicMediaAlt,
+  getPrismicMediaKind,
+} from "@/lib/prismic-media";
 
 type EditorialMediaAssetProps = {
   image?: prismic.ImageField | null;
@@ -34,7 +37,7 @@ export function EditorialMediaAsset({
     if (mediaKind === "image") {
       return (
         <img
-          alt={media.text || ""}
+          alt={getPrismicMediaAlt(media)}
           className="absolute inset-0 h-full w-full object-cover"
           height={media.height ? Number(media.height) : undefined}
           src={media.url}
@@ -64,6 +67,7 @@ export function EditorialMediaAsset({
   if (prismic.isFilled.image(image)) {
     return (
       <PrismicNextImage
+        fallbackAlt=""
         field={image}
         fill
         imgixParams={{ fit: "crop" }}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
+import { getGlobalNavSeoData } from "@/lib/global-nav";
 import { createClient } from "@/prismicio";
 import { buildFaqJsonLdFromSlices, buildPageMetadata } from "@/lib/seo";
 import { components } from "@/slices";
@@ -27,7 +28,10 @@ function MissingHomeDocument() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const client = await createClient();
+  const [client, seoData] = await Promise.all([
+    createClient(),
+    getGlobalNavSeoData(),
+  ]);
 
   const page = await client.getSingle("home").catch((error: unknown) => {
     if (error instanceof prismic.NotFoundError) {
@@ -40,8 +44,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildPageMetadata({
     title: page?.data.meta_title,
     description: page?.data.meta_description,
-    image: page?.data.meta_image,
+    image: page?.data.meta_image ?? seoData.image,
     path: "/",
+    siteName: seoData.siteName,
+    fallbackTitle: seoData.siteName,
+    fallbackDescription: seoData.description,
   });
 }
 

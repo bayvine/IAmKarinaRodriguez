@@ -21,6 +21,31 @@
           "placeholder": "Karina Rodriguez"
         }
       },
+      "seo_site_name": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Site Name",
+          "placeholder": "I Am Karina Rodriguez"
+        }
+      },
+      "seo_default_description": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Default Description",
+          "placeholder": "Executive coaching, leadership development, and resilience support for high-performing leaders in Denver."
+        }
+      },
+      "seo_default_image": {
+        "type": "Image",
+        "config": {
+          "label": "SEO Default Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      },
       "navigation_links": {
         "type": "Group",
         "config": {

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import * as prismic from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -34,10 +35,12 @@ function BrandLockup({
   if (prismic.isFilled.image(logo)) {
     return (
       <div className="relative h-10 w-10 ">
-        <PrismicNextImage
-          field={logo}
-          fill
+        <Image
+          alt={logo.alt ?? brandName}
           className="object-contain object-left"
+          fill
+          sizes="40px"
+          src={logo.url}
         />
       </div>
     );

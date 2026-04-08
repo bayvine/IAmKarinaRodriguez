@@ -68,6 +68,11 @@ Important:
 - footer contact links should also come from `global_nav`
 - `global_footer` should use visibility booleans like `footer_show_contact_page`, `footer_show_discovery_call`, `footer_show_email`, and `footer_show_phone`
 - if footer needs more contact entries beyond those shared items, use `footer_contact_extra_links`
+- site-wide SEO defaults now live in `global_nav`
+- use `seo_site_name`, `seo_default_description`, and `seo_default_image` there for root metadata, JSON-LD, and manifest defaults
+- page-level SEO still belongs on the actual document types (`home`, `page`, `contact_page`) via `meta_title`, `meta_description`, and `meta_image`
+- `src/lib/site-config.ts` is now only a last-resort fallback for site identity, not a content source
+- do not put final nav labels, CTA copy, or editable marketing copy back into `site-config`
 
 ### Shared rendering helpers
 

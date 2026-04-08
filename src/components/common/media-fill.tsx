@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import * as prismic from "@prismicio/client";
 
 import { cn } from "@/lib/utils";
-import { getPrismicMediaKind } from "@/lib/prismic-media";
+import { getPrismicMediaAlt, getPrismicMediaKind } from "@/lib/prismic-media";
 
 type MediaFillProps = {
   media: prismic.LinkToMediaField;
@@ -54,7 +54,7 @@ export function MediaFill({ media, className }: MediaFillProps) {
   if (mediaKind === "image") {
     return (
       <img
-        alt={media.text || ""}
+        alt={getPrismicMediaAlt(media)}
         className={cn("h-full w-full object-cover", className)}
         fetchPriority="high"
         height={media.height ? Number(media.height) : undefined}

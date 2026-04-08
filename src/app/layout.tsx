@@ -3,20 +3,32 @@ import { PrismicPreview } from "@prismicio/next";
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { repositoryName } from "@/prismicio";
+import { getGlobalNavSeoData } from "@/lib/global-nav";
 import { buildOrganizationJsonLd, buildRootMetadata } from "@/lib/seo";
+import { repositoryName } from "@/prismicio";
 
 import { gambarino, inter } from "./fonts";
 import "./globals.css";
 
-export const metadata: Metadata = buildRootMetadata();
+export async function generateMetadata(): Promise<Metadata> {
+  const seoData = await getGlobalNavSeoData();
 
-export default function RootLayout({
+  return buildRootMetadata({
+    siteName: seoData.siteName,
+    description: seoData.description,
+  });
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationJsonLd = buildOrganizationJsonLd();
+  const seoData = await getGlobalNavSeoData();
+  const organizationJsonLd = buildOrganizationJsonLd({
+    siteName: seoData.siteName,
+    description: seoData.description,
+  });
 
   return (
     <html

@@ -182,6 +182,7 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
       {hasBackgroundImage ? (
         <>
           <PrismicNextImage
+            alt=""
             field={slice.primary.background_image}
             fill
             imgixParams={{ fit: "crop" }}

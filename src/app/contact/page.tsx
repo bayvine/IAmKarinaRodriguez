@@ -12,6 +12,7 @@ import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
 import {
   getGlobalNavContactDetails,
   getGlobalNavHeaderData,
+  getGlobalNavSeoData,
   getGlobalNavSocialLinks,
 } from "@/lib/global-nav";
 import { buildContactPageJsonLd, buildPageMetadata } from "@/lib/seo";
@@ -60,7 +61,10 @@ async function getContactPage() {
 }
 
 export async function generateMetadata() {
-  const page = await getContactPage();
+  const [page, seoData] = await Promise.all([
+    getContactPage(),
+    getGlobalNavSeoData(),
+  ]);
 
   return buildPageMetadata({
     title:
@@ -68,8 +72,11 @@ export async function generateMetadata() {
       page?.data?.page_title ||
       "Contact Karina Rodriguez",
     description: page?.data?.meta_description,
-    image: page?.data?.meta_image,
+    image: page?.data?.meta_image ?? seoData.image,
     path: "/contact",
+    siteName: seoData.siteName,
+    fallbackTitle: "Contact Karina Rodriguez",
+    fallbackDescription: seoData.description,
   });
 }
 

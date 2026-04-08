@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as prismic from "@prismicio/client";
 
+import { getPrismicImageAlt } from "@/lib/prismic-media";
 import { cn } from "@/lib/utils";
 
 type StackedAvatarListProps = {
@@ -29,7 +30,7 @@ export function StackedAvatarList({
           key={`${image.url}-${index}`}
         >
           <img
-            alt={image.alt ?? ""}
+            alt={getPrismicImageAlt(image)}
             className="h-full w-full object-cover"
             height={image.dimensions?.height ?? 96}
             src={image.url}

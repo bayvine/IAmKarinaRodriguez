@@ -1,7 +1,7 @@
 import * as prismic from "@prismicio/client";
 
 import { siteConfig } from "@/lib/site-config";
-import { createClient } from "@/prismicio";
+import { createClient, linkResolver } from "@/prismicio";
 
 export type SocialPlatform =
   | "instagram"
@@ -25,6 +25,9 @@ type GlobalNavDocumentLike = {
   data?: {
     header_logo?: prismic.ImageField;
     header_brand_name?: prismic.KeyTextField;
+    seo_site_name?: prismic.KeyTextField;
+    seo_default_description?: prismic.KeyTextField;
+    seo_default_image?: prismic.ImageField;
     navigation_links?: GlobalNavLinkGroupItem[];
     primary_cta_label?: prismic.KeyTextField;
     primary_cta_link?: prismic.LinkField;
@@ -39,6 +42,45 @@ type GlobalNavDocumentLike = {
     x_link?: prismic.LinkField;
   };
 };
+
+const FALLBACK_NAVIGATION_LINKS = [
+  {
+    label: "About",
+    link: {
+      link_type: "Web",
+      url: "#about",
+    } as prismic.LinkField,
+  },
+  {
+    label: "Services",
+    link: {
+      link_type: "Web",
+      url: "#services",
+    } as prismic.LinkField,
+  },
+  {
+    label: "Workshops",
+    link: {
+      link_type: "Web",
+      url: "#workshops",
+    } as prismic.LinkField,
+  },
+  {
+    label: "Testimonials",
+    link: {
+      link_type: "Web",
+      url: "#testimonials",
+    } as prismic.LinkField,
+  },
+] as const;
+
+const FALLBACK_PRIMARY_CTA = {
+  label: "Free Discovery Call",
+  link: {
+    link_type: "Web",
+    url: "#contact",
+  } as prismic.LinkField,
+} as const;
 
 function getTrimmedKeyText(value: prismic.KeyTextField | undefined) {
   if (!prismic.isFilled.keyText(value)) {
@@ -73,6 +115,15 @@ export function normalizePrismicLink(
 
   if (prismic.isFilled.link(link)) {
     return link;
+  }
+
+  const resolvedUrl = prismic.asLink(link, { linkResolver });
+
+  if (resolvedUrl) {
+    return {
+      link_type: "Web",
+      url: resolvedUrl,
+    } as prismic.LinkField;
   }
 
   if (link.link_type === "Any" && typeof link.text === "string" && link.text) {
@@ -185,22 +236,33 @@ export async function getGlobalNavHeaderData() {
       : "Karina Rodriguez",
     navigationLinks: navigationLinks.length
       ? navigationLinks
-      : siteConfig.nav.map((item) => ({
-          label: item.label,
-          link: {
-            link_type: "Web",
-            url: item.href,
-          } as prismic.LinkField,
-        })),
+      : [...FALLBACK_NAVIGATION_LINKS],
     ctaLabel: prismic.isFilled.keyText(document?.data?.primary_cta_label)
       ? document.data.primary_cta_label
-      : siteConfig.primaryCta.label,
+      : FALLBACK_PRIMARY_CTA.label,
     ctaLink:
       normalizePrismicLink(document?.data?.primary_cta_link) ??
-      ({
-        link_type: "Web",
-        url: siteConfig.primaryCta.href,
-      } as prismic.LinkField),
+      FALLBACK_PRIMARY_CTA.link,
+  };
+}
+
+export async function getGlobalNavSeoData() {
+  const document = await getGlobalNavDocument();
+  const siteName =
+    getTrimmedKeyText(document?.data?.seo_site_name) ??
+    getTrimmedKeyText(document?.data?.header_brand_name) ??
+    siteConfig.name;
+  const description =
+    getTrimmedKeyText(document?.data?.seo_default_description) ??
+    siteConfig.description;
+  const image = prismic.isFilled.image(document?.data?.seo_default_image)
+    ? document.data.seo_default_image
+    : null;
+
+  return {
+    siteName,
+    description,
+    image,
   };
 }
 

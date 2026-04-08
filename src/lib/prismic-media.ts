@@ -5,6 +5,28 @@ const IMAGE_EXTENSIONS = /\.(avif|gif|heic|jpeg|jpg|png|svg|webp)$/i;
 
 export type PrismicMediaKind = "video" | "image" | "unknown";
 
+export function getPrismicMediaAlt(
+  field: prismic.LinkToMediaField | null | undefined,
+  fallback = "",
+) {
+  if (!prismic.isFilled.linkToMedia(field)) {
+    return fallback;
+  }
+
+  return field.text ?? fallback;
+}
+
+export function getPrismicImageAlt(
+  field: prismic.ImageField | null | undefined,
+  fallback = "",
+) {
+  if (!prismic.isFilled.image(field)) {
+    return fallback;
+  }
+
+  return field.alt ?? fallback;
+}
+
 export function getPrismicMediaKind(
   field: prismic.FilledLinkToMediaField,
 ): PrismicMediaKind {

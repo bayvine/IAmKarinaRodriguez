@@ -100,6 +100,7 @@ const ProfileFeature: FC<ProfileFeatureProps> = async ({ slice }) => {
             <div className="relative overflow-hidden">
               <div className="relative min-h-[34rem] overflow-hidden sm:min-h-[38rem] lg:min-h-0 lg:aspect-[16/8] xl:aspect-[2.75/1]">
                 <PrismicNextImage
+                  fallbackAlt=""
                   field={slice.primary.image}
                   fill
                   imgixParams={{ fit: "crop" }}

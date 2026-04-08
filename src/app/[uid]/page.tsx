@@ -3,9 +3,9 @@ import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { notFound } from "next/navigation";
 
+import { getGlobalNavSeoData } from "@/lib/global-nav";
 import { createClient } from "@/prismicio";
 import { buildFaqJsonLdFromSlices, buildPageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
 import { components } from "@/slices";
 
 type PageRouteProps = {
@@ -59,13 +59,19 @@ export async function generateMetadata({
   params,
 }: PageRouteProps): Promise<Metadata> {
   const { uid } = await params;
-  const page = await getPage(uid);
+  const [page, seoData] = await Promise.all([
+    getPage(uid),
+    getGlobalNavSeoData(),
+  ]);
 
   if (!page) {
     return buildPageMetadata({
-      title: siteConfig.name,
+      title: seoData.siteName,
       path: `/${uid}`,
       noIndex: true,
+      siteName: seoData.siteName,
+      fallbackTitle: seoData.siteName,
+      fallbackDescription: seoData.description,
     });
   }
 
@@ -73,10 +79,13 @@ export async function generateMetadata({
     title:
       page.data.meta_title ||
       page.data.page_title ||
-      siteConfig.name,
+      seoData.siteName,
     description: page.data.meta_description,
-    image: page.data.meta_image,
+    image: page.data.meta_image ?? seoData.image,
     path: `/${uid}`,
+    siteName: seoData.siteName,
+    fallbackTitle: seoData.siteName,
+    fallbackDescription: seoData.description,
   });
 }
 

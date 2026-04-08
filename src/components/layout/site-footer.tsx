@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -29,10 +30,12 @@ function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
   if (prismic.isFilled.image(logo)) {
     return (
       <div className="relative h-8 w-8 ">
-        <PrismicNextImage
-          field={logo}
-          fill
+        <Image
+          alt={logo.alt ?? siteConfig.name}
           className="object-contain object-left"
+          fill
+          sizes="32px"
+          src={logo.url}
         />
       </div>
     );
@@ -136,6 +139,7 @@ export async function SiteFooter() {
             <MediaFill className="absolute inset-0" media={footer.ctaMedia} />
           ) : prismic.isFilled.image(footer.ctaImage) ? (
             <PrismicNextImage
+              alt=""
               field={footer.ctaImage}
               fill
               className="object-cover"

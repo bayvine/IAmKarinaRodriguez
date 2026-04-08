@@ -30,6 +30,7 @@ export function ImageStatisticsCard({
   return (
     <div className="relative aspect-[16/11.75] overflow-hidden bg-night shadow-[0_42px_120px_-70px_rgba(26,24,24,0.45)] sm:aspect-[16/8] lg:aspect-[16/6]">
       <PrismicNextImage
+        fallbackAlt=""
         field={image}
         fill
         imgixParams={{ fit: "crop" }}

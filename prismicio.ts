@@ -9,6 +9,8 @@ export const repositoryName =
 
 const routes: prismic.ClientConfig["routes"] = [
   { type: "home", path: "/" },
+  { type: "contact_page", path: "/contact" },
+  { type: "page", path: "/:uid" },
 ];
 
 export const linkResolver: prismic.LinkResolverFunction = (doc) => {
@@ -24,7 +26,7 @@ export const linkResolver: prismic.LinkResolverFunction = (doc) => {
     return `/${doc.uid}`;
   }
 
-  return "/";
+  return null;
 };
 
 async function getDraftModeEnabled() {

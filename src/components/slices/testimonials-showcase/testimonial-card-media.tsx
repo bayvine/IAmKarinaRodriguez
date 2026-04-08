@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import * as prismic from "@prismicio/client";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 
-import { getPrismicMediaKind } from "@/lib/prismic-media";
+import { getPrismicMediaAlt, getPrismicMediaKind } from "@/lib/prismic-media";
 
 type TestimonialCardMediaProps = {
   media: prismic.LinkToMediaField;
@@ -39,7 +39,7 @@ export function TestimonialCardMedia({
   if (mediaKind === "image") {
     return (
       <img
-        alt={media.text || ""}
+        alt={getPrismicMediaAlt(media)}
         className="absolute inset-0 h-full w-full object-cover"
         height={media.height ? Number(media.height) : undefined}
         src={media.url}
@@ -114,7 +114,7 @@ export function TestimonialCardMedia({
 
         {!hasStarted ? (
           <button
-            aria-label={media.text || "Play testimonial video"}
+            aria-label={getPrismicMediaAlt(media, "Play testimonial video")}
             className="group absolute inset-0 z-10 flex items-center justify-center"
             onClick={startPlayback}
             type="button"

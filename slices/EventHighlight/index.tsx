@@ -54,6 +54,7 @@ const EventHighlight: FC<EventHighlightProps> = ({ slice }) => {
         <div className="relative isolate overflow-hidden bg-night">
           {prismic.isFilled.image(slice.primary.background_image) ? (
             <PrismicNextImage
+              alt=""
               field={slice.primary.background_image}
               fill
               imgixParams={{ fit: "crop" }}

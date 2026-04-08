@@ -9,6 +9,19 @@ type BuildPageMetadataOptions = {
   path?: string;
   image?: prismic.ImageField | null;
   noIndex?: boolean;
+  siteName?: string | null;
+  fallbackTitle?: string | null;
+  fallbackDescription?: string | null;
+};
+
+type BuildRootMetadataOptions = {
+  siteName?: string | null;
+  description?: string | null;
+};
+
+type BuildOrganizationJsonLdOptions = {
+  siteName?: string | null;
+  description?: string | null;
 };
 
 function trimTrailingSlash(value: string) {
@@ -58,9 +71,17 @@ export function buildPageMetadata({
   path = "/",
   image,
   noIndex = false,
+  siteName,
+  fallbackTitle,
+  fallbackDescription,
 }: BuildPageMetadataOptions): Metadata {
-  const resolvedTitle = title?.trim() || siteConfig.name;
-  const resolvedDescription = description?.trim() || siteConfig.description;
+  const resolvedSiteName = siteName?.trim() || siteConfig.name;
+  const resolvedTitle =
+    title?.trim() || fallbackTitle?.trim() || resolvedSiteName;
+  const resolvedDescription =
+    description?.trim() ||
+    fallbackDescription?.trim() ||
+    siteConfig.description;
   const canonicalPath = getCanonicalPath(path);
   const socialImages = getSocialImages(image);
 
@@ -95,7 +116,7 @@ export function buildPageMetadata({
       url: canonicalPath,
       title: resolvedTitle,
       description: resolvedDescription,
-      siteName: siteConfig.name,
+      siteName: resolvedSiteName,
       locale: "en_US",
       images: socialImages,
     },
@@ -108,21 +129,27 @@ export function buildPageMetadata({
   };
 }
 
-export function buildRootMetadata(): Metadata {
+export function buildRootMetadata({
+  siteName,
+  description,
+}: BuildRootMetadataOptions = {}): Metadata {
+  const resolvedSiteName = siteName?.trim() || siteConfig.name;
+  const resolvedDescription = description?.trim() || siteConfig.description;
+
   return {
     metadataBase: getMetadataBase(),
-    applicationName: siteConfig.name,
+    applicationName: resolvedSiteName,
     title: {
-      default: siteConfig.name,
-      template: `%s | ${siteConfig.name}`,
+      default: resolvedSiteName,
+      template: `%s | ${resolvedSiteName}`,
     },
-    description: siteConfig.description,
+    description: resolvedDescription,
     alternates: {
       canonical: "/",
     },
-    authors: [{ name: siteConfig.name }],
-    creator: siteConfig.name,
-    publisher: siteConfig.name,
+    authors: [{ name: resolvedSiteName }],
+    creator: resolvedSiteName,
+    publisher: resolvedSiteName,
     icons: {
       icon: [
         { url: "/favicon.ico" },
@@ -132,18 +159,28 @@ export function buildRootMetadata(): Metadata {
       apple: [{ url: "/apple-touch-icon.png" }],
       shortcut: ["/favicon.ico"],
     },
-    manifest: "/site.webmanifest",
+    manifest: "/manifest.webmanifest",
     verification: process.env.GOOGLE_SITE_VERIFICATION
       ? {
           google: process.env.GOOGLE_SITE_VERIFICATION,
         }
       : undefined,
-    ...buildPageMetadata({}),
+    ...buildPageMetadata({
+      description: resolvedDescription,
+      siteName: resolvedSiteName,
+      fallbackTitle: resolvedSiteName,
+      fallbackDescription: resolvedDescription,
+    }),
   };
 }
 
-export function buildOrganizationJsonLd() {
+export function buildOrganizationJsonLd({
+  siteName,
+  description,
+}: BuildOrganizationJsonLdOptions = {}) {
   const siteUrl = getSiteUrl();
+  const resolvedSiteName = siteName?.trim() || siteConfig.name;
+  const resolvedDescription = description?.trim() || siteConfig.description;
 
   return {
     "@context": "https://schema.org",
@@ -152,22 +189,22 @@ export function buildOrganizationJsonLd() {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
-        name: siteConfig.name,
-        description: siteConfig.description,
+        name: resolvedSiteName,
+        description: resolvedDescription,
       },
       {
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
         name: "Karina Rodriguez",
         url: siteUrl,
-        jobTitle: "Coach",
+        jobTitle: "Executive Coach",
       },
       {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#business`,
-        name: siteConfig.name,
+        name: resolvedSiteName,
         url: siteUrl,
-        description: siteConfig.description,
+        description: resolvedDescription,
       },
     ],
   };
