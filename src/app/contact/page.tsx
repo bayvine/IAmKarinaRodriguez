@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { SocialLinks } from "@/components/common/social-links";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactShowcase } from "@/components/contact/contact-showcase";
-import { FooterTextLink, footerLinkItemClassName } from "@/components/layout/footer-link-column";
+import { FooterTextLink } from "@/components/layout/footer-link-column";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggeredTextReveal } from "@/components/motion/staggered-text-reveal";
@@ -132,10 +132,8 @@ export default async function ContactPage() {
     name: item.person_name ?? null,
     role: item.person_role ?? null,
   }));
-  const contactLinkClassName = cn(
-    footerLinkItemClassName,
-    "text-rose-white after:bg-rose-white hover:text-pure-white focus-visible:text-pure-white",
-  );
+  const contactLinkClassName =
+    "relative inline-flex max-w-full cursor-pointer items-center gap-2 py-1.5 font-sans text-base text-rose-white/82 transition duration-200 hover:text-pure-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-rose-white after:transition after:duration-300 after:ease-out hover:after:scale-x-100 focus-visible:text-pure-white focus-visible:after:scale-x-100";
   const infoLabelClassName =
     "font-sans text-xs text-rose-white/54";
 
@@ -225,9 +223,9 @@ export default async function ContactPage() {
             <ContactShowcase
               footer={
                 contactLinks.length || socialLinks.length ? (
-                  <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+                  <div className="grid gap-6 sm:grid-cols-[minmax(0,26rem)_auto] sm:items-start sm:gap-8">
                     {contactLinks.length ? (
-                      <div>
+                      <div className="w-full max-w-fit">
                         <p className={infoLabelClassName}>Other Contact Options</p>
                         <ul className="mt-3 flex flex-col items-start gap-2.5">
                           {contactLinks.map((item) => (

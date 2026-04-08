@@ -142,7 +142,7 @@ export function ContactShowcase({
   }
 
   return (
-    <div className="relative min-h-[30rem] flex-none overflow-hidden bg-night sm:min-h-[36rem] lg:h-full lg:min-h-full">
+    <div className="relative min-h-[30rem] pt-50 lg:pt-0 flex-none overflow-hidden bg-night sm:min-h-[36rem] lg:h-full lg:min-h-full">
       <AnimatePresence mode="wait">
         <motion.div
           animate={{ opacity: 1, scale: 1 }}
@@ -160,7 +160,7 @@ export function ContactShowcase({
       </AnimatePresence>
 
       <div className="relative z-10 flex min-h-[30rem] h-full flex-col justify-between p-6 text-rose-white sm:min-h-[36rem] sm:p-8 lg:min-h-full lg:p-10">
-        <div className="flex justify-end">
+        <div className="flex mb-5 lg:mb-0 lg:justify-end">
           {entries.length > 1 ? (
             <div className="flex items-center gap-2">
               <button

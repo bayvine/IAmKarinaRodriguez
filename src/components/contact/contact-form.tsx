@@ -162,7 +162,7 @@ export function ContactForm({
 
       <div aria-live="polite" className="mt-4">
         {status === "success" ? (
-          <div className="flex items-start gap-3 rounded-2xl border border-night/10 bg-night/3 px-4 py-3 text-night">
+          <div className="flex items-start gap-3 rounded-lg border border-night/10 bg-night/3 px-4 py-3 text-night">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent-bordeaux" />
             <p className="font-sans text-sm">{resolvedSuccessMessage}</p>
           </div>

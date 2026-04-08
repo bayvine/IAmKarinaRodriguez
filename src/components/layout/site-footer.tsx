@@ -3,7 +3,6 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
 import { MediaFill } from "@/components/common/media-fill";
-import { SocialLinks } from "@/components/common/social-links";
 import { FooterLinkColumn } from "@/components/layout/footer-link-column";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion/reveal";
@@ -17,10 +16,19 @@ import {
 } from "@/lib/global-nav";
 import { siteConfig } from "@/lib/site-config";
 
+const socialPlatformLabels = {
+  instagram: "Instagram",
+  linkedin: "LinkedIn",
+  tiktok: "TikTok",
+  youtube: "YouTube",
+  facebook: "Facebook",
+  x: "X",
+} as const;
+
 function FooterLogo({ logo }: { logo: prismic.ImageField | undefined }) {
   if (prismic.isFilled.image(logo)) {
     return (
-      <div className="relative h-12 w-[9.5rem] ">
+      <div className="relative h-8 w-8 ">
         <PrismicNextImage
           field={logo}
           fill
@@ -54,7 +62,7 @@ export async function SiteFooter() {
 
   if (footer.showContactPage) {
     contactItems.push({
-      label: "Contact Page",
+      label: "Contact Me",
       link: {
         link_type: "Web",
         url: "/contact",
@@ -103,6 +111,11 @@ export async function SiteFooter() {
 
   const hasContactItems = contactItems.length > 0;
   const hasQuickLinks = footer.quickLinks.length > 0;
+  const socialItems = socialLinks.map((item) => ({
+    label: socialPlatformLabels[item.platform],
+    link: item.link,
+  }));
+  const hasSocialItems = socialItems.length > 0;
   const hasCtaTitle = prismic.isFilled.richText(footer.ctaTitle);
   const hasCtaButton =
     prismic.isFilled.keyText(footer.ctaButtonLabel) &&
@@ -135,7 +148,7 @@ export async function SiteFooter() {
           <div className="absolute inset-0 bg-gradient-to-b from-night/12 via-night/24 to-night/78" />
           <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-night via-night/96 via-night/76 to-transparent" />
 
-          <Section className="relative z-10 flex min-h-[18rem] items-center justify-center py-16 text-center sm:min-h-[21rem] lg:min-h-[40rem]">
+          <Section className="relative z-10 flex min-h-[30rem] items-center justify-center py-10 text-center sm:min-h-[21rem] lg:min-h-[40rem]">
             <div className="max-w-10xl lg:-mt-20">
               {hasCtaTitle ? (
                 <PrismicRichText
@@ -187,60 +200,68 @@ export async function SiteFooter() {
         </div>
       ) : null}
 
-      <Section className="pb-8 pt-10 sm:pb-10  lg:pb-12">
-        {hasContactItems || hasQuickLinks ? (
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] max-w-fit lg:gap-16">
-            {hasContactItems ? (
-              <Reveal
-                delay={0.08}
-                transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-                y={20}
-              >
-                <FooterLinkColumn
-                  items={contactItems}
-                  title={footer.contactHeading || "Contact"}
-                />
-              </Reveal>
-            ) : null}
+      <Section className="pb-5 pt-0 lg:pb-6">
+        {hasContactItems || hasQuickLinks || hasSocialItems ? (
+          <div className="grid gap-10 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center lg:gap-8">
+            <Reveal
+              className="sm:col-span-2 lg:self-center"
+              delay={0.04}
+              transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+              y={20}
+            >
+              <FooterLogo logo={footer.logo} />
+            </Reveal>
 
-            {hasQuickLinks ? (
-              <Reveal
-                delay={0.16}
-                transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-                y={20}
-              >
-                <FooterLinkColumn
-                  items={footer.quickLinks}
-                  title={footer.quickLinksHeading || "Quick Links"}
-                />
-              </Reveal>
-            ) : null}
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
+              {hasContactItems ? (
+                <Reveal
+                  delay={0.08}
+                  transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                  y={20}
+                >
+                  <FooterLinkColumn
+                    items={contactItems}
+                    title={footer.contactHeading || "Contact"}
+                  />
+                </Reveal>
+              ) : null}
+
+              {hasQuickLinks ? (
+                <Reveal
+                  delay={0.16}
+                  transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                  y={20}
+                >
+                  <FooterLinkColumn
+                    items={footer.quickLinks}
+                    title={footer.quickLinksHeading || "Quick Links"}
+                  />
+                </Reveal>
+              ) : null}
+
+              {hasSocialItems ? (
+                <Reveal
+                  delay={0.28}
+                  transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                  y={20}
+                >
+                  <FooterLinkColumn
+                    items={socialItems}
+                    title="Socials"
+                  />
+                </Reveal>
+              ) : null}
+            </div>
           </div>
         ) : null}
 
         <Reveal
-          className="mt-10 border-t border-rose-white/10 pt-6 sm:mt-12 sm:pt-7"
+          className="mt-8 border-t border-rose-white/10 pt-5 text-center sm:mt-10 sm:pt-6"
           delay={0.22}
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
           y={16}
         >
-          <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-end lg:gap-8">
-            <div className="order-1 lg:order-3 lg:justify-self-end">
-              <SocialLinks
-                className="justify-start"
-                links={socialLinks}
-                tone="dark"
-              />
-            </div>
-
-            <div className="order-2 lg:order-1">
-              <FooterLogo logo={footer.logo} />
-            </div>
-
-            <p className="order-3 font-sans text-sm text-rose-white/54 lg:order-2 lg:text-center">
-              {copyrightText}
-            </p>
-          </div>
+          <p className="font-sans text-xs text-rose-white/60">{copyrightText}</p>
         </Reveal>
       </Section>
     </footer>
