@@ -45,6 +45,8 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
       prismic.isFilled.keyText(item.person_title) ||
       prismic.isFilled.richText(item.testimonial_text),
   );
+  const hasRailLayout = testimonials.length > 2;
+  const hasSingleTestimonial = testimonials.length === 1;
 
   return (
     <section
@@ -94,7 +96,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
         {testimonials.length ? (
           <div className="mt-10 sm:mt-12 lg:mt-16">
-            {testimonials.length > 1 ? (
+            {hasRailLayout ? (
               <Reveal
                 className="mb-4 flex items-center justify-between lg:hidden"
                 delay={0.24}
@@ -115,16 +117,20 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
             ) : null}
 
             <div className="relative overflow-hidden">
-              {testimonials.length > 1 ? (
+              {hasRailLayout ? (
                 <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l from-rose-white/50 via-rose-white/20 to-transparent lg:hidden" />
               ) : null}
 
               <div
                 className={cn(
-                  "grid gap-4 pb-1 lg:auto-cols-auto lg:grid-flow-row lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0 lg:pr-0 lg:snap-none xl:gap-7",
-                  testimonials.length > 1
+                  "grid gap-4 pb-1 lg:pb-0 xl:gap-7",
+                  hasRailLayout
                     ? "auto-cols-[84vw] grid-flow-col overflow-x-auto overflow-y-hidden no-scrollbar overscroll-x-contain overscroll-y-none pr-10 snap-x snap-mandatory touch-pan-x sm:auto-cols-[22rem] sm:gap-5"
-                    : "grid-cols-1",
+                    : hasSingleTestimonial
+                      ? "grid-cols-1"
+                      : "grid-cols-1 md:grid-cols-2 lg:gap-6",
+                  hasRailLayout &&
+                    "lg:auto-cols-auto lg:grid-flow-row lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pr-0 lg:snap-none",
                 )}
               >
                 {testimonials.map((testimonial, index) => {
@@ -135,7 +141,10 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
                   return (
                     <Reveal
-                      className="w-full snap-start overflow-hidden"
+                      className={cn(
+                        "w-full overflow-hidden",
+                        hasRailLayout && "snap-start",
+                      )}
                       delay={0.18 + index * 0.08}
                       key={`${key}-${index}`}
                       transition={{
@@ -145,10 +154,14 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
                       y={24}
                     >
                       <TestimonialCard
+                        className={
+                          hasSingleTestimonial ? "mx-auto w-full" : undefined
+                        }
                         media={testimonial.media}
                         name={testimonial.person_name}
                         role={testimonial.person_title}
                         text={testimonial.testimonial_text}
+                        variant={hasSingleTestimonial ? "featured" : "default"}
                       />
                     </Reveal>
                   );

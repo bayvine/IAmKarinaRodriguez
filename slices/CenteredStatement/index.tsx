@@ -168,7 +168,7 @@ const CenteredStatement: FC<CenteredStatementProps> = ({ slice }) => {
   return (
     <section
       className={cn(
-        "relative isolate overflow-hidden py-20 scroll-mt-24 sm:scroll-mt-28 sm:py-24 lg:scroll-mt-32 lg:py-32",
+        "relative isolate overflow-hidden py-20 scroll-mt-24 sm:scroll-mt-28 pt-30 sm:py-24 lg:scroll-mt-32 lg:py-32",
         hasBackgroundImage
           ? "bg-night"
           : theme === "light"
