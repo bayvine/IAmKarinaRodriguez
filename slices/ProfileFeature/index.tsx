@@ -112,7 +112,7 @@ const ProfileFeature: FC<ProfileFeatureProps> = async ({ slice }) => {
                 <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
 
                 <div className="relative z-10 flex min-h-[34rem] flex-col justify-end p-6 pt-60 sm:min-h-[38rem] sm:p-8 sm:pt-20 lg:absolute lg:inset-x-0 lg:bottom-0 lg:min-h-0 lg:p-10 lg:pt-12 xl:p-12">
-                  <div className="grid gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-14">
+                  <div className="grid gap-4 lg:grid-cols-2 lg:gap-10 xl:gap-14">
                     <div className="max-w-sm text-rose-white">
                       {prismic.isFilled.richText(slice.primary.left_overlay_text) ? (
                         <Reveal
