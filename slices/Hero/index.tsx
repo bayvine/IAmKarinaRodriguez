@@ -49,7 +49,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-rose-white/8 via-night/12 to-night/78" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] bg-gradient-to-t from-night via-night/44 to-transparent" />
 
-      <Section className="flex min-h-[100svh] flex-col justify-end pb-10 pt-30 sm:pb-12 lg:pb-14 lg:pt-16">
+      <Section className="flex min-h-[100svh] flex-col justify-end pb-10 pt-50 sm:pb-12 lg:pb-14 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-8">
           <div className="mx-auto max-w-3xl lg:mx-0">
             {prismic.isFilled.richText(slice.primary.title) ? (
