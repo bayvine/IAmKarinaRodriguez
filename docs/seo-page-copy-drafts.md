@@ -1,20 +1,66 @@
 # Website Copy Drafts for Karina Rodriguez
 
-Last updated: April 7, 2026
+Last updated: April 12, 2026
 
 This document contains:
 
-- homepage copy drafted for stronger SEO relevance
-- a dedicated `Executive Coaching in Denver` page draft
+- a revised homepage positioning and SEO draft
+- a focused `Executive Coaching in Denver` page draft
 
 These drafts are written to balance:
 
 - clarity
 - search intent
 - Karina's actual differentiator
-- high-end editorial tone
+- editorial tone
+- a broader explanation of what she does across coaching, 1:1 work, and workshops
 
-The goal is not to sound generic. The goal is to make Karina's work understandable in the language real clients search for.
+The goal is not to reduce Karina to a generic executive coach. The goal is to make her work legible to both real people and search engines while preserving what is actually distinct about her approach.
+
+## Core Positioning Update
+
+The homepage should not frame Karina as only an executive coach.
+
+That is one important offer and one valuable search path, but it is not the full story.
+
+The broader homepage positioning should communicate that Karina helps people work with:
+
+- pressure
+- hidden hurt
+- visibility
+- growth
+- sustainable performance
+
+Her differentiator is not only that she coaches leaders.
+
+Her differentiator is that she helps high-achieving people understand what is happening in their bodies and behavior under pressure, and use that awareness to lead, perform, communicate, and grow differently.
+
+That means the homepage should function as:
+
+- the clearest explanation of Karina's worldview and process
+- the umbrella page for her offers
+- the brand page that introduces executive coaching, 1:1 coaching, leadership development, and workshops
+
+Then individual pages can go narrower for SEO.
+
+## Positioning Direction
+
+Primary homepage positioning:
+
+`Karina Rodriguez helps high-achieving leaders, professionals, and teams work with pressure, hidden hurt, visibility, and growth through executive coaching, 1:1 coaching, leadership development, and workshops rooted in body wisdom.`
+
+Short brand framing:
+
+`Body wisdom for leadership, growth, and sustainable performance.`
+
+Service-page positioning:
+
+`Executive coach in Denver for high-performing leaders navigating pressure, burnout, visibility, and growth.`
+
+This distinction matters:
+
+- homepage: broader, brand-defining, clearer about the philosophy and range of work
+- service pages: narrower, more explicit, more keyword-targeted
 
 ## Current Slice Library to Use
 
@@ -31,313 +77,319 @@ These are the most relevant sections already available in the project:
 - `ProfileFeature`
 - `Faq`
 - `CenteredStatement`
+- `ServicesShowcase`
 
-There is now also a repeatable `Page` type, which means the executive coaching page should be built as its own real SEO landing page rather than trying to keep everything on Home.
+There is now also a repeatable `Page` type, which means service-specific SEO pages should be built as real landing pages rather than forced into Home.
 
-## Positioning Direction
+## Messaging Problems to Solve
 
-Primary positioning:
+Right now, the site has a strong emotional tone, but it still needs clearer language around what is actually happening in Karina's work.
 
-`Denver executive coach and leadership development consultant for high-performing leaders navigating pressure, growth, burnout, and visibility.`
+The missing bridge is explanation.
 
-Differentiator:
+The homepage should help a visitor understand:
 
-Karina helps leaders reconnect to clarity, resilience, and sustainable performance through a coaching approach that blends leadership development with body-based awareness and stress regulation.
+- what people are experiencing
+- why ordinary performance language is not enough
+- what Karina helps them notice
+- how body wisdom changes the process
+- what kinds of offers that work shows up in
 
-## Homepage Draft
+Useful concepts to repeat naturally:
 
-### SEO Title
+- pressure
+- hidden hurt
+- visibility
+- leadership growth
+- resilience
+- body wisdom
+- sustainable performance
+- self-trust
+- clearer decisions
+- grounded leadership
 
-`Executive Coach in Denver | Karina Rodriguez`
+## Homepage
 
-### Meta Description
+The homepage should stay broad enough to describe the full body of work.
 
-`Karina Rodriguez is a Denver executive coach helping high-performing leaders reduce stress, build resilience, and lead with more clarity, confidence, and sustainable success.`
+Executive coaching should remain visible, but not as the only frame.
 
-### H1
+### Content Draft
 
-`Executive Coaching in Denver for High-Performing Leaders`
+#### SEO
 
-### Hero Subheading
+Recommended SEO title:
 
-`Karina Rodriguez helps executives, founders, and emerging leaders navigate pressure, growth, and burnout with more clarity, resilience, and confidence.`
+`Karina Rodriguez | Body Wisdom Expert, Executive Coach, and Leadership Guide`
 
-### Hero CTA Options
+Alternate SEO title:
 
-Primary CTA:
+`Executive Coaching, 1:1 Coaching, and Workshops | Karina Rodriguez`
 
-`Book a Discovery Call`
+Recommended meta description:
 
-Secondary CTA:
+`Karina Rodriguez helps high-achieving leaders, professionals, and teams navigate pressure, hidden hurt, visibility, and growth through executive coaching, 1:1 coaching, workshops, and body wisdom.`
 
-`Explore Services`
+Alternate meta description:
 
-### Section: Short Intro
+`Body wisdom for high-achieving leaders and professionals navigating pressure, burnout, visibility, and growth. Work with Karina Rodriguez through executive coaching, 1:1 coaching, and workshops.`
 
-`Karina Rodriguez is a Denver executive coach and leadership development consultant who helps high-performing professionals lead well without abandoning themselves in the process. Through private coaching, leadership development, and workshops, she helps clients reduce stress, strengthen resilience, and build a more sustainable way to perform at a high level.`
+#### Hero
 
-### Section: Why Karina
+Length note:
 
-Suggested heading:
+Keep the hero subtitle to one sentence. The hero already carries a large title, buttons, proof stack, and background media, so the copy should orient quickly instead of trying to explain everything at once.
 
-`Leadership support that addresses the full human behind performance.`
+Recommended fields:
 
-Suggested body copy:
+- `title`: `Work with pressure differently.`
+- `subtitle`: `Karina Rodriguez helps high-achieving leaders, professionals, and teams work with pressure, hidden hurt, visibility, and growth through executive coaching, 1:1 coaching, leadership development, and workshops rooted in body wisdom.`
+- `cta_label`: `Book a Discovery Call`
+- `secondary_label`: `Explore the Work`
+- `proof_text` option 1
+  - `h3`: `Denver + Virtual`
+  - `p`: `Executive coaching, 1:1 guidance, and workshops for people navigating pressure, visibility, and growth.`
+- `proof_text` option 2
+  - `h3`: `Body Wisdom`
+  - `p`: `A different way to work with leadership, resilience, and sustainable performance.`
 
-`Many leaders know how to push, achieve, and carry more. Fewer know how to lead sustainably under pressure. Karina's approach combines practical coaching, leadership insight, and body-based resilience work to help clients regulate stress, make clearer decisions, communicate more effectively, and lead with greater steadiness.`
+Alternate title:
 
-### Section: Ideal Outcomes
+`Body wisdom for leadership, visibility, and growth.`
 
-Suggested heading:
+More search-forward alternate title:
 
-`What clients come for`
+`Executive coaching, 1:1 support, and workshops for high-achieving leaders and professionals.`
 
-Suggested checklist or card copy:
+#### MediaHighlight
 
-- `Navigating stress, burnout, and decision fatigue`
-- `Building confidence in visible leadership roles`
-- `Leading through transition, growth, or promotion`
-- `Improving communication, presence, and clarity`
-- `Creating sustainable success without chronic overdrive`
+Length note:
 
-### Section: Services Overview
+Keep this section to one editorial premise and one concise explanation. `MediaHighlight` looks best when the copy is around two short paragraphs total, not a long essay.
 
-Suggested heading:
+Recommended fields:
 
-`Coaching and leadership development in Denver and virtually`
+- `label`: `About the work`
+- `title`: `A different way to understand pressure, performance, and growth.`
+- `subtext`:
 
-Suggested service blurbs:
+  `Many high-achieving people know how to keep going. Fewer know how to recognize what pressure, visibility, and old survival patterns are costing them in the process.`
 
-#### Private Executive Coaching
+  `Karina helps clients understand what is happening beneath the surface so growth can come with more clarity, steadiness, and self-trust.`
 
-`One-on-one coaching for leaders who want support with pressure, resilience, confidence, visibility, and sustainable performance.`
+#### ServicesShowcase
 
-#### Leadership Development
+Length note:
 
-`Development support for emerging and established leaders who want to strengthen communication, self-awareness, decision-making, and executive presence.`
+Each service panel should feel substantial but not dense. Aim for two short sentences per service so the tabs feel clear and skimmable.
 
-#### Workshops and Corporate Programs
+Recommended fields:
 
-`Experiential workshops and programs for organizations that want healthier, more resilient, and more effective leaders and teams.`
+- `label`: `Ways to work together`
+- `title`: `Support for leaders, professionals, and teams`
+- `subtext`: `Karina's work meets people in different contexts, but the throughline is the same: helping them work with pressure more honestly and sustainably.`
 
-### Section: Karina's Difference
+Executive Coaching:
 
-Suggested heading:
+`For leaders, founders, and high-performing professionals navigating pressure, visibility, growth, and sustainable performance. This work helps clients think more clearly, communicate more steadily, and lead without chronic overdrive.`
 
-`A different kind of executive coaching`
+1:1 Coaching:
 
-Suggested body copy:
+`For people who want deeper support around self-trust, hidden hurt, patterns, and the way pressure is shaping work and life. This is personal, practical, and deeply clarifying work.`
 
-`Karina's work is grounded in the belief that high performance does not have to come at the cost of wellbeing. She helps leaders work with the body's signals instead of overriding them, using that awareness as a pathway to stronger leadership, better decisions, and more sustainable results. This makes her work especially powerful for clients navigating burnout, chronic stress, visibility, and the emotional load of leadership.`
+Leadership Development:
 
-### Section: Social Proof Intro
+`For emerging and established leaders who want stronger communication, grounded presence, and more honest leadership capacity. The focus is not performance theater. It is sustainable growth.`
 
-Suggested heading:
+Workshops and Group Experiences:
 
-`Trusted by leaders, teams, and high-achieving professionals`
+`For teams, organizations, and groups who want a more human way to work with stress, resilience, leadership, and connection. Karina can also tailor special programs to the needs of a team, leadership group, or organization.`
 
-Suggested body copy:
+#### ChecklistSpotlight
 
-`Whether through private coaching or group experiences, Karina helps clients build the resilience and clarity needed to lead effectively under real pressure.`
+Length note:
 
-### Section: About Preview
+Use this as the `Why Karina?` section. Keep the body to one or two short paragraphs, then let the supporting cards make the differentiation feel concrete.
 
-Suggested heading:
+Recommended fields:
 
-`Meet Karina Rodriguez`
+- `label`: `Why Karina`
+- `title`: `Why Karina?`
+- `body`:
 
-Suggested body copy:
+  `Karina's work does not stop at advice, mindset shifts, or performance language. She helps clients understand what pressure is doing in the body and how that shapes confidence, communication, conflict, visibility, and growth.`
 
-`Karina is a trusted executive coach, leadership development consultant, and resilience strategist. She works with high-performing leaders and professionals who want to grow without disconnecting from themselves in the process. Her coaching helps clients lead with more steadiness, confidence, and self-awareness while building the capacity to meet demanding seasons of work and life.`
+  `That is what makes the work different. It helps people respond more honestly and sustainably instead of repeating the same patterns with better language around them.`
 
-### Section: FAQ Preview
+- supporting items:
+  - `Body wisdom`: `Use the body's signals as information instead of overriding them.`
+  - `Pattern awareness`: `Name the deeper habits and survival strategies shaping leadership and relationships.`
+  - `Practical integration`: `Bring the work into real conversations, decisions, boundaries, and next steps.`
+  - `Sustainable growth`: `Build clarity, steadiness, and self-trust without chronic overdrive.`
 
-Suggested heading:
+#### ChecklistFeature
 
-`Questions people often ask`
+Length note:
 
-Suggested questions:
+There is no body field here, so let the title and checklist items carry the message. This makes it a strong fit for a concise corporate-programs callout.
 
-- `What does an executive coach do?`
-- `Do you offer executive coaching in Denver or virtually?`
-- `Who is executive coaching best for?`
-- `Can coaching help with burnout and stress?`
-- `Do you also offer workshops for teams and organizations?`
+Recommended fields:
 
-### Final CTA
+- `label`: `Corporate programs`
+- `title`: `Tailored programs for organizations that want healthier, steadier leadership`
+- checklist items:
+  - `Workshops on pressure, resilience, and sustainable performance`
+  - `Leadership development for emerging and established leaders`
+  - `Experiences that strengthen communication, trust, and self-awareness`
+  - `Tailored programs for teams and organizations navigating growth, change, and visibility`
 
-Suggested heading:
+#### ProcessSteps
 
-`Ready to lead with more clarity, resilience, and confidence?`
+Length note:
 
-Suggested body copy:
+The intro should be one short paragraph. Each step should be one to two sentences max. This slice works best when the process feels clean and clear.
 
-`If you're looking for executive coaching in Denver that supports both performance and wellbeing, Karina would love to hear what you're navigating.`
+Recommended fields:
 
-CTA:
+- `label`: `The process`
+- `title`: `There is a process to this work.`
+- `body`: `Karina's process helps clients notice what pressure is doing, understand the deeper patterns underneath it, and build a more sustainable response in real life.`
+- steps:
+  - `Notice`: `Slow down enough to recognize what pressure is activating and what feels most charged right now.`
+  - `Understand`: `Name the deeper patterns, hidden hurt, and protective strategies shaping the situation.`
+  - `Practice`: `Build a more grounded response and carry it into real conversations, decisions, and next steps.`
 
-`Book a Discovery Call`
+#### TestimonialsShowcase
 
-## Recommended Homepage Slice Order
+Length note:
 
-This is the cleanest way to translate the homepage draft into the slices you already have.
+Keep the intro short. The testimonial cards should do the emotional heavy lifting.
 
-### 1. Hero
+Recommended fields:
 
-Use for:
+- `label`: `Client stories`
+- `title`: `What changes when people work this way`
+- `subtext`: `Clients often describe more clarity, grounded confidence, and a different relationship to pressure. The work does not remove ambition. It changes the way ambition is carried.`
 
-- H1
-- hero subheading
-- primary CTA
-- secondary CTA
-- optional proof stack
+#### ProfileFeature
 
-Recommended content:
+Length note:
 
-- H1: `Executive Coaching in Denver for High-Performing Leaders`
-- subtitle: short version of the homepage promise
-- CTA: `Book a Discovery Call`
-- secondary CTA: `Explore Services`
+Treat this as a preview, not a full biography. The intro can be two short sentences. Each overlay text area should stay to one short sentence, or two at most.
 
-### 2. MediaHighlight
+Recommended fields:
 
-Use for:
+- `label`: `About Karina`
+- `title`: `Meet Karina Rodriguez`
+- `subtext`: `Karina Rodriguez is a body wisdom expert, executive coach, leadership development guide, and facilitator. She helps high-achieving leaders and professionals understand what is happening beneath pressure so growth can feel steadier, more honest, and more sustainable.`
+- `left_overlay_text`: `Her work is especially resonant for people navigating visibility, burnout, leadership growth, and the hidden hurt that can quietly shape how they perform.`
+- `right_overlay_text`: `She brings together body wisdom, leadership insight, and practical reflection so clients can lead and live with more clarity, self-trust, and steadiness.`
 
-- Short Intro
-- Why Karina
+#### Faq
 
-Why:
+Length note:
 
-This slice gives you the strong left title / right subtext structure and a visual anchor underneath. It is one of the cleanest editorial sections in the site and works well for explanatory copy.
+Keep the intro to one sentence. Let the questions do the work.
 
-Recommended heading:
+Recommended fields:
 
-`Leadership support that addresses the full human behind performance.`
+- `label`: `FAQ`
+- `title`: `Questions people often ask`
+- `intro`: `These are some of the questions people often ask when they are trying to understand Karina's work and whether it is the right fit.`
+- questions and answers:
+  - `What does Karina Rodriguez help with?`
+    `Karina helps high-achieving leaders, professionals, and teams navigate pressure, hidden hurt, visibility, growth, communication, resilience, and sustainable performance. Her work supports people who want more clarity and self-trust in the way they lead, work, and live.`
+  - `Is this executive coaching, personal coaching, or both?`
+    `Both. Some clients come specifically for executive coaching and leadership development, while others are looking for deeper 1:1 support around patterns, pressure, burnout, self-trust, and how they move through work and life.`
+  - `What does body wisdom mean in this work?`
+    `Body wisdom means learning how to notice what pressure, stress, and old survival patterns are doing in the body instead of overriding them. In Karina's work, that awareness becomes practical information that helps people make clearer decisions, communicate more honestly, and respond with more steadiness.`
+  - `Do you offer workshops for teams and organizations?`
+    `Yes. Karina offers workshops and group experiences for teams, organizations, and leadership groups, and she can also tailor special programs to the needs of a company, team, or specific season of growth and change.`
+  - `Can this help with burnout, pressure, and visibility?`
+    `Yes. This work is especially relevant for people who are carrying a lot, moving through burnout or overdrive, or stepping into higher visibility and responsibility. It helps people understand what those pressures are activating and build a more sustainable way to respond.`
 
-### 3. ChecklistFeature
+#### CenteredStatement
 
-Use for:
+Length note:
 
-- Ideal Outcomes
-- What clients come for
+Keep this to one clear sentence plus the CTA. It should feel like a clean close, not another explanatory section.
 
-Why:
+Recommended fields:
 
-This slice is strongest when you want a title plus a small set of high-level benefit points with a strong visual.
+- `label`: `Ready when you are`
+- `title`: `Ready to work with pressure in a different way?`
+- `body`: `If you are navigating growth, visibility, burnout, leadership pressure, or a deeper internal shift, Karina would love to hear what you are carrying.`
+- `primary_button_label`: `Book a Discovery Call`
+- `secondary_button_label`: `Explore the Work`
 
-Recommended heading:
+### Slice Mapping
 
-`What clients come for`
+1. `Hero`
+Use for the homepage H1, hero subheading, primary CTA, secondary CTA, and proof stack.
 
-Recommended checklist items:
+2. `MediaHighlight`
+Use for the short intro and one strong editorial premise with a visual anchor.
+Keep this section concise. This slice is strongest when it carries one visual idea, not the full body-wisdom explanation.
 
-- stress, burnout, and decision fatigue
-- confidence in visible leadership roles
-- leadership transitions and growth
-
-### 4. ServicesShowcase
-
-Use for:
-
-- Services Overview
-
-Why:
-
-This slice is already built to show several services and reveal more detail on selection. It is the obvious fit for:
-
-- Private Executive Coaching
+3. `ServicesShowcase`
+Use for `Ways to work with Karina`.
+Map the tabs to:
+- Executive Coaching
+- 1:1 Coaching
 - Leadership Development
-- Workshops and Corporate Programs
+- Workshops and Group Experiences
 
-### 5. ChecklistSpotlight
+4. `ChecklistSpotlight`
+Use for `Why Karina?`
+This is the better fit for the differentiator section because it has a body field plus supporting cards.
 
-Use for:
+5. `ChecklistFeature`
+Use for `Corporate programs`.
+This is a strong place to make the corporate invitation more explicit without turning it into a long explanatory section.
 
-- Karina's Difference
+6. `ProcessSteps`
+Use for the process section.
+Suggested steps:
+- `Notice`
+- `Understand`
+- `Practice`
 
-Why:
+7. `TestimonialsShowcase`
+Use for the social proof intro plus real testimonials.
 
-This slice is stronger than `ChecklistFeature` when you need:
+8. `ProfileFeature`
+Use for the about preview.
+This slice is best for a concise preview, not a full biography.
 
-- richer body copy
-- checklist cards
-- optional buttons
-- image left/right flexibility
+9. `Faq`
+Use for the broader homepage FAQ and schema-supporting questions.
 
-Recommended heading:
+10. `CenteredStatement`
+Use for the final CTA.
 
-`A different kind of executive coaching`
+## Executive Coaching In Denver Page
 
-### 6. TestimonialsShowcase
+This page should still exist as its own repeatable `Page` document.
 
-Use for:
+It should live under the broader homepage brand story, not replace it.
 
-- Social Proof Intro
-- testimonial cards or videos
-
-Why:
-
-This is already built for story-driven testimonial content and is a strong trust-builder near the lower half of the homepage.
-
-### 7. ProfileFeature
-
-Use for:
-
-- About Preview
-
-Why:
-
-This slice works well for an editorial `Meet Karina Rodriguez` section and can optionally pull social links from the global nav.
-
-### 8. CenteredStatement
-
-Use for:
-
-- Final CTA
-
-Best use:
-
-I would use `CenteredStatement` for the final CTA.
-
-Recommended heading:
-
-`Ready to lead with more clarity, resilience, and confidence?`
-
-### 9. Faq
-
-Use for:
-
-- real FAQ content
-- schema support
-- long-tail search questions
-
-Best use:
-
-Use the actual `Faq` slice here, not a workaround.
-
-## Dedicated Page Draft: Executive Coaching in Denver
-
-This page should live as its own repeatable `Page` document, not as a Home variant.
-
-Recommended URL Slug:
+Recommended URL slug:
 
 `executive-coaching-denver`
 
-Recommended SEO Title:
+### Content Draft
+
+#### SEO
+
+Recommended SEO title:
 
 `Executive Coaching in Denver | Karina Rodriguez`
 
-Recommended Meta Description:
+Recommended meta description:
 
 `Executive coaching in Denver for leaders navigating pressure, burnout, visibility, and growth. Work with Karina Rodriguez in Denver or virtually.`
 
-### Why the Earlier Draft Felt Off
-
-The earlier draft was directionally right, but it was still written like a traditional page outline. The build below is written to fit the slices you actually have in Prismic right now, field by field.
-
-### Primary Keyword Targets for This Page
-
-Use these naturally throughout the page, not mechanically:
+Primary keyword targets:
 
 - `executive coaching in Denver`
 - `executive coach Denver`
@@ -347,336 +399,238 @@ Use these naturally throughout the page, not mechanically:
 
 Important note:
 
-This page should primarily target `executive coaching in Denver`, not `career coach in Denver`. Do not dilute the page with career-change language unless Karina truly wants that as part of the offer.
+This page should stay focused on executive coaching.
 
-## Recommended Executive Coaching Page Build
+Do not overload it with every offer. It can mention Karina's broader lens, but the page should remain clear about the service being described.
 
-This is the cleanest page structure for ranking well and still fitting the current slice system.
+#### Section Content
 
-### 1. Hero
+Section: Hero
 
-Use for:
+Title:
 
-- exact-match H1
-- primary value proposition
-- main CTA
+`Executive Coaching in Denver`
 
-Recommended fields:
+Subtitle:
 
-- `section_id`: `executive-coaching-denver`
-- `title`: `Executive Coaching in Denver`
-- `subtitle`: `Private coaching for executives, founders, and high-performing leaders who want clearer decisions, steadier confidence, and a more sustainable way to lead under pressure.`
-- `cta_label`: `Book Discovery Call`
-- `cta_link`: Calendly or contact page
-- `secondary_label`: `Explore the Process`
-- `secondary_link`: `#process`
-- `proof_text`:
-  - `h3`: `Denver + Virtual`
-  - `p`: `Executive coaching for leaders navigating pressure, visibility, growth, and burnout.`
+`Private coaching for executives, founders, and high-performing leaders who want clearer decisions, steadier confidence, and a more sustainable way to lead under pressure.`
 
-Why this fits:
+Primary CTA:
 
-The Hero should stay direct. This is where the exact keyword belongs most clearly.
+`Book Discovery Call`
 
-### 2. MediaHighlight
+Secondary CTA:
 
-Use for:
+`Explore the Process`
 
-- who the coaching is for
-- an early explanatory section with search-friendly copy
+Proof text:
 
-Recommended fields:
+- `h3`: `Denver + Virtual`
+- `p`: `Executive coaching for leaders navigating pressure, visibility, growth, and burnout.`
 
-- `section_id`: `who-its-for`
-- `label`: `Who it's for`
-- `title`: `Support for leaders carrying pressure, responsibility, and change.`
-- `subtext`: `Executive coaching in Denver can be especially valuable when you are leading through rapid growth, higher visibility, burnout, conflict, promotion, or a demanding transition. Karina works with executives, founders, directors, and emerging leaders who look capable on the outside but want a clearer, steadier, more sustainable way to lead.`
-- `media_variant`: `image`
-- statistics: leave blank unless Karina has real numbers to support
+Section: Who It's For
 
-Why this fits:
+Label:
 
-This slice is good for a concise section that explains audience and pain points without getting too long too early.
+`Who it's for`
 
-### 3. ChecklistFeature
+Title:
 
-Use for:
+`Support for leaders carrying pressure, responsibility, and change.`
 
-- common reasons people seek executive coaching
+Subtext:
 
-Recommended fields:
+`Executive coaching in Denver can be especially valuable when you are leading through rapid growth, higher visibility, burnout, conflict, promotion, or a demanding transition. Karina works with executives, founders, directors, and emerging leaders who look capable on the outside but want a clearer, steadier, more sustainable way to lead.`
 
-- `section_id`: `what-coaching-supports`
-- `label`: `What coaching supports`
-- `title`: `Executive coaching can help when...`
-- checklist items:
-  - `You are navigating pressure, burnout, or decision fatigue and want to lead with more steadiness.`
-  - `You are stepping into a bigger role, promotion, or season of higher visibility and want more grounded confidence.`
-  - `You want stronger communication, healthier boundaries, and better executive presence without relying on overdrive.`
+Section: What Coaching Supports
 
-Why this fits:
+Label:
 
-This is one of the best slices for plain-language commercial intent. It answers the reader's unspoken question: `Is this for me?`
+`What coaching supports`
 
-### 4. RichTextContent
+Title:
 
-Use for:
+`Executive coaching can help when...`
 
-- Karina's approach
-- the more detailed SEO copy that needs paragraph depth
+Checklist items:
 
-Recommended fields:
+- `You are navigating pressure, burnout, or decision fatigue and want to lead with more steadiness.`
+- `You are stepping into a bigger role, promotion, or season of higher visibility and want more grounded confidence.`
+- `You want stronger communication, healthier boundaries, and better executive presence without relying on overdrive.`
 
-- `section_id`: `approach`
-- `theme`: `light`
-- `image_position`: `right`
-- `label`: `The approach`
-- `title`: `Executive coaching that strengthens both performance and resilience.`
-- `body`:
+Section: The Approach
 
-  `Karina's executive coaching in Denver is designed for leaders who want more than advice. It offers a high-trust space to think clearly, regulate pressure, and make better decisions in real time.`
+Label:
 
-  `Her work blends leadership development with body-based awareness and resilience strategy. Instead of simply helping clients push harder, she helps them notice the patterns that keep stress high, communication reactive, and success unsustainable.`
+`The approach`
 
-  `That combination is especially useful for executives and high-performing professionals navigating burnout, visibility, conflict, growth, or a major leadership transition.`
+Title:
 
-  `Clients often leave with clearer thinking, steadier presence, stronger boundaries, and a more sustainable relationship with performance itself.`
+`Executive coaching that strengthens both performance and resilience.`
 
-Why this fits:
+Body:
 
-This is the best slice for the denser explanatory copy the page needs for SEO. It gives you actual paragraph room without forcing the content into cards.
+`Karina's executive coaching in Denver is designed for leaders who want more than advice. It offers a high-trust space to think clearly, regulate pressure, and make better decisions in real time.`
 
-### 5. ProcessSteps
+`Her work blends leadership development with body wisdom, pattern awareness, and resilience strategy. Instead of simply helping clients push harder, she helps them notice what pressure is activating beneath the surface and how that affects communication, confidence, and performance.`
 
-Use for:
+`That combination is especially useful for leaders navigating burnout, visibility, conflict, growth, or a major leadership transition.`
 
-- how the engagement works
+Section: Process
 
-Recommended fields:
+Label:
 
-- `section_id`: `process`
-- `label`: `How it works`
-- `title`: `A clear, supportive coaching process.`
-- `body`: `Executive coaching is available in Denver and virtually. Engagements are tailored to the leader, their role, and the challenges they are navigating, but the process is always thoughtful, practical, and grounded in real-life application.`
-- steps:
-  - `#1 title`: `Discovery`
-    - `step_text`: `We start with a conversation about what you are carrying, what feels stuck, and what kind of support would be most useful right now.`
-  - `#2 title`: `Coaching`
-    - `step_text`: `Sessions focus on leadership challenges, decision-making, communication, resilience, and the internal patterns affecting how you lead.`
-  - `#3 title`: `Integration`
-    - `step_text`: `The goal is not just insight. It is helping you apply what you are learning to real meetings, relationships, boundaries, and leadership choices.`
+`How it works`
 
-Why this fits:
+Title:
 
-Process content converts well on service pages. It reduces friction and makes the work feel concrete.
+`A clear, supportive coaching process.`
 
-### 6. ChecklistSpotlight
+Body:
 
-Use for:
+`Executive coaching is available in Denver and virtually. The process is thoughtful, practical, and designed to create real shifts in how a leader thinks, communicates, and responds under pressure.`
 
-- outcomes
-- what leaders gain from the work
+Steps:
 
-Recommended fields:
+- `Discovery`
+- `Coaching`
+- `Integration`
 
-- `section_id`: `results`
-- `theme`: `dark`
-- `image_position`: `right`
-- `label`: `What leaders gain`
-- `title`: `What clients often walk away with.`
-- `body`: `The goal of coaching is not just insight. It is leadership that feels clearer, steadier, and more sustainable in real life.`
-- items:
-  - `item_title`: `Clearer decisions`
-    - `item_text`: `More confidence in high-stakes choices, priorities, and next steps.`
-  - `item_title`: `Stronger resilience`
-    - `item_text`: `Better capacity to work with pressure without shutting down or overdriving.`
-  - `item_title`: `More grounded presence`
-    - `item_text`: `Clearer communication, healthier boundaries, and steadier leadership visibility.`
-- `primary_button_label`: `Book Discovery Call`
-- `primary_button_link`: Calendly or contact page
-- `secondary_button_label`: leave blank unless there is a strong second action
+Section: Outcomes
 
-Why this fits:
+Label:
 
-This slice turns outcome language into a strong conversion section without sounding like a generic feature grid.
+`What leaders gain`
 
-### 7. TestimonialsShowcase
+Title:
 
-Use for:
+`What clients often walk away with.`
 
-- proof
-- trust
-- emotional resonance
+Items:
 
-Recommended fields:
+- `Clearer decisions`
+- `Stronger resilience`
+- `More grounded presence`
 
-- `section_id`: `testimonials`
-- `label`: `Client stories`
-- `title`: `Leaders describe more clarity, confidence, and resilience.`
-- `subtext`: `Use real client feedback that speaks to stress reduction, better decisions, stronger communication, leadership growth, resilience, or navigating major transitions.`
+Section: Testimonials
 
-Use testimonials that mention:
+Label:
 
-- clarity
-- confidence
-- burnout or stress
-- leadership growth
-- communication
-- resilience
-- transition or promotion
+`Client stories`
 
-Do not fabricate testimonial copy.
+Title:
 
-Why this fits:
+`Leaders describe more clarity, confidence, and resilience.`
 
-This is where trust compounds. SEO pages that rank and convert usually prove the promise, not just repeat it.
+Section: About Karina
 
-### 8. ProfileFeature
+Label:
 
-Use for:
+`About Karina`
 
-- authority
-- About Karina
-- why her perspective is different
+Title:
 
-Recommended fields:
+`Meet Karina Rodriguez`
 
-- `section_id`: `about-karina`
-- `label`: `About Karina`
-- `title`: `Meet Karina Rodriguez`
-- `subtext`: `Karina Rodriguez is a Denver executive coach, leadership development consultant, and resilience strategist who helps high-performing leaders grow without disconnecting from themselves in the process.`
-- `left_overlay_text`: `She works with executives, founders, and professionals navigating pressure, burnout, visibility, and demanding leadership seasons.`
-- `right_overlay_text`: `By integrating leadership development with body-based awareness, Karina helps clients build clearer thinking, steadier communication, and more sustainable performance.`
-- `show_social_links`: optional
+Subtext:
 
-Why this fits:
+`Karina Rodriguez is a Denver executive coach, body wisdom guide, and leadership development consultant who helps high-performing leaders grow without disconnecting from themselves in the process.`
 
-This slice helps the page feel specific and credible. It also gives Karina a chance to sound distinct instead of generic.
+Section: FAQ
 
-### 9. Faq
+Label:
 
-Use for:
+`FAQ`
 
-- long-tail SEO
-- conversion questions
-- FAQ schema
+Title:
 
-Recommended fields:
+`Executive coaching in Denver FAQs`
 
-- `section_id`: `faq`
-- `theme`: `light`
-- `label`: `FAQ`
-- `title`: `Executive coaching in Denver FAQs`
-- `intro`: `If you are comparing executive coaches in Denver, these are some of the questions people often ask before getting started.`
-
-Recommended questions and answers:
+Questions:
 
 1. `What does an executive coach do?`
-
-   `An executive coach helps leaders think more clearly, navigate challenges more effectively, and grow in how they lead. Coaching can support decision-making, communication, confidence, resilience, visibility, burnout, and leadership transitions.`
-
+   `An executive coach helps leaders think more clearly, navigate challenges more effectively, and grow in how they lead. Coaching can support decision-making, communication, confidence, visibility, resilience, burnout, and leadership transitions.`
 2. `Who is executive coaching best for?`
-
-   `Executive coaching is a strong fit for high-performing leaders, executives, founders, directors, and professionals stepping into greater responsibility who want support with pressure, growth, communication, burnout, or leadership clarity.`
-
+   `Executive coaching is a strong fit for executives, founders, directors, and high-performing leaders who are carrying pressure, stepping into greater visibility, moving through change, or wanting to lead with more steadiness and clarity.`
 3. `Do you offer executive coaching in Denver or virtually?`
-
-   `Yes. Karina offers executive coaching in Denver and virtually, depending on the client's needs, schedule, and location.`
-
+   `Yes. Karina offers executive coaching in Denver and virtually, depending on the client's location, schedule, and needs.`
 4. `Can coaching help with burnout and stress?`
-
-   `Yes. Karina's work is especially relevant for leaders navigating burnout, chronic stress, and sustained performance pressure. Her approach helps clients build resilience and create more sustainable ways of working and leading.`
-
+   `Yes. Karina's work is especially relevant for leaders navigating burnout, chronic stress, and sustained performance pressure. Coaching helps clients understand what pressure is doing beneath the surface and build a more sustainable response.`
 5. `What makes Karina's coaching different?`
-
-   `Karina integrates leadership development with body-based resilience work. Clients are not only gaining insight and strategy, but also learning how to recognize stress patterns, regulate pressure, and lead from a more grounded place.`
-
+   `Karina integrates leadership development with body wisdom, pattern awareness, and practical reflection. Clients are not only gaining insight and strategy, but also learning how pressure is shaping their leadership, communication, and decision-making in real time.`
 6. `How long do coaching engagements last?`
+   `That depends on the client, their goals, and the season they are in. Some people come for support around a specific transition or challenge, while others use coaching as an ongoing space for leadership development and sustainable growth.`
 
-   `That depends on the client, their goals, and the season they are in. Some clients come for support during a defined transition, while others use coaching as an ongoing space for leadership development and sustainable growth.`
+Section: Final CTA
 
-Why this fits:
+Label:
 
-This slice does real SEO work. It helps the page rank for question-style searches and adds structured data at the same time.
+`Ready when you are`
 
-### 10. CenteredStatement
+Title:
 
-Use for:
+`Ready to lead with more clarity and less overdrive?`
 
-- final CTA
-- page close
+Body:
 
-Recommended fields:
+`If you are looking for executive coaching in Denver that supports both performance and wellbeing, Karina would love to hear what you are navigating.`
 
-- `section_id`: `book-a-call`
-- `theme`: `dark`
-- `label`: `Ready when you are`
-- `title`: `Ready to lead with more clarity and less overdrive?`
-- `body`: `If you are looking for executive coaching in Denver that supports both performance and wellbeing, Karina would love to hear what you are navigating.`
-- `primary_button_label`: `Book Discovery Call`
-- `primary_button_link`: Calendly or contact page
-- `secondary_button_label`: `Contact Karina`
-- `secondary_button_link`: `/contact`
+### Slice Mapping
 
-Why this fits:
+1. `Hero`
+Use for the exact-match H1, direct value proposition, CTA, and proof text.
 
-This closes the page cleanly and gives the reader one obvious next step.
+2. `MediaHighlight`
+Use for `Who it's for`.
 
-## Slices I Would Not Prioritize on This Page
+3. `ChecklistFeature`
+Use for `What coaching supports`.
 
-These slices are good in the system, but they are not the best fit for the first version of `Executive Coaching in Denver`.
+4. `RichTextContent`
+Use for `The approach`.
+This is the best place for the denser explanatory copy on a service page.
 
-### `ServicesShowcase`
+5. `ProcessSteps`
+Use for the process section.
 
-Use this only if you want a late-page section for related offers like workshops or corporate programs. It is not the best primary slice for a page that is supposed to focus tightly on one service.
+6. `ChecklistSpotlight`
+Use for outcomes and what leaders gain.
 
-### `EditorialBody`
+7. `TestimonialsShowcase`
+Use for proof and trust.
 
-This is useful if Karina later wants a more essay-like section or a case-study-style layout with text above and below one or two images. It is optional, not required, for the first SEO pass.
+8. `ProfileFeature`
+Use for the short authority/about section.
 
-### `MediaGallery`
+9. `Faq`
+Use for long-tail SEO and conversion questions.
 
-This is more visual than strategic. It can support brand storytelling, but it will not move rankings much on its own.
+10. `CenteredStatement`
+Use for the final CTA.
 
-### `EventHighlight`
+## Additional Service Pages To Draft Next
 
-Not relevant unless the page also needs to promote a specific event or workshop.
+Once the homepage and executive coaching page are aligned, the strongest next pages would likely be:
+
+- `1-on-1 Coaching`
+- `Workshops for Teams and Organizations`
+- `About Karina Rodriguez`
+
+Potential later page:
+
+- `Leadership Development`
+
+Only create `Career Coaching in Denver` if Karina explicitly wants that search path.
 
 ## Short Version
 
-If you want the fastest high-quality build, use this page order:
+The revised strategy is:
 
-1. `Hero`
-2. `MediaHighlight`
-3. `ChecklistFeature`
-4. `RichTextContent`
-5. `ProcessSteps`
-6. `ChecklistSpotlight`
-7. `TestimonialsShowcase`
-8. `ProfileFeature`
-9. `Faq`
-10. `CenteredStatement`
+1. Homepage stays broad and brand-defining
+2. Homepage explains body wisdom, pressure, hidden hurt, visibility, and growth
+3. Homepage introduces the range of offers
+4. `MediaHighlight` handles the short visual intro, while `ChecklistSpotlight` carries the deeper explanatory work
+5. Executive coaching still gets its own narrower SEO page
+6. Future pages can go deeper into 1:1 coaching, workshops, and leadership development
 
-That is the cleanest version of `Executive Coaching in Denver` using the slice system exactly as it exists today.
-
-## Notes for Karina
-
-The copy above intentionally uses phrases such as:
-
-- `executive coaching in Denver`
-- `Denver executive coach`
-- `leadership development`
-- `burnout`
-- `stress`
-- `resilience`
-- `high-performing leaders`
-
-This is deliberate.
-
-The goal is to make the site more legible to both Google and real people while preserving Karina's actual approach and voice.
-
-If Karina wants, the next step after approving this direction would be to draft:
-
-- `Leadership Workshops / Corporate Programs` page copy
-- `About Karina` page copy
-- `Career Coaching in Denver` page copy, only if she truly wants that offer
+That structure is a better fit for Karina's real work than trying to make the homepage behave like a single-service landing page.

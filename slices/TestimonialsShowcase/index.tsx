@@ -17,6 +17,7 @@ type TestimonialsShowcaseSlice = {
   id: string;
   primary: {
     section_id: prismic.KeyTextField;
+    theme?: prismic.SelectField<"light" | "dark">;
     label: prismic.KeyTextField;
     title: prismic.RichTextField;
     subtext: prismic.RichTextField;
@@ -37,6 +38,9 @@ export type TestimonialsShowcaseProps =
   SliceComponentProps<TestimonialsShowcaseSlice>;
 
 const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
+  const theme = slice.primary.theme === "dark" ? "dark" : "light";
+  const tone = theme === "dark" ? "dark" : "light";
+  const accent = theme === "dark" ? "accent-blue-linen" : "accent-bordeaux";
   const sectionId = getSectionAnchorId(slice.primary.section_id);
   const testimonials = slice.items.filter(
     (item) =>
@@ -50,14 +54,17 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
   return (
     <section
-      className="bg-rose-white py-16 text-night scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24"
+      className={cn(
+        "py-16 scroll-mt-24 sm:scroll-mt-28 sm:py-20 lg:scroll-mt-32 lg:py-24",
+        theme === "dark" ? "bg-night text-rose-white" : "bg-rose-white text-night",
+      )}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id={sectionId}
     >
       <Section>
         <SectionIntro
-          accent="accent-bordeaux"
+          accent={accent}
           body={
             prismic.isFilled.richText(slice.primary.subtext) ? (
               <Reveal
@@ -68,7 +75,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
                 }}
                 y={0}
               >
-                {renderSectionSubtext(slice.primary.subtext)}
+                {renderSectionSubtext(slice.primary.subtext, { tone })}
               </Reveal>
             ) : null
           }
@@ -92,6 +99,7 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
               ? renderSectionTitle(slice.primary.title)
               : null
           }
+          tone={tone}
         />
 
         {testimonials.length ? (
@@ -106,11 +114,20 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
                 }}
                 y={10}
               >
-                <p className="font-sans text-xs uppercase text-night">
+                <p
+                  className={cn(
+                    "font-sans text-xs uppercase",
+                    theme === "dark" ? "text-rose-white" : "text-night",
+                  )}
+                >
                   Swipe through stories
                 </p>
-                <span className="flex items-center gap-2 text-night">
-                 
+                <span
+                  className={cn(
+                    "flex items-center gap-2",
+                    theme === "dark" ? "text-rose-white" : "text-night",
+                  )}
+                >
                   <MoveRight className="h-3.5 w-3.5" />
                 </span>
               </Reveal>
@@ -118,7 +135,14 @@ const TestimonialsShowcase: FC<TestimonialsShowcaseProps> = ({ slice }) => {
 
             <div className="relative overflow-hidden">
               {hasRailLayout ? (
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l from-rose-white/50 via-rose-white/20 to-transparent lg:hidden" />
+                <div
+                  className={cn(
+                    "pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l lg:hidden",
+                    theme === "dark"
+                      ? "from-night via-night/70 to-transparent"
+                      : "from-rose-white/50 via-rose-white/20 to-transparent",
+                  )}
+                />
               ) : null}
 
               <div

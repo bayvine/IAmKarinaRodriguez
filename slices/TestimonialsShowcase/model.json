@@ -19,6 +19,17 @@
             "placeholder": "testimonials"
           }
         },
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "Choose a theme",
+            "options": [
+              "light",
+              "dark"
+            ]
+          }
+        },
         "label": {
           "type": "Text",
           "config": {

@@ -105,7 +105,7 @@ export function TestimonialCard({
                     "text-rose-white",
                     isFeatured
                       ? "font-display text-2xl sm:text-3xl lg:text-4xl"
-                      : "text-sm sm:text-base",
+                      : "text-xl sm:text-lg",
                   )}
                   style={isFeatured ? { lineHeight: 0.94 } : undefined}
                 >
